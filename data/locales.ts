@@ -62,6 +62,7 @@ export const teamNames: Record<string, string> = {
   'BEL': '比利时', 'ECU': '厄瓜多尔', 'CMR': '喀麦隆', 'AUT': '奥地利',
   'PAR': '巴拉圭', 'UKR': '乌克兰', 'ALG': '阿尔及利亚', 'JAM': '牙买加',
   'GRE': '希腊', 'TUR': '土耳其', 'MLI': '马里', 'PAN': '巴拿马',
+  'TUN': '突尼斯',
 };
 
 export const cityNames: Record<string, string> = {

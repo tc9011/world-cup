@@ -69,7 +69,7 @@ export const ScheduleMatrix: React.FC<ScheduleMatrixProps> = ({ matches }) => {
               {days.map(day => (
                 <th key={day.toISOString()} className="p-1 border-b border-gray-200 dark:border-gray-700 min-w-10 text-center bg-gray-50 dark:bg-gray-900 align-bottom pb-2 h-32">
                   <div className="flex items-center justify-center h-full w-full">
-                    <span className="text-[10px] text-gray-500 font-medium whitespace-nowrap [writing-mode:vertical-rl] rotate-180">
+                    <span className="text-[10px] text-gray-500 font-medium whitespace-nowrap -rotate-90">
                       {format(day, dateFormat, { locale: dateLocale })}
                     </span>
                   </div>
@@ -89,7 +89,7 @@ export const ScheduleMatrix: React.FC<ScheduleMatrixProps> = ({ matches }) => {
                       className="sticky left-0 z-20 bg-gray-200 dark:bg-gray-800 border-b border-r border-gray-300 dark:border-gray-600 text-center align-middle p-0"
                     >
                       <div className="h-full w-full flex items-center justify-center">
-                        <span className="text-xs font-bold text-gray-600 dark:text-gray-400 uppercase tracking-widest whitespace-nowrap [writing-mode:vertical-rl] rotate-180">
+                        <span className="text-xs font-bold text-gray-600 dark:text-gray-400 uppercase tracking-widest whitespace-nowrap -rotate-90">
                           {t[`${region.toLowerCase()}Region` as keyof typeof t] as string}
                         </span>
                       </div>
