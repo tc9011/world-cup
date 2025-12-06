@@ -11,7 +11,7 @@ import { ViewSwitcher } from '../components/ViewSwitcher';
 import { FilterBar } from '../components/FilterBar';
 import { TeamSelector } from '../components/TeamSelector';
 import { LanguageSwitcher } from '../components/LanguageSwitcher';
-import { Trophy } from 'lucide-react';
+import Image from 'next/image';
 import { translations } from '../data/locales';
 
 export default function Home() {
@@ -39,7 +39,7 @@ export default function Home() {
           <div className="flex justify-between items-start md:items-center">
             <div className="flex items-center space-x-4">
               <div className="p-4 bg-linear-to-br from-blue-600 to-cyan-500 rounded-2xl text-white shadow-lg shadow-blue-500/30 transform hover:scale-105 transition-transform duration-300">
-                <Trophy size={40} strokeWidth={1.5} />
+                <Image src="/2026_FIFA_World_Cup_emblem.svg" alt="Trophy" width={40} height={40} />
               </div>
               <div>
                 <h1 className="text-3xl md:text-4xl font-black tracking-tight text-gray-900 dark:text-white">
@@ -50,7 +50,7 @@ export default function Home() {
             </div>
             <LanguageSwitcher />
           </div>
-          
+
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 pt-2 border-t border-gray-200/50 dark:border-gray-700/50">
             <div className="w-full md:w-auto overflow-x-auto">
               <ViewSwitcher />
@@ -75,7 +75,7 @@ export default function Home() {
           {viewMode === 'bracket' && <BracketView matches={matches} />}
           {viewMode === 'standings' && <StandingsView matches={matches} />}
         </div>
-        
+
         <footer className="text-center text-sm text-gray-500 dark:text-gray-400 py-8">
           <p>{t.footer}</p>
         </footer>
