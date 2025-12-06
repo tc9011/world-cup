@@ -3,8 +3,8 @@
 import React from 'react';
 import { useStore } from '../store/useStore';
 import { matches } from '../data/worldCupData';
+import { GroupView } from '../components/GroupView';
 import { CalendarView } from '../components/CalendarView';
-import { ScheduleMatrix } from '../components/ScheduleMatrix';
 import { ViewSwitcher } from '../components/ViewSwitcher';
 import { FilterBar } from '../components/FilterBar';
 import { Trophy } from 'lucide-react';
@@ -12,14 +12,9 @@ import { Trophy } from 'lucide-react';
 export default function Home() {
   const { viewMode, selectedGroup } = useStore();
 
-  // Filter matches for Matrix view if needed, or pass all
-  const filteredMatches = selectedGroup === 'All' 
-    ? matches 
-    : matches.filter(m => m.group === selectedGroup || (selectedGroup === 'All' && !m.group));
-
   return (
     <main className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 p-4 md:p-8">
-      <div className="max-w-[95%] mx-auto space-y-8">
+      <div className="max-w-7xl mx-auto space-y-8">
         {/* Header */}
         <header className="flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="flex items-center space-x-3">
@@ -34,18 +29,17 @@ export default function Home() {
           <ViewSwitcher />
         </header>
 
-        {/* Filters - Only show for Matrix if you want filtering there too, but usually Matrix shows all */}
+        {/* Filters */}
         {viewMode === 'list' && (
-          <div className="sticky top-0 z-10 bg-gray-50/95 dark:bg-gray-900/95 backdrop-blur-sm py-4 border-b border-gray-200 dark:border-gray-800 overflow-x-auto">
-             {/* Optional: Keep filter bar if user wants to highlight specific groups in matrix */}
-             <FilterBar />
+          <div className="sticky top-0 z-10 bg-gray-50/95 dark:bg-gray-900/95 backdrop-blur-sm py-4 border-b border-gray-200 dark:border-gray-800">
+            <FilterBar />
           </div>
         )}
 
         {/* Content */}
         <div className="min-h-[500px]">
           {viewMode === 'list' ? (
-            <ScheduleMatrix matches={filteredMatches} />
+            <GroupView matches={matches} selectedGroup={selectedGroup} />
           ) : (
             <CalendarView matches={matches} />
           )}

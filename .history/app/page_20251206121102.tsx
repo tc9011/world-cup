@@ -3,6 +3,7 @@
 import React from 'react';
 import { useStore } from '../store/useStore';
 import { matches } from '../data/worldCupData';
+import { GroupView } from '../components/GroupView';
 import { CalendarView } from '../components/CalendarView';
 import { ScheduleMatrix } from '../components/ScheduleMatrix';
 import { ViewSwitcher } from '../components/ViewSwitcher';
