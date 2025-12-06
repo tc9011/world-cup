@@ -35,20 +35,23 @@ export default function Home() {
     <main className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 p-4 md:p-8">
       <div className="max-w-[95%] mx-auto space-y-8">
         {/* Header */}
-        <header className="flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="flex items-center space-x-3">
-            <div className="p-3 bg-blue-600 rounded-xl text-white shadow-lg shadow-blue-600/20">
-              <Trophy size={32} />
+        <header className="space-y-6">
+          <div className="flex justify-between items-center">
+            <div className="flex items-center space-x-3">
+              <div className="p-3 bg-blue-600 rounded-xl text-white shadow-lg shadow-blue-600/20">
+                <Trophy size={32} />
+              </div>
+              <div>
+                <h1 className="text-3xl font-bold tracking-tight">{t.title}</h1>
+                <p className="text-gray-500 dark:text-gray-400">{t.subtitle}</p>
+              </div>
             </div>
-            <div>
-              <h1 className="text-3xl font-bold tracking-tight">{t.title}</h1>
-              <p className="text-gray-500 dark:text-gray-400">{t.subtitle}</p>
-            </div>
-          </div>
-          <div className="flex items-center gap-4 flex-wrap justify-center">
-            <TeamSelector />
-            <ViewSwitcher />
             <LanguageSwitcher />
+          </div>
+
+          <div className="flex items-center justify-between gap-4 flex-wrap">
+            <ViewSwitcher />
+            <TeamSelector />
           </div>
         </header>
 
@@ -66,7 +69,7 @@ export default function Home() {
           {viewMode === 'bracket' && <BracketView matches={matches} />}
           {viewMode === 'standings' && <StandingsView matches={matches} />}
         </div>
-        
+
         <footer className="text-center text-sm text-gray-400 py-8 border-t border-gray-200 dark:border-gray-800">
           <p>{t.footer}</p>
         </footer>
