@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://2026-world-cup.vercel.app';
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://world-cup.tc9011.com';
 
   return {
     rules: {
