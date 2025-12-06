@@ -11,7 +11,9 @@ interface CalendarViewProps {
 }
 
 export const CalendarView: React.FC<CalendarViewProps> = ({ matches }) => {
-  const months = [new Date(2026, 5, 1), new Date(2026, 6, 1)]; // June and July 2026
+  const startDate = new Date(new Date(matches[0].date))
+  const endDate = new Date(new Date(matches[matches.length - 1].date))
+  const months = [new Date(startDate.getFullYear(), startDate.getMonth(), 1), new Date(endDate.getFullYear(), endDate.getMonth(), 1)]; // June and July 2026
 
   return (
     <div className="space-y-8">
@@ -25,7 +27,7 @@ export const CalendarView: React.FC<CalendarViewProps> = ({ matches }) => {
 const MonthGrid: React.FC<{ monthStart: Date; matches: Match[] }> = ({ monthStart, matches }) => {
   const { language } = useStore();
   const dateLocale = language === 'zh' ? zhCN : enUS;
-  
+
   const monthEnd = endOfMonth(monthStart);
   const days = eachDayOfInterval({ start: monthStart, end: monthEnd });
   const startDay = getDay(monthStart); // 0 = Sunday
@@ -35,7 +37,7 @@ const MonthGrid: React.FC<{ monthStart: Date; matches: Match[] }> = ({ monthStar
 
   // Generate weekdays based on locale
   const weekStart = startOfWeek(new Date(), { weekStartsOn: 0 });
-  const weekDays = Array.from({ length: 7 }).map((_, i) => 
+  const weekDays = Array.from({ length: 7 }).map((_, i) =>
     format(addDays(weekStart, i), 'EEE', { locale: dateLocale })
   );
 
@@ -46,7 +48,7 @@ const MonthGrid: React.FC<{ monthStart: Date; matches: Match[] }> = ({ monthStar
           {format(monthStart, language === 'zh' ? 'yyyy年 MMMM' : 'MMMM yyyy', { locale: dateLocale })}
         </h3>
       </div>
-      
+
       <div className="grid grid-cols-7 text-center border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900">
         {weekDays.map(day => (
           <div key={day} className="py-2 text-sm font-medium text-gray-500 dark:text-gray-400">
@@ -59,7 +61,7 @@ const MonthGrid: React.FC<{ monthStart: Date; matches: Match[] }> = ({ monthStar
         {emptySlots.map((_, i) => (
           <div key={`empty-${i}`} className="h-32 border-b border-r border-gray-100 dark:border-gray-700 bg-gray-50/50 dark:bg-gray-900/50" />
         ))}
-        
+
         {days.map(day => {
           const dayMatches = matches.filter(m => isSameDay(new Date(m.date), day));
           return (
@@ -67,15 +69,15 @@ const MonthGrid: React.FC<{ monthStart: Date; matches: Match[] }> = ({ monthStar
               <div className={`text-sm font-medium mb-1 ${dayMatches.length > 0 ? 'text-blue-600 dark:text-blue-400' : 'text-gray-400'}`}>
                 {format(day, 'd')}
               </div>
-              
+
               <div className="space-y-1 overflow-y-auto max-h-[calc(100%-1.5rem)] no-scrollbar">
                 {dayMatches.map(match => {
                   const home = teams.find(t => t.id === match.homeTeamId);
                   const away = teams.find(t => t.id === match.awayTeamId);
-                  
+
                   const homeName = language === 'zh' ? (home ? (teamNames[home.code] || home.code) : '待定') : (home?.code || 'TBD');
                   const awayName = language === 'zh' ? (away ? (teamNames[away.code] || away.code) : '待定') : (away?.code || 'TBD');
-                  
+
                   const venue = venues.find(v => v.id === match.venueId);
                   const venueName = language === 'zh' ? (venue ? (cityNames[venue.city] || venue.city) : '') : (venue?.city || '');
 
