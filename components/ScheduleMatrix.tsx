@@ -54,20 +54,20 @@ export const ScheduleMatrix: React.FC<ScheduleMatrixProps> = ({ matches }) => {
   }, {} as Record<typeof regions[number], Venue[]>);
 
   return (
-    <div className="overflow-x-auto pb-4 bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-200 dark:border-gray-800">
+    <div className="overflow-x-auto pb-4 rounded-xl">
       <div className="min-w-[2000px]"> {/* Ensure horizontal scroll */}
         <table className="w-full border-collapse border-spacing-0">
           <thead>
             <tr>
               {/* Region Column Header */}
-              <th className="sticky left-0 z-30 bg-gray-100 dark:bg-gray-800 p-2 border-b border-r border-gray-200 dark:border-gray-700 w-10 min-w-10">
+              <th className="sticky left-0 z-30 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md p-2 border-b border-r border-gray-200/50 dark:border-gray-700/50 w-10 min-w-10 rounded-tl-xl">
               </th>
               {/* Venue Column Header */}
-              <th className="sticky left-10 z-30 bg-gray-100 dark:bg-gray-800 p-2 border-b border-r border-gray-200 dark:border-gray-700 min-w-[200px] text-left text-xs font-bold text-gray-500 uppercase tracking-wider">
+              <th className="sticky left-10 z-30 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md p-2 border-b border-r border-gray-200/50 dark:border-gray-700/50 min-w-[200px] text-left text-xs font-bold text-gray-500 uppercase tracking-wider">
                 {t.venueDate}
               </th>
               {days.map(day => (
-                <th key={day.toISOString()} className="p-1 border-b border-gray-200 dark:border-gray-700 min-w-10 text-center bg-gray-50 dark:bg-gray-900 align-bottom pb-2 h-32">
+                <th key={day.toISOString()} className="p-1 border-b border-gray-200/50 dark:border-gray-700/50 min-w-10 text-center bg-white/50 dark:bg-gray-900/50 align-bottom pb-2 h-32">
                   <div className="flex items-center justify-center h-full w-full">
                     <span className="text-[10px] text-gray-500 font-medium whitespace-nowrap -rotate-90">
                       {format(day, dateFormat, { locale: dateLocale })}
@@ -81,12 +81,12 @@ export const ScheduleMatrix: React.FC<ScheduleMatrixProps> = ({ matches }) => {
             {regions.map(region => {
               const regionVenues = venuesByRegion[region];
               return regionVenues.map((venue, index) => (
-                <tr key={venue.id} className="group hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+                <tr key={venue.id} className="group hover:bg-white/30 dark:hover:bg-gray-800/30 transition-colors">
                   {/* Region Label (RowSpan) */}
                   {index === 0 && (
                     <td 
                       rowSpan={regionVenues.length} 
-                      className="sticky left-0 z-20 bg-gray-200 dark:bg-gray-800 border-b border-r border-gray-300 dark:border-gray-600 text-center align-middle p-0"
+                      className="sticky left-0 z-20 bg-gray-100/90 dark:bg-gray-800/90 backdrop-blur-md border-b border-r border-gray-300/50 dark:border-gray-600/50 text-center align-middle p-0"
                     >
                       <div className="h-full w-full flex items-center justify-center">
                         <span className="text-xs font-bold text-gray-600 dark:text-gray-400 uppercase tracking-widest whitespace-nowrap -rotate-90">
@@ -97,7 +97,7 @@ export const ScheduleMatrix: React.FC<ScheduleMatrixProps> = ({ matches }) => {
                   )}
                   
                   {/* Venue Name */}
-                  <td className="sticky left-10 z-10 bg-white dark:bg-gray-900 p-2 border-b border-r border-gray-200 dark:border-gray-700 text-xs font-medium text-gray-600 dark:text-gray-300 group-hover:bg-gray-50 dark:group-hover:bg-gray-800">
+                  <td className="sticky left-10 z-10 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md p-2 border-b border-r border-gray-200/50 dark:border-gray-700/50 text-xs font-medium text-gray-600 dark:text-gray-300 group-hover:bg-gray-50/90 dark:group-hover:bg-gray-800/90">
                     <div className="flex flex-col">
                       <span className="font-bold text-gray-800 dark:text-white uppercase">
                         {language === 'zh' ? (cityNames[venue.city] || venue.city) : venue.city}
@@ -113,7 +113,7 @@ export const ScheduleMatrix: React.FC<ScheduleMatrixProps> = ({ matches }) => {
                     );
                     
                     return (
-                      <td key={day.toISOString()} className="border-b border-r border-gray-100 dark:border-gray-800 p-1 h-16 relative">
+                      <td key={day.toISOString()} className="border-b border-r border-gray-100/30 dark:border-gray-800/30 p-1 h-16 relative">
                         {dayMatches.map(match => {
                           const colorClass = match.group 
                             ? GROUP_COLORS[match.group] 

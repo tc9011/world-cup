@@ -101,8 +101,8 @@ const MatchCard: React.FC<{ match: Match; isFinal?: boolean }> = ({ match, isFin
 
   return (
     <div className={clsx(
-      "bg-white dark:bg-gray-800 rounded border border-gray-200 dark:border-gray-700 p-2 shadow-sm relative my-2",
-      isFinal ? "border-yellow-400 dark:border-yellow-600 shadow-md scale-110" : ""
+      "bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-lg border border-gray-200/50 dark:border-gray-700/50 p-2 shadow-sm relative my-2 transition-all hover:scale-105 hover:shadow-md hover:bg-white dark:hover:bg-gray-800",
+      isFinal ? "border-yellow-400 dark:border-yellow-600 shadow-lg scale-110 ring-2 ring-yellow-400/20" : ""
     )}>
       <div className="text-[10px] text-gray-400 mb-1 flex justify-between">
         <span>{match.id.toUpperCase()}</span>
@@ -112,16 +112,16 @@ const MatchCard: React.FC<{ match: Match; isFinal?: boolean }> = ({ match, isFin
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2 overflow-hidden">
             <span className="text-sm">{home?.flag || '🏳️'}</span>
-            <span className="text-xs font-medium truncate">{homeName}</span>
+            <span className="text-xs font-medium truncate text-gray-900 dark:text-gray-100">{homeName}</span>
           </div>
-          <span className="text-xs font-bold bg-gray-100 dark:bg-gray-700 px-1.5 rounded">-</span>
+          <span className="text-xs font-bold bg-gray-100/50 dark:bg-gray-700/50 px-1.5 rounded text-gray-600 dark:text-gray-300">-</span>
         </div>
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2 overflow-hidden">
             <span className="text-sm">{away?.flag || '🏳️'}</span>
-            <span className="text-xs font-medium truncate">{awayName}</span>
+            <span className="text-xs font-medium truncate text-gray-900 dark:text-gray-100">{awayName}</span>
           </div>
-          <span className="text-xs font-bold bg-gray-100 dark:bg-gray-700 px-1.5 rounded">-</span>
+          <span className="text-xs font-bold bg-gray-100/50 dark:bg-gray-700/50 px-1.5 rounded text-gray-600 dark:text-gray-300">-</span>
         </div>
       </div>
 

@@ -90,13 +90,13 @@ export const StandingsView: React.FC<StandingsViewProps> = ({ matches }) => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 pb-8">
       {groups.map(group => (
-        <div key={group} className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden">
-          <div className="bg-gray-50 dark:bg-gray-900 px-4 py-3 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center">
+        <div key={group} className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl shadow-sm border border-gray-200/50 dark:border-gray-700/50 overflow-hidden transition-all hover:shadow-md hover:bg-white/90 dark:hover:bg-gray-800/90">
+          <div className="bg-gray-50/80 dark:bg-gray-900/80 px-4 py-3 border-b border-gray-200/50 dark:border-gray-700/50 flex justify-between items-center">
             <h3 className="font-bold text-gray-900 dark:text-white">{t.group} {group}</h3>
           </div>
           <div className="overflow-x-auto">
             <table className="w-full text-sm text-left">
-              <thead className="text-xs text-gray-500 uppercase bg-gray-50 dark:bg-gray-900/50">
+              <thead className="text-xs text-gray-500 uppercase bg-gray-50/50 dark:bg-gray-900/50">
                 <tr>
                   <th className="px-3 py-2 w-10 text-center">{t.standings.rank}</th>
                   <th className="px-3 py-2">{t.standings.team}</th>
@@ -114,7 +114,7 @@ export const StandingsView: React.FC<StandingsViewProps> = ({ matches }) => {
                 {getGroupStandings(group).map((stat, index) => {
                   const teamName = language === 'zh' ? (teamNames[stat.team.code] || stat.team.name) : stat.team.name;
                   return (
-                    <tr key={stat.team.id} className="border-b border-gray-100 dark:border-gray-700 last:border-0 hover:bg-gray-50 dark:hover:bg-gray-700/50">
+                    <tr key={stat.team.id} className="border-b border-gray-100/50 dark:border-gray-700/50 last:border-0 hover:bg-blue-50/50 dark:hover:bg-blue-900/20 transition-colors">
                       <td className="px-3 py-2 text-center text-gray-500">{index + 1}</td>
                       <td className="px-3 py-2 font-medium text-gray-900 dark:text-white flex items-center gap-2">
                         <span className="text-lg">{stat.team.flag}</span>
