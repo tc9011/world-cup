@@ -1,0 +1,114 @@
+[
+  {
+    "id": "v4",
+    "name": "BC Place",
+    "city": "Vancouver",
+    "timezone": "America/Vancouver",
+    "region": "Western"
+  },
+  {
+    "id": "v15",
+    "name": "Lumen Field",
+    "city": "Seattle",
+    "timezone": "America/Los_Angeles",
+    "region": "Western"
+  },
+  {
+    "id": "v16",
+    "name": "Levi's Stadium",
+    "city": "San Francisco",
+    "timezone": "America/Los_Angeles",
+    "region": "Western"
+  },
+  {
+    "id": "v2",
+    "name": "SoFi Stadium",
+    "city": "Los Angeles",
+    "timezone": "America/Los_Angeles",
+    "region": "Western"
+  },
+  {
+    "id": "v5",
+    "name": "Estadio Akron",
+    "city": "Guadalajara",
+    "timezone": "America/Mexico_City",
+    "region": "Central"
+  },
+  {
+    "id": "v1",
+    "name": "Estadio Azteca",
+    "city": "Mexico City",
+    "timezone": "America/Mexico_City",
+    "region": "Central"
+  },
+  {
+    "id": "v6",
+    "name": "Estadio BBVA",
+    "city": "Monterrey",
+    "timezone": "America/Mexico_City",
+    "region": "Central"
+  },
+  {
+    "id": "v13",
+    "name": "NRG Stadium",
+    "city": "Houston",
+    "timezone": "America/Chicago",
+    "region": "Central"
+  },
+  {
+    "id": "v8",
+    "name": "AT&T Stadium",
+    "city": "Dallas",
+    "timezone": "America/Chicago",
+    "region": "Central"
+  },
+  {
+    "id": "v14",
+    "name": "Arrowhead Stadium",
+    "city": "Kansas City",
+    "timezone": "America/Chicago",
+    "region": "Central"
+  },
+  {
+    "id": "v9",
+    "name": "Mercedes-Benz Stadium",
+    "city": "Atlanta",
+    "timezone": "America/New_York",
+    "region": "Eastern"
+  },
+  {
+    "id": "v10",
+    "name": "Hard Rock Stadium",
+    "city": "Miami",
+    "timezone": "America/New_York",
+    "region": "Eastern"
+  },
+  {
+    "id": "v3",
+    "name": "BMO Field",
+    "city": "Toronto",
+    "timezone": "America/Toronto",
+    "region": "Eastern"
+  },
+  {
+    "id": "v11",
+    "name": "Gillette Stadium",
+    "city": "Boston",
+    "timezone": "America/New_York",
+    "region": "Eastern"
+  },
+  {
+    "id": "v12",
+    "name": "Lincoln Financial Field",
+    "city": "Philadelphia",
+    "timezone": "America/New_York",
+    "region": "Eastern"
+  },
+  {
+    "id": "v7",
+    "name": "MetLife Stadium",
+    "city": "New York/New Jersey",
+    "timezone": "America/New_York",
+    "region": "Eastern"
+  }
+]

@@ -22,10 +22,8 @@ export interface Match {
   homeTeamId: string;
   awayTeamId: string;
   venueId: string;
-  score?: {
-    home: number;
-    away: number;
-  };
+  homeScore?: number | null;
+  awayScore?: number | null;
   status: 'scheduled' | 'live' | 'finished';
 }
 

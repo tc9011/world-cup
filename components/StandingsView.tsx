@@ -48,23 +48,23 @@ export const StandingsView: React.FC<StandingsViewProps> = ({ matches }) => {
 
     // Calculate stats from matches
     groupMatches.forEach(match => {
-      if (match.status === 'finished' && match.score) {
+      if (match.status === 'finished' && match.homeScore != null && match.awayScore != null) {
         const home = stats[match.homeTeamId];
         const away = stats[match.awayTeamId];
 
         if (home && away) {
           home.played++;
           away.played++;
-          home.gf += match.score.home;
-          home.ga += match.score.away;
-          away.gf += match.score.away;
-          away.ga += match.score.home;
+          home.gf += match.homeScore;
+          home.ga += match.awayScore;
+          away.gf += match.awayScore;
+          away.ga += match.homeScore;
 
-          if (match.score.home > match.score.away) {
+          if (match.homeScore > match.awayScore) {
             home.won++;
             home.points += 3;
             away.lost++;
-          } else if (match.score.home < match.score.away) {
+          } else if (match.homeScore < match.awayScore) {
             away.won++;
             away.points += 3;
             home.lost++;
