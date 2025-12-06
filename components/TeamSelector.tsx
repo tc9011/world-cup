@@ -2,7 +2,6 @@ import React from 'react';
 import { useStore } from '../store/useStore';
 import { teams } from '../data/worldCupData';
 import { translations, teamNames } from '../data/locales';
-import clsx from 'clsx';
 
 export const TeamSelector: React.FC = () => {
   const { selectedTeam, setSelectedTeam, language } = useStore();
