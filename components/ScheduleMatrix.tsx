@@ -12,18 +12,18 @@ interface ScheduleMatrixProps {
 }
 
 const GROUP_COLORS: Record<string, string> = {
-  'A': 'bg-green-500',
-  'B': 'bg-red-500',
-  'C': 'bg-blue-500',
-  'D': 'bg-yellow-500',
-  'E': 'bg-purple-500',
-  'F': 'bg-cyan-500',
-  'G': 'bg-pink-500',
-  'H': 'bg-teal-500',
-  'I': 'bg-indigo-500',
-  'J': 'bg-lime-500',
-  'K': 'bg-orange-500',
-  'L': 'bg-amber-700',
+  'A': 'bg-[#90C966] !text-black',
+  'B': 'bg-[#ED334C]',
+  'C': 'bg-[#FBF17D] !text-black',
+  'D': 'bg-[#0077C0]',
+  'E': 'bg-[#F68F2E]',
+  'F': 'bg-[#008368]',
+  'G': 'bg-[#B0A9C3] !text-black',
+  'H': 'bg-[#71CED4]',
+  'I': 'bg-[#473988]',
+  'J': 'bg-[#F7A894] !text-black',
+  'K': 'bg-[#E93778]',
+  'L': 'bg-[#8B1639]',
 };
 
 const STAGE_COLORS: Record<string, string> = {
@@ -61,7 +61,7 @@ export const ScheduleMatrix: React.FC<ScheduleMatrixProps> = ({ matches }) => {
             <tr>
               {/* Region Column Header */}
               <th 
-                className="sticky left-0 z-30 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md p-2 border-b border-r border-gray-200/50 dark:border-gray-700/50 rounded-tl-xl shadow-[2px_0_5px_-2px_rgba(0,0,0,0.1)]"
+                className="sticky left-0 z-30 bg-gray-100/95 dark:bg-gray-900/95 backdrop-blur-md p-2 border-b border-r border-gray-200/50 dark:border-gray-700/50 rounded-tl-xl shadow-[2px_0_5px_-2px_rgba(0,0,0,0.1)]"
                 style={{ width: '40px', minWidth: '40px', maxWidth: '40px' }}
               >
               </th>
