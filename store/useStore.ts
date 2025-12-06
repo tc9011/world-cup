@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { persist } from 'zustand/middleware';
 import { ViewMode } from '../types';
 
 interface WorldCupState {
@@ -16,22 +17,30 @@ interface WorldCupState {
   setLanguage: (lang: 'en' | 'zh') => void;
 }
 
-export const useStore = create<WorldCupState>((set) => ({
-  viewMode: 'list',
-  setViewMode: (mode) => set({ viewMode: mode }),
-  selectedGroup: 'All',
-  setSelectedGroup: (group) => set({ selectedGroup: group, selectedTeam: 'All' }), // Reset team when group changes
-  selectedTeam: 'All',
-  setSelectedTeam: (teamId) => set({ selectedTeam: teamId, selectedGroup: 'All' }), // Reset group when team changes
-  selectedDate: null,
-  setSelectedDate: (date) => set({ selectedDate: date }),
-  favorites: [],
-  toggleFavorite: (teamId) => set((state) => {
-    if (state.favorites.includes(teamId)) {
-      return { favorites: state.favorites.filter(id => id !== teamId) };
+export const useStore = create<WorldCupState>()(
+  persist(
+    (set) => ({
+      viewMode: 'list',
+      setViewMode: (mode) => set({ viewMode: mode }),
+      selectedGroup: 'All',
+      setSelectedGroup: (group) => set({ selectedGroup: group, selectedTeam: 'All' }), // Reset team when group changes
+      selectedTeam: 'All',
+      setSelectedTeam: (teamId) => set({ selectedTeam: teamId, selectedGroup: 'All' }), // Reset group when team changes
+      selectedDate: null,
+      setSelectedDate: (date) => set({ selectedDate: date }),
+      favorites: [],
+      toggleFavorite: (teamId) => set((state) => {
+        if (state.favorites.includes(teamId)) {
+          return { favorites: state.favorites.filter(id => id !== teamId) };
+        }
+        return { favorites: [...state.favorites, teamId] };
+      }),
+      language: 'en',
+      setLanguage: (lang) => set({ language: lang }),
+    }),
+    {
+      name: 'world-cup-storage',
+      partialize: (state) => ({ language: state.language }),
     }
-    return { favorites: [...state.favorites, teamId] };
-  }),
-  language: 'en',
-  setLanguage: (lang) => set({ language: lang }),
-}));
+  )
+);
