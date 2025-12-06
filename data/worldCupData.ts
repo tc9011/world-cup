@@ -238,22 +238,22 @@ createMatch(72, '2026-06-27', '18:00', 'K', 1, 2, 'v9'); // TBD vs UZB (Atlanta)
 // --- Knockout Stage ---
 // Round of 32 (June 28 - July 3)
 const r32Matches = [
-  { id: 'm73', date: '2026-06-28T15:00:00', venue: 'v2' }, // LA
-  { id: 'm74', date: '2026-06-29T12:00:00', venue: 'v11' }, // Boston
-  { id: 'm75', date: '2026-06-29T15:00:00', venue: 'v6' }, // Monterrey
-  { id: 'm76', date: '2026-06-30T12:00:00', venue: 'v13' }, // Houston
-  { id: 'm77', date: '2026-06-30T15:00:00', venue: 'v7' }, // NY/NJ
-  { id: 'm78', date: '2026-06-30T18:00:00', venue: 'v8' }, // Dallas
-  { id: 'm79', date: '2026-07-01T12:00:00', venue: 'v1' }, // Mexico City
-  { id: 'm80', date: '2026-07-01T15:00:00', venue: 'v9' }, // Atlanta
-  { id: 'm81', date: '2026-07-01T18:00:00', venue: 'v16' }, // SF
-  { id: 'm82', date: '2026-07-01T21:00:00', venue: 'v15' }, // Seattle
-  { id: 'm83', date: '2026-07-02T12:00:00', venue: 'v3' }, // Toronto
-  { id: 'm84', date: '2026-07-02T15:00:00', venue: 'v2' }, // LA
-  { id: 'm85', date: '2026-07-03T12:00:00', venue: 'v4' }, // Vancouver
-  { id: 'm86', date: '2026-07-03T15:00:00', venue: 'v10' }, // Miami
-  { id: 'm87', date: '2026-07-03T18:00:00', venue: 'v14' }, // KC
-  { id: 'm88', date: '2026-07-03T21:00:00', venue: 'v8' }, // Dallas
+  { id: 'm73', date: '2026-06-28T15:00:00', venue: 'v2', home: '2A', away: '2B' }, // LA
+  { id: 'm74', date: '2026-06-29T12:00:00', venue: 'v11', home: '1E', away: '3ABCD' }, // Boston
+  { id: 'm75', date: '2026-06-29T15:00:00', venue: 'v13', home: '1F', away: '2C' }, // Houston
+  { id: 'm76', date: '2026-06-29T18:00:00', venue: 'v8', home: '1C', away: '2F' }, // Dallas
+  { id: 'm77', date: '2026-06-30T12:00:00', venue: 'v7', home: '1I', away: '3CDFGH' }, // NY/NJ
+  { id: 'm78', date: '2026-06-30T15:00:00', venue: 'v8', home: '2E', away: '2I' }, // Dallas
+  { id: 'm79', date: '2026-06-30T18:00:00', venue: 'v1', home: '1A', away: '3CEFHI' }, // Mexico City
+  { id: 'm80', date: '2026-07-01T12:00:00', venue: 'v9', home: '1L', away: '3EHIJK' }, // Atlanta
+  { id: 'm81', date: '2026-07-01T15:00:00', venue: 'v16', home: '1D', away: '3BEFJ' }, // SF
+  { id: 'm82', date: '2026-07-01T18:00:00', venue: 'v15', home: '1G', away: '3AEHIJ' }, // Seattle
+  { id: 'm83', date: '2026-07-02T12:00:00', venue: 'v3', home: '2K', away: '2L' }, // Toronto
+  { id: 'm84', date: '2026-07-02T15:00:00', venue: 'v2', home: '1H', away: '2J' }, // LA
+  { id: 'm85', date: '2026-07-02T18:00:00', venue: 'v4', home: '1B', away: '3EFGIJ' }, // Vancouver
+  { id: 'm86', date: '2026-07-03T12:00:00', venue: 'v10', home: '1J', away: '2H' }, // Miami
+  { id: 'm87', date: '2026-07-03T15:00:00', venue: 'v14', home: '1K', away: '3DEIJL' }, // KC
+  { id: 'm88', date: '2026-07-03T18:00:00', venue: 'v8', home: '2D', away: '2G' }, // Dallas
 ];
 
 r32Matches.forEach(m => {
@@ -261,8 +261,8 @@ r32Matches.forEach(m => {
     id: m.id,
     date: new Date(m.date).toISOString(),
     stage: 'Round of 32',
-    homeTeamId: 'TBD',
-    awayTeamId: 'TBD',
+    homeTeamId: m.home,
+    awayTeamId: m.away,
     venueId: m.venue,
     status: 'scheduled'
   });
@@ -270,14 +270,14 @@ r32Matches.forEach(m => {
 
 // Round of 16 (July 4 - July 7)
 const r16Matches = [
-  { id: 'm89', date: '2026-07-04T12:00:00', venue: 'v12' }, // Philly
-  { id: 'm90', date: '2026-07-04T15:00:00', venue: 'v13' }, // Houston
-  { id: 'm91', date: '2026-07-05T12:00:00', venue: 'v7' }, // NY/NJ
-  { id: 'm92', date: '2026-07-05T15:00:00', venue: 'v1' }, // Mexico City
-  { id: 'm93', date: '2026-07-06T15:00:00', venue: 'v8' }, // Dallas
-  { id: 'm94', date: '2026-07-06T18:00:00', venue: 'v15' }, // Seattle
-  { id: 'm95', date: '2026-07-07T15:00:00', venue: 'v9' }, // Atlanta
-  { id: 'm96', date: '2026-07-07T18:00:00', venue: 'v4' }, // Vancouver
+  { id: 'm89', date: '2026-07-04T12:00:00', venue: 'v12', home: 'W74', away: 'W77' }, // Philly
+  { id: 'm90', date: '2026-07-04T15:00:00', venue: 'v13', home: 'W73', away: 'W75' }, // Houston
+  { id: 'm91', date: '2026-07-05T12:00:00', venue: 'v7', home: 'W76', away: 'W78' }, // NY/NJ
+  { id: 'm92', date: '2026-07-05T15:00:00', venue: 'v1', home: 'W79', away: 'W80' }, // Mexico City
+  { id: 'm93', date: '2026-07-06T15:00:00', venue: 'v8', home: 'W83', away: 'W84' }, // Dallas
+  { id: 'm94', date: '2026-07-06T18:00:00', venue: 'v15', home: 'W81', away: 'W82' }, // Seattle
+  { id: 'm95', date: '2026-07-07T15:00:00', venue: 'v9', home: 'W86', away: 'W88' }, // Atlanta
+  { id: 'm96', date: '2026-07-07T18:00:00', venue: 'v4', home: 'W85', away: 'W87' }, // Vancouver
 ];
 
 r16Matches.forEach(m => {
@@ -285,8 +285,8 @@ r16Matches.forEach(m => {
     id: m.id,
     date: new Date(m.date).toISOString(),
     stage: 'Round of 16',
-    homeTeamId: 'TBD',
-    awayTeamId: 'TBD',
+    homeTeamId: m.home,
+    awayTeamId: m.away,
     venueId: m.venue,
     status: 'scheduled'
   });
@@ -294,10 +294,10 @@ r16Matches.forEach(m => {
 
 // Quarter-finals (July 9 - 11)
 const qfMatches = [
-  { id: 'm97', date: '2026-07-09T15:00:00', venue: 'v11' }, // Boston
-  { id: 'm98', date: '2026-07-10T15:00:00', venue: 'v2' }, // LA
-  { id: 'm99', date: '2026-07-11T15:00:00', venue: 'v10' }, // Miami
-  { id: 'm100', date: '2026-07-11T18:00:00', venue: 'v14' }, // KC
+  { id: 'm97', date: '2026-07-09T15:00:00', venue: 'v11', home: 'W89', away: 'W90' }, // Boston
+  { id: 'm98', date: '2026-07-10T15:00:00', venue: 'v2', home: 'W93', away: 'W94' }, // LA
+  { id: 'm99', date: '2026-07-11T15:00:00', venue: 'v10', home: 'W91', away: 'W92' }, // Miami
+  { id: 'm100', date: '2026-07-11T18:00:00', venue: 'v14', home: 'W95', away: 'W96' }, // KC
 ];
 
 qfMatches.forEach(m => {
@@ -305,8 +305,8 @@ qfMatches.forEach(m => {
     id: m.id,
     date: new Date(m.date).toISOString(),
     stage: 'Quarter-finals',
-    homeTeamId: 'TBD',
-    awayTeamId: 'TBD',
+    homeTeamId: m.home,
+    awayTeamId: m.away,
     venueId: m.venue,
     status: 'scheduled'
   });
@@ -317,8 +317,8 @@ matches.push({
   id: 'm101',
   date: '2026-07-14T20:00:00.000Z',
   stage: 'Semi-finals',
-  homeTeamId: 'TBD',
-  awayTeamId: 'TBD',
+  homeTeamId: 'W97',
+  awayTeamId: 'W98',
   venueId: 'v8', // Dallas
   status: 'scheduled'
 });
@@ -326,8 +326,8 @@ matches.push({
   id: 'm102',
   date: '2026-07-15T20:00:00.000Z',
   stage: 'Semi-finals',
-  homeTeamId: 'TBD',
-  awayTeamId: 'TBD',
+  homeTeamId: 'W99',
+  awayTeamId: 'W100',
   venueId: 'v9', // Atlanta
   status: 'scheduled'
 });
@@ -337,8 +337,8 @@ matches.push({
   id: 'm103',
   date: '2026-07-18T20:00:00.000Z',
   stage: 'Third place',
-  homeTeamId: 'TBD',
-  awayTeamId: 'TBD',
+  homeTeamId: 'L101',
+  awayTeamId: 'L102',
   venueId: 'v10', // Miami
   status: 'scheduled'
 });
@@ -348,8 +348,8 @@ matches.push({
   id: 'm104',
   date: '2026-07-19T15:00:00.000Z',
   stage: 'Final',
-  homeTeamId: 'TBD',
-  awayTeamId: 'TBD',
+  homeTeamId: 'W101',
+  awayTeamId: 'W102',
   venueId: 'v7', // NY/NJ
   status: 'scheduled'
 });

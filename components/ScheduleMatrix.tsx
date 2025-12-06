@@ -145,12 +145,16 @@ export const ScheduleMatrix: React.FC<ScheduleMatrixProps> = ({ matches }) => {
                           const home = teams.find(t => t.id === match.homeTeamId);
                           const away = teams.find(t => t.id === match.awayTeamId);
                           
-                          const homeName = language === 'zh' ? (home ? (teamNames[home.code] || home.name) : '待定') : (home?.name || 'TBD');
-                          const awayName = language === 'zh' ? (away ? (teamNames[away.code] || away.name) : '待定') : (away?.name || 'TBD');
+                          const homeName = language === 'zh' 
+                            ? (home ? (teamNames[home.code] || home.name) : (match.homeTeamId.match(/^(W|L|[123][A-L])/) ? match.homeTeamId : '待定')) 
+                            : (home?.name || (match.homeTeamId.match(/^(W|L|[123][A-L])/) ? match.homeTeamId : 'TBD'));
+                          const awayName = language === 'zh' 
+                            ? (away ? (teamNames[away.code] || away.name) : (match.awayTeamId.match(/^(W|L|[123][A-L])/) ? match.awayTeamId : '待定')) 
+                            : (away?.name || (match.awayTeamId.match(/^(W|L|[123][A-L])/) ? match.awayTeamId : 'TBD'));
                           const stageName = match.group ? `${t.group} ${match.group}` : match.stage;
                           
-                          const homeCode = home?.code || (language === 'zh' ? '?' : 'TBD');
-                          const awayCode = away?.code || (language === 'zh' ? '?' : 'TBD');
+                          const homeCode = home?.code || (match.homeTeamId.match(/^(W|L|[123][A-L])/) ? match.homeTeamId : (language === 'zh' ? '?' : 'TBD'));
+                          const awayCode = away?.code || (match.awayTeamId.match(/^(W|L|[123][A-L])/) ? match.awayTeamId : (language === 'zh' ? '?' : 'TBD'));
                           const matchTime = format(new Date(match.date), 'HH:mm');
 
                           return (
