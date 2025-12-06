@@ -1,8 +1,8 @@
 import React from 'react';
 import { Match } from '../types';
-import { teams } from '../data/worldCupData';
+import { teams, venues } from '../data/worldCupData';
 import { useStore } from '../store/useStore';
-import { translations, teamNames } from '../data/locales';
+import { translations, teamNames, cityNames } from '../data/locales';
 import { format } from 'date-fns';
 import { enUS, zhCN } from 'date-fns/locale';
 import clsx from 'clsx';
@@ -99,6 +99,9 @@ const MatchCard: React.FC<{ match: Match; isFinal?: boolean }> = ({ match, isFin
   const homeName = language === 'zh' ? (home ? (teamNames[home.code] || home.name) : '待定') : (home?.name || 'TBD');
   const awayName = language === 'zh' ? (away ? (teamNames[away.code] || away.name) : '待定') : (away?.name || 'TBD');
 
+  const venue = venues.find(v => v.id === match.venueId);
+  const venueName = language === 'zh' ? (venue ? (cityNames[venue.city] || venue.city) : '') : (venue?.city || '');
+
   return (
     <div className={clsx(
       "bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-lg border border-gray-200/50 dark:border-gray-700/50 p-2 shadow-sm relative my-2 transition-all hover:scale-105 hover:shadow-md hover:bg-white dark:hover:bg-gray-800",
@@ -108,7 +111,7 @@ const MatchCard: React.FC<{ match: Match; isFinal?: boolean }> = ({ match, isFin
         <span>{match.id.toUpperCase()}</span>
         <span>{format(new Date(match.date), 'MMM d', { locale: dateLocale })}</span>
       </div>
-      <div className="flex flex-col gap-1">
+      <div className="flex flex-col gap-1 mb-1">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2 overflow-hidden">
             <span className="text-sm">{home?.flag || '🏳️'}</span>
@@ -123,6 +126,11 @@ const MatchCard: React.FC<{ match: Match; isFinal?: boolean }> = ({ match, isFin
           </div>
           <span className="text-xs font-bold bg-gray-100/50 dark:bg-gray-700/50 px-1.5 rounded text-gray-600 dark:text-gray-300">-</span>
         </div>
+      </div>
+      
+      <div className="text-[9px] text-gray-400 flex items-center pt-1 border-t border-gray-100 dark:border-gray-700/50">
+        <span className="mr-1">📍</span>
+        <span className="truncate">{venueName}</span>
       </div>
 
       {/* Connector lines would go here ideally, but simplified for now */}
