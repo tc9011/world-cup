@@ -16,11 +16,11 @@ export const TeamSelector: React.FC = () => {
 
   return (
     <div className="flex items-center space-x-2">
-      <span className="text-sm font-medium text-gray-500 dark:text-gray-400 whitespace-nowrap">{t.filterByTeam}</span>
+      <span className="text-sm font-medium text-yellow-500/70 whitespace-nowrap">{t.filterByTeam}</span>
       <select
         value={selectedTeam}
         onChange={(e) => setSelectedTeam(e.target.value)}
-        className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-300/50 dark:border-gray-700/50 text-gray-900 dark:text-gray-100 text-sm rounded-xl focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 shadow-sm transition-all hover:bg-white/80 dark:hover:bg-gray-800/80"
+        className="bg-black/50 backdrop-blur-sm border border-yellow-500/30 text-yellow-400 text-sm rounded-xl focus:ring-yellow-500 focus:border-yellow-500 block w-full p-2.5 shadow-lg shadow-yellow-500/10 transition-all hover:bg-black/70"
       >
         <option value="All">{t.allTeams}</option>
         {sortedTeams.map((team) => (

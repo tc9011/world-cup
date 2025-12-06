@@ -7,8 +7,8 @@ export default function manifest(): MetadataRoute.Manifest {
     description: 'Comprehensive guide for the 2026 FIFA World Cup in USA, Mexico, and Canada.',
     start_url: '/',
     display: 'standalone',
-    background_color: '#ffffff',
-    theme_color: '#2563eb',
+    background_color: '#0a0a0a',
+    theme_color: '#ffd700',
     icons: [
       {
         src: '/favicon.ico',

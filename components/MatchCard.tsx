@@ -15,13 +15,13 @@ export const MatchCard: React.FC<MatchCardProps> = ({ match }) => {
   const matchDate = new Date(match.date);
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-4 hover:shadow-md transition-shadow">
+    <div className="bg-black/80 backdrop-blur-sm rounded-xl shadow-lg border border-yellow-500/30 p-4 hover:shadow-yellow-500/20 hover:border-yellow-500/50 transition-all">
       <div className="flex justify-between items-start mb-4">
-        <div className="flex items-center space-x-2 text-sm text-gray-500 dark:text-gray-400">
-          <span className="font-semibold text-blue-600 dark:text-blue-400">{match.stage}</span>
+        <div className="flex items-center space-x-2 text-sm text-yellow-500/70">
+          <span className="font-semibold text-yellow-400">{match.stage}</span>
           {match.group && <span>• Group {match.group}</span>}
         </div>
-        <div className="flex items-center space-x-1 text-xs text-gray-400">
+        <div className="flex items-center space-x-1 text-xs text-yellow-500/50">
           <MapPin size={12} />
           <span>{venue?.city}</span>
         </div>
@@ -31,13 +31,13 @@ export const MatchCard: React.FC<MatchCardProps> = ({ match }) => {
         {/* Home Team */}
         <div className="flex flex-col items-center w-1/3">
           <div className="text-4xl mb-2">{homeTeam?.flag || '🏳️'}</div>
-          <span className="font-bold text-center text-gray-900 dark:text-white">{homeTeam?.name || 'TBD'}</span>
+          <span className="font-bold text-center text-yellow-400">{homeTeam?.name || 'TBD'}</span>
         </div>
 
         {/* VS / Score */}
         <div className="flex flex-col items-center w-1/3">
-          <div className="text-2xl font-bold text-gray-300">VS</div>
-          <div className="flex items-center mt-2 text-xs text-gray-500 bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded-full">
+          <div className="text-2xl font-bold text-yellow-500/50">VS</div>
+          <div className="flex items-center mt-2 text-xs text-yellow-500/70 bg-yellow-500/10 px-2 py-1 rounded-full border border-yellow-500/30">
             <Clock size={12} className="mr-1" />
             {format(matchDate, 'HH:mm')}
           </div>
@@ -46,16 +46,16 @@ export const MatchCard: React.FC<MatchCardProps> = ({ match }) => {
         {/* Away Team */}
         <div className="flex flex-col items-center w-1/3">
           <div className="text-4xl mb-2">{awayTeam?.flag || '🏳️'}</div>
-          <span className="font-bold text-center text-gray-900 dark:text-white">{awayTeam?.name || 'TBD'}</span>
+          <span className="font-bold text-center text-yellow-400">{awayTeam?.name || 'TBD'}</span>
         </div>
       </div>
 
-      <div className="pt-3 border-t border-gray-100 dark:border-gray-700 flex justify-between items-center text-sm text-gray-500">
+      <div className="pt-3 border-t border-yellow-500/20 flex justify-between items-center text-sm text-yellow-500/70">
         <div className="flex items-center">
           <Calendar size={14} className="mr-1" />
           {format(matchDate, 'EEE, MMM d, yyyy')}
         </div>
-        <div className="text-xs text-gray-400">
+        <div className="text-xs text-yellow-500/50">
           {venue?.name}
         </div>
       </div>

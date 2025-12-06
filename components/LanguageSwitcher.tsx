@@ -7,15 +7,15 @@ export const LanguageSwitcher: React.FC = () => {
   const { language, setLanguage } = useStore();
 
   return (
-    <div className="flex items-center bg-gray-100 dark:bg-gray-800 rounded-lg p-1">
-      <Globe size={16} className="ml-2 mr-1 text-gray-500" />
+    <div className="flex items-center bg-black/50 rounded-lg p-1 border border-yellow-500/30">
+      <Globe size={16} className="ml-2 mr-1 text-yellow-500" />
       <button
         onClick={() => setLanguage('en')}
         className={clsx(
           "px-2 py-1 text-xs font-medium rounded-md transition-all",
           language === 'en'
-            ? "bg-white dark:bg-gray-700 text-blue-600 dark:text-blue-400 shadow-sm"
-            : "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200"
+            ? "bg-yellow-500 text-black shadow-md shadow-yellow-500/50"
+            : "text-yellow-500/70 hover:text-yellow-400"
         )}
       >
         EN
@@ -25,11 +25,11 @@ export const LanguageSwitcher: React.FC = () => {
         className={clsx(
           "px-2 py-1 text-xs font-medium rounded-md transition-all",
           language === 'zh'
-            ? "bg-white dark:bg-gray-700 text-blue-600 dark:text-blue-400 shadow-sm"
-            : "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200"
+            ? "bg-yellow-500 text-black shadow-md shadow-yellow-500/50"
+            : "text-yellow-500/70 hover:text-yellow-400"
         )}
       >
-        中文
+        中
       </button>
     </div>
   );
