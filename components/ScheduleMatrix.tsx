@@ -136,7 +136,7 @@ export const ScheduleMatrix: React.FC<ScheduleMatrixProps> = ({ matches }) => {
                     );
 
                     return (
-                      <td key={day.toISOString()} className="border-b border-r border-gray-300 dark:border-gray-600 p-1 h-16 relative">
+                      <td key={day.toISOString()} className="border-b border-r border-gray-300 dark:border-gray-600 p-1 h-24 relative">
                         {dayMatches.map(match => {
                           const colorClass = match.group
                             ? GROUP_COLORS[match.group]
@@ -156,26 +156,34 @@ export const ScheduleMatrix: React.FC<ScheduleMatrixProps> = ({ matches }) => {
                           const homeCode = home?.code || (match.homeTeamId.match(/^(W|L|[123][A-L])/) ? match.homeTeamId : (language === 'zh' ? '?' : 'TBD'));
                           const awayCode = away?.code || (match.awayTeamId.match(/^(W|L|[123][A-L])/) ? match.awayTeamId : (language === 'zh' ? '?' : 'TBD'));
                           const matchTime = format(new Date(match.date), 'HH:mm');
+                          const matchIdDisplay = match.id.replace(/^m/, '');
 
                           return (
                             <div
                               key={match.id}
                               className={clsx(
-                                "w-full h-full rounded shadow-sm flex flex-col items-center justify-between text-white font-bold p-0.5 py-1 cursor-pointer hover:scale-110 transition-transform z-0 hover:z-10 overflow-hidden",
+                                "w-full h-full rounded shadow-sm relative text-white font-bold p-1 cursor-pointer hover:scale-110 transition-transform z-0 hover:z-10 overflow-hidden",
                                 colorClass
                               )}
                               title={`${stageName} - ${homeName} vs ${awayName} (${matchTime})`}
                             >
-                              <div className="flex flex-col items-center leading-none">
-                                <span className="text-[10px]">{match.id.toUpperCase()}</span>
-                                {match.group && <span className="text-[8px] opacity-90">{match.group}</span>}
+                              {/* Top Row: ID and Time */}
+                              <div className="absolute top-1 left-1 text-[10px] leading-none font-mono">{matchIdDisplay}</div>
+                              <div className="absolute top-1 right-1 text-[10px] leading-none font-mono">{matchTime}</div>
+
+                              {/* Center: Teams */}
+                              <div className="absolute inset-0 flex flex-col items-center justify-center pt-2">
+                                <span className="text-[12px] leading-none tracking-wider uppercase">{homeCode}</span>
+                                <span className="text-[8px] leading-none opacity-75 my-0.5">vs</span>
+                                <span className="text-[12px] leading-none tracking-wider uppercase">{awayCode}</span>
                               </div>
-                              <div className="flex flex-col items-center justify-center w-full flex-1 min-h-0">
-                                <span className="text-[9px] leading-none truncate w-full text-center">{homeCode}</span>
-                                <span className="text-[7px] leading-none opacity-75 my-0.5">vs</span>
-                                <span className="text-[9px] leading-none truncate w-full text-center">{awayCode}</span>
-                              </div>
-                              <span className="text-[9px] leading-none opacity-90">{matchTime}</span>
+
+                              {/* Bottom: Group */}
+                              {match.group && (
+                                <div className="absolute bottom-1 left-0 right-0 text-center">
+                                  <span className="text-[10px] leading-none opacity-90 font-mono">{match.group}</span>
+                                </div>
+                              )}
                             </div>
                           );
                         })}
