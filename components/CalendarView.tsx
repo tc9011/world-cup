@@ -2,9 +2,9 @@ import React from 'react';
 import { Match } from '../types';
 import { format, endOfMonth, eachDayOfInterval, isSameDay, getDay, startOfWeek, addDays } from 'date-fns';
 import { enUS, zhCN } from 'date-fns/locale';
-import { teams } from '../data/worldCupData';
+import { teams, venues } from '../data/worldCupData';
 import { useStore } from '../store/useStore';
-import { teamNames } from '../data/locales';
+import { teamNames, cityNames } from '../data/locales';
 
 interface CalendarViewProps {
   matches: Match[];
@@ -75,14 +75,23 @@ const MonthGrid: React.FC<{ monthStart: Date; matches: Match[] }> = ({ monthStar
                   
                   const homeName = language === 'zh' ? (home ? (teamNames[home.code] || home.code) : '待定') : (home?.code || 'TBD');
                   const awayName = language === 'zh' ? (away ? (teamNames[away.code] || away.code) : '待定') : (away?.code || 'TBD');
+                  
+                  const venue = venues.find(v => v.id === match.venueId);
+                  const venueName = language === 'zh' ? (venue ? (cityNames[venue.city] || venue.city) : '') : (venue?.city || '');
 
                   return (
-                    <div key={match.id} className="text-[10px] bg-white dark:bg-gray-700 p-1 rounded shadow-sm border border-gray-100 dark:border-gray-600 truncate">
-                      <span className="font-bold text-gray-700 dark:text-gray-200">{format(new Date(match.date), 'HH:mm')}</span>
-                      <span className="mx-1 text-gray-400">|</span>
-                      <span title={`${home?.name || 'TBD'} vs ${away?.name || 'TBD'}`}>
-                        {homeName} vs {awayName}
-                      </span>
+                    <div key={match.id} className="text-[10px] bg-white dark:bg-gray-700 p-1 rounded shadow-sm border border-gray-100 dark:border-gray-600 flex flex-col gap-0.5 group/match hover:bg-blue-50 dark:hover:bg-blue-900/30 transition-colors cursor-pointer">
+                      <div className="truncate flex items-center">
+                        <span className="font-bold text-gray-700 dark:text-gray-200 mr-1">{format(new Date(match.date), 'HH:mm')}</span>
+                        <span className="text-gray-400 mr-1">|</span>
+                        <span title={`${home?.name || 'TBD'} vs ${away?.name || 'TBD'}`} className="font-medium text-gray-900 dark:text-gray-100">
+                          {homeName} vs {awayName}
+                        </span>
+                      </div>
+                      <div className="text-[9px] text-gray-500 dark:text-gray-400 truncate flex items-center">
+                        <span className="mr-1">📍</span>
+                        {venueName}
+                      </div>
                     </div>
                   );
                 })}
