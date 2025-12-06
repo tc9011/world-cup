@@ -78,19 +78,23 @@ export const translations = {
 };
 
 export const teamNames: Record<string, string> = {
-  'MEX': '墨西哥', 'RSA': '南非', 'DEN': '丹麦', 'KOR': '韩国',
-  'CAN': '加拿大', 'FRA': '法国', 'EGY': '埃及', 'AUS': '澳大利亚',
-  'USA': '美国', 'ENG': '英格兰', 'IRN': '伊朗', 'PER': '秘鲁',
-  'BRA': '巴西', 'SUI': '瑞士', 'JPN': '日本', 'SWE': '瑞典',
-  'ARG': '阿根廷', 'ITA': '意大利', 'NGA': '尼日利亚', 'KSA': '沙特阿拉伯',
-  'ESP': '西班牙', 'URU': '乌拉圭', 'MAR': '摩洛哥', 'NZL': '新西兰',
-  'GER': '德国', 'COL': '哥伦比亚', 'GHA': '加纳', 'QAT': '卡塔尔',
-  'NED': '荷兰', 'CHI': '智利', 'SEN': '塞内加尔', 'POL': '波兰',
-  'POR': '葡萄牙', 'CRO': '克罗地亚', 'CIV': '科特迪瓦', 'CRC': '哥斯达黎加',
-  'BEL': '比利时', 'ECU': '厄瓜多尔', 'CMR': '喀麦隆', 'AUT': '奥地利',
-  'PAR': '巴拉圭', 'UKR': '乌克兰', 'ALG': '阿尔及利亚', 'JAM': '牙买加',
-  'GRE': '希腊', 'TUR': '土耳其', 'MLI': '马里', 'PAN': '巴拿马',
-  'TUN': '突尼斯',
+  'MEX': '墨西哥', 'RSA': '南非', 'KOR': '韩国', 'TBD': '待定',
+  'CAN': '加拿大', 'QAT': '卡塔尔', 'SUI': '瑞士',
+  'BRA': '巴西', 'MAR': '摩洛哥', 'HAI': '海地', 'SCO': '苏格兰',
+  'USA': '美国', 'PAR': '巴拉圭', 'AUS': '澳大利亚',
+  'GER': '德国', 'CUW': '库拉索', 'CIV': '科特迪瓦', 'ECU': '厄瓜多尔',
+  'NED': '荷兰', 'JPN': '日本', 'TUN': '突尼斯',
+  'BEL': '比利时', 'EGY': '埃及', 'IRN': '伊朗', 'NZL': '新西兰',
+  'ESP': '西班牙', 'CPV': '佛得角', 'KSA': '沙特阿拉伯', 'URU': '乌拉圭',
+  'FRA': '法国', 'SEN': '塞内加尔', 'NOR': '挪威',
+  'ARG': '阿根廷', 'ALG': '阿尔及利亚', 'AUT': '奥地利', 'JOR': '约旦',
+  'POR': '葡萄牙', 'UZB': '乌兹别克斯坦', 'COL': '哥伦比亚',
+  'ENG': '英格兰', 'CRO': '克罗地亚', 'GHA': '加纳', 'PAN': '巴拿马',
+  
+  // Legacy/Other potential teams (keeping for safety or future use)
+  'DEN': '丹麦', 'PER': '秘鲁', 'SWE': '瑞典', 'ITA': '意大利', 'NGA': '尼日利亚',
+  'CHI': '智利', 'POL': '波兰', 'CRC': '哥斯达黎加', 'CMR': '喀麦隆',
+  'UKR': '乌克兰', 'JAM': '牙买加', 'GRE': '希腊', 'TUR': '土耳其', 'MLI': '马里',
 };
 
 export const cityNames: Record<string, string> = {

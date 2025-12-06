@@ -30,74 +30,74 @@ export const venues: Venue[] = [
 export const teams: Team[] = [
   // Group A (Mexico based)
   { id: 'MEX', name: 'Mexico', code: 'MEX', flag: '🇲🇽', group: 'A' },
-  { id: 'POL', name: 'Poland', code: 'POL', flag: '🇵🇱', group: 'A' },
-  { id: 'KOR', name: 'South Korea', code: 'KOR', flag: '🇰🇷', group: 'A' },
-  { id: 'SEN', name: 'Senegal', code: 'SEN', flag: '🇸🇳', group: 'A' },
+  { id: 'RSA', name: 'South Africa', code: 'RSA', flag: '🇿🇦', group: 'A' },
+  { id: 'KOR', name: 'Korea Republic', code: 'KOR', flag: '🇰🇷', group: 'A' },
+  { id: 'TBD_D', name: 'Winner Play-off D', code: 'TBD', flag: '🏳️', group: 'A' },
   
   // Group B (Canada based)
   { id: 'CAN', name: 'Canada', code: 'CAN', flag: '🇨🇦', group: 'B' },
-  { id: 'FRA', name: 'France', code: 'FRA', flag: '🇫🇷', group: 'B' },
-  { id: 'EGY', name: 'Egypt', code: 'EGY', flag: '🇪🇬', group: 'B' },
-  { id: 'AUS', name: 'Australia', code: 'AUS', flag: '🇦🇺', group: 'B' },
+  { id: 'TBD_A', name: 'Winner Play-off A', code: 'TBD', flag: '🏳️', group: 'B' },
+  { id: 'QAT', name: 'Qatar', code: 'QAT', flag: '🇶🇦', group: 'B' },
+  { id: 'SUI', name: 'Switzerland', code: 'SUI', flag: '🇨🇭', group: 'B' },
   
   // Group C
-  { id: 'ENG', name: 'England', code: 'ENG', flag: '🏴󠁧󠁢󠁥󠁮󠁧󠁿', group: 'C' },
-  { id: 'URU', name: 'Uruguay', code: 'URU', flag: '🇺🇾', group: 'C' },
-  { id: 'KSA', name: 'Saudi Arabia', code: 'KSA', flag: '🇸🇦', group: 'C' },
-  { id: 'NGA', name: 'Nigeria', code: 'NGA', flag: '🇳🇬', group: 'C' },
+  { id: 'BRA', name: 'Brazil', code: 'BRA', flag: '🇧🇷', group: 'C' },
+  { id: 'MAR', name: 'Morocco', code: 'MAR', flag: '🇲🇦', group: 'C' },
+  { id: 'HAI', name: 'Haiti', code: 'HAI', flag: '🇭🇹', group: 'C' },
+  { id: 'SCO', name: 'Scotland', code: 'SCO', flag: '🏴󠁧󠁢󠁳󠁣󠁴󠁿', group: 'C' },
   
   // Group D (USA based)
   { id: 'USA', name: 'USA', code: 'USA', flag: '🇺🇸', group: 'D' },
-  { id: 'NED', name: 'Netherlands', code: 'NED', flag: '🇳🇱', group: 'D' },
-  { id: 'MAR', name: 'Morocco', code: 'MAR', flag: '🇲🇦', group: 'D' },
-  { id: 'JPN', name: 'Japan', code: 'JPN', flag: '🇯🇵', group: 'D' },
+  { id: 'PAR', name: 'Paraguay', code: 'PAR', flag: '🇵🇾', group: 'D' },
+  { id: 'AUS', name: 'Australia', code: 'AUS', flag: '🇦🇺', group: 'D' },
+  { id: 'TBD_C', name: 'Winner Play-off C', code: 'TBD', flag: '🏳️', group: 'D' },
   
   // Group E
-  { id: 'BRA', name: 'Brazil', code: 'BRA', flag: '🇧🇷', group: 'E' },
-  { id: 'SUI', name: 'Switzerland', code: 'SUI', flag: '🇨🇭', group: 'E' },
-  { id: 'IRN', name: 'Iran', code: 'IRN', flag: '🇮🇷', group: 'E' },
-  { id: 'CMR', name: 'Cameroon', code: 'CMR', flag: '🇨🇲', group: 'E' },
+  { id: 'GER', name: 'Germany', code: 'GER', flag: '🇩🇪', group: 'E' },
+  { id: 'CUW', name: 'Curaçao', code: 'CUW', flag: '🇨🇼', group: 'E' },
+  { id: 'CIV', name: 'Côte d\'Ivoire', code: 'CIV', flag: '🇨🇮', group: 'E' },
+  { id: 'ECU', name: 'Ecuador', code: 'ECU', flag: '🇪🇨', group: 'E' },
   
   // Group F
-  { id: 'ESP', name: 'Spain', code: 'ESP', flag: '🇪🇸', group: 'F' },
-  { id: 'COL', name: 'Colombia', code: 'COL', flag: '🇨🇴', group: 'F' },
-  { id: 'SWE', name: 'Sweden', code: 'SWE', flag: '🇸🇪', group: 'F' },
-  { id: 'NZL', name: 'New Zealand', code: 'NZL', flag: '🇳🇿', group: 'F' },
+  { id: 'NED', name: 'Netherlands', code: 'NED', flag: '🇳🇱', group: 'F' },
+  { id: 'JPN', name: 'Japan', code: 'JPN', flag: '🇯🇵', group: 'F' },
+  { id: 'TBD_B', name: 'Winner Play-off B', code: 'TBD', flag: '🏳️', group: 'F' },
+  { id: 'TUN', name: 'Tunisia', code: 'TUN', flag: '🇹🇳', group: 'F' },
   
   // Group G
-  { id: 'GER', name: 'Germany', code: 'GER', flag: '🇩🇪', group: 'G' },
-  { id: 'CHI', name: 'Chile', code: 'CHI', flag: '🇨🇱', group: 'G' },
-  { id: 'GHA', name: 'Ghana', code: 'GHA', flag: '🇬🇭', group: 'G' },
-  { id: 'QAT', name: 'Qatar', code: 'QAT', flag: '🇶🇦', group: 'G' },
+  { id: 'BEL', name: 'Belgium', code: 'BEL', flag: '🇧🇪', group: 'G' },
+  { id: 'EGY', name: 'Egypt', code: 'EGY', flag: '🇪🇬', group: 'G' },
+  { id: 'IRN', name: 'IR Iran', code: 'IRN', flag: '🇮🇷', group: 'G' },
+  { id: 'NZL', name: 'New Zealand', code: 'NZL', flag: '🇳🇿', group: 'G' },
   
   // Group H
-  { id: 'ARG', name: 'Argentina', code: 'ARG', flag: '🇦🇷', group: 'H' },
-  { id: 'UKR', name: 'Ukraine', code: 'UKR', flag: '🇺🇦', group: 'H' },
-  { id: 'TUN', name: 'Tunisia', code: 'TUN', flag: '🇹🇳', group: 'H' },
-  { id: 'CRC', name: 'Costa Rica', code: 'CRC', flag: '🇨🇷', group: 'H' },
+  { id: 'ESP', name: 'Spain', code: 'ESP', flag: '🇪🇸', group: 'H' },
+  { id: 'CPV', name: 'Cabo Verde', code: 'CPV', flag: '🇨🇻', group: 'H' },
+  { id: 'KSA', name: 'Saudi Arabia', code: 'KSA', flag: '🇸🇦', group: 'H' },
+  { id: 'URU', name: 'Uruguay', code: 'URU', flag: '🇺🇾', group: 'H' },
   
   // Group I
-  { id: 'ITA', name: 'Italy', code: 'ITA', flag: '🇮🇹', group: 'I' },
-  { id: 'CRO', name: 'Croatia', code: 'CRO', flag: '🇭🇷', group: 'I' },
-  { id: 'CIV', name: 'Ivory Coast', code: 'CIV', flag: '🇨🇮', group: 'I' },
-  { id: 'ECU', name: 'Ecuador', code: 'ECU', flag: '🇪🇨', group: 'I' },
+  { id: 'FRA', name: 'France', code: 'FRA', flag: '🇫🇷', group: 'I' },
+  { id: 'SEN', name: 'Senegal', code: 'SEN', flag: '🇸🇳', group: 'I' },
+  { id: 'TBD_2', name: 'Winner Play-off 2', code: 'TBD', flag: '🏳️', group: 'I' },
+  { id: 'NOR', name: 'Norway', code: 'NOR', flag: '🇳🇴', group: 'I' },
   
   // Group J
-  { id: 'BEL', name: 'Belgium', code: 'BEL', flag: '🇧🇪', group: 'J' },
-  { id: 'PER', name: 'Peru', code: 'PER', flag: '🇵🇪', group: 'J' },
+  { id: 'ARG', name: 'Argentina', code: 'ARG', flag: '🇦🇷', group: 'J' },
   { id: 'ALG', name: 'Algeria', code: 'ALG', flag: '🇩🇿', group: 'J' },
-  { id: 'JAM', name: 'Jamaica', code: 'JAM', flag: '🇯🇲', group: 'J' },
+  { id: 'AUT', name: 'Austria', code: 'AUT', flag: '🇦🇹', group: 'J' },
+  { id: 'JOR', name: 'Jordan', code: 'JOR', flag: '🇯🇴', group: 'J' },
   
   // Group K
   { id: 'POR', name: 'Portugal', code: 'POR', flag: '🇵🇹', group: 'K' },
-  { id: 'DEN', name: 'Denmark', code: 'DEN', flag: '🇩🇰', group: 'K' },
-  { id: 'PAR', name: 'Paraguay', code: 'PAR', flag: '🇵🇾', group: 'K' },
-  { id: 'MLI', name: 'Mali', code: 'MLI', flag: '🇲🇱', group: 'K' },
+  { id: 'TBD_1', name: 'Winner Play-off 1', code: 'TBD', flag: '🏳️', group: 'K' },
+  { id: 'UZB', name: 'Uzbekistan', code: 'UZB', flag: '🇺🇿', group: 'K' },
+  { id: 'COL', name: 'Colombia', code: 'COL', flag: '🇨🇴', group: 'K' },
   
   // Group L
-  { id: 'RSA', name: 'South Africa', code: 'RSA', flag: '🇿🇦', group: 'L' },
-  { id: 'TUR', name: 'Turkey', code: 'TUR', flag: '🇹🇷', group: 'L' },
-  { id: 'GRE', name: 'Greece', code: 'GRE', flag: '🇬🇷', group: 'L' },
+  { id: 'ENG', name: 'England', code: 'ENG', flag: '🏴󠁧󠁢󠁥󠁮󠁧󠁿', group: 'L' },
+  { id: 'CRO', name: 'Croatia', code: 'CRO', flag: '🇭🇷', group: 'L' },
+  { id: 'GHA', name: 'Ghana', code: 'GHA', flag: '🇬🇭', group: 'L' },
   { id: 'PAN', name: 'Panama', code: 'PAN', flag: '🇵🇦', group: 'L' },
 ];
 
