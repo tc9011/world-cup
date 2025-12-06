@@ -40,16 +40,16 @@ const MonthGrid: React.FC<{ monthStart: Date; matches: Match[] }> = ({ monthStar
   );
 
   return (
-    <div className="bg-black/80 backdrop-blur-sm rounded-xl shadow-lg border border-yellow-500/30 overflow-hidden">
-      <div className="p-4 bg-black/70 border-b border-yellow-500/30">
-        <h3 className="text-xl font-bold text-yellow-400">
+    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden">
+      <div className="p-4 bg-gray-50 dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
+        <h3 className="text-xl font-bold text-gray-800 dark:text-white">
           {format(monthStart, language === 'zh' ? 'yyyy年 MMMM' : 'MMMM yyyy', { locale: dateLocale })}
         </h3>
       </div>
       
-      <div className="grid grid-cols-7 text-center border-b border-yellow-500/30 bg-black/50">
+      <div className="grid grid-cols-7 text-center border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900">
         {weekDays.map(day => (
-          <div key={day} className="py-2 text-sm font-medium text-yellow-500/70">
+          <div key={day} className="py-2 text-sm font-medium text-gray-500 dark:text-gray-400">
             {day}
           </div>
         ))}
@@ -57,14 +57,14 @@ const MonthGrid: React.FC<{ monthStart: Date; matches: Match[] }> = ({ monthStar
 
       <div className="grid grid-cols-7">
         {emptySlots.map((_, i) => (
-          <div key={`empty-${i}`} className="h-32 border-b border-r border-yellow-500/30 bg-black/30" />
+          <div key={`empty-${i}`} className="h-32 border-b border-r border-gray-100 dark:border-gray-700 bg-gray-50/50 dark:bg-gray-900/50" />
         ))}
         
         {days.map(day => {
           const dayMatches = matches.filter(m => isSameDay(new Date(m.date), day));
           return (
-            <div key={day.toISOString()} className="h-32 border-b border-r border-yellow-500/30 p-1 relative group hover:bg-yellow-500/10 transition-colors bg-black/30">
-              <div className={`text-sm font-medium mb-1 ${dayMatches.length > 0 ? 'text-yellow-400' : 'text-yellow-500/50'}`}>
+            <div key={day.toISOString()} className="h-32 border-b border-r border-gray-100 dark:border-gray-700 p-1 relative group hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors">
+              <div className={`text-sm font-medium mb-1 ${dayMatches.length > 0 ? 'text-blue-600 dark:text-blue-400' : 'text-gray-400'}`}>
                 {format(day, 'd')}
               </div>
               
@@ -80,15 +80,15 @@ const MonthGrid: React.FC<{ monthStart: Date; matches: Match[] }> = ({ monthStar
                   const venueName = language === 'zh' ? (venue ? (cityNames[venue.city] || venue.city) : '') : (venue?.city || '');
 
                   return (
-                    <div key={match.id} className="text-[10px] bg-black/60 backdrop-blur-sm p-1 rounded shadow-md border border-yellow-500/30 flex flex-col gap-0.5 group/match hover:bg-yellow-500/10 hover:border-yellow-500/50 transition-colors cursor-pointer">
+                    <div key={match.id} className="text-[10px] bg-white dark:bg-gray-700 p-1 rounded shadow-sm border border-gray-100 dark:border-gray-600 flex flex-col gap-0.5 group/match hover:bg-blue-50 dark:hover:bg-blue-900/30 transition-colors cursor-pointer">
                       <div className="truncate flex items-center">
-                        <span className="font-bold text-yellow-400 mr-1">{format(new Date(match.date), 'HH:mm')}</span>
-                        <span className="text-yellow-500/50 mr-1">|</span>
-                        <span title={`${home?.name || 'TBD'} vs ${away?.name || 'TBD'}`} className="font-medium text-yellow-400">
+                        <span className="font-bold text-gray-700 dark:text-gray-200 mr-1">{format(new Date(match.date), 'HH:mm')}</span>
+                        <span className="text-gray-400 mr-1">|</span>
+                        <span title={`${home?.name || 'TBD'} vs ${away?.name || 'TBD'}`} className="font-medium text-gray-900 dark:text-gray-100">
                           {homeName} vs {awayName}
                         </span>
                       </div>
-                      <div className="text-[9px] text-yellow-500/70 truncate flex items-center">
+                      <div className="text-[9px] text-gray-500 dark:text-gray-400 truncate flex items-center">
                         <span className="mr-1">📍</span>
                         {venueName}
                       </div>

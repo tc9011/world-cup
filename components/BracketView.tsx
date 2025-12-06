@@ -51,14 +51,14 @@ export const BracketView: React.FC<BracketViewProps> = ({ matches }) => {
           {/* Center (Finals) */}
           <div className="flex flex-col justify-center items-center gap-8 w-64 pt-20">
             <div className="flex flex-col items-center gap-2 w-full">
-              <h3 className="text-sm font-bold text-yellow-400 uppercase tracking-wider">{t.stages['Final']}</h3>
+              <h3 className="text-sm font-bold text-yellow-600 dark:text-yellow-500 uppercase tracking-wider">{t.stages['Final']}</h3>
               {final && <MatchCard match={final} isFinal />}
             </div>
 
-            <div className="w-px h-16 bg-yellow-500/30"></div>
+            <div className="w-px h-16 bg-gray-300 dark:bg-gray-700"></div>
 
             <div className="flex flex-col items-center gap-2 w-full">
-              <h3 className="text-xs font-bold text-yellow-500/70 uppercase tracking-wider">{t.stages['Third place']}</h3>
+              <h3 className="text-xs font-bold text-gray-500 uppercase tracking-wider">{t.stages['Third place']}</h3>
               {thirdPlace && <MatchCard match={thirdPlace} />}
             </div>
           </div>
@@ -79,7 +79,7 @@ export const BracketView: React.FC<BracketViewProps> = ({ matches }) => {
 const Column: React.FC<{ matches: Match[]; title: string; spacer?: boolean }> = ({ matches, title, spacer }) => {
   return (
     <div className="flex flex-col w-48">
-      <h3 className="text-xs font-bold text-yellow-500 uppercase text-center mb-4 h-6">{title}</h3>
+      <h3 className="text-xs font-bold text-gray-500 uppercase text-center mb-4 h-6">{title}</h3>
       <div className={clsx("flex flex-col justify-around flex-1", spacer && "py-8")}>
         {matches.map(match => (
           <MatchCard key={match.id} match={match} />
@@ -104,10 +104,10 @@ const MatchCard: React.FC<{ match: Match; isFinal?: boolean }> = ({ match, isFin
 
   return (
     <div className={clsx(
-      "bg-black/80 backdrop-blur-sm rounded-lg border border-yellow-500/30 p-2 shadow-lg relative my-2 transition-all hover:scale-105 hover:shadow-yellow-500/20 hover:border-yellow-500/50",
-      isFinal ? "border-yellow-400 shadow-yellow-400/30 scale-110 ring-2 ring-yellow-400/30" : ""
+      "bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-lg border border-gray-200/50 dark:border-gray-700/50 p-2 shadow-sm relative my-2 transition-all hover:scale-105 hover:shadow-md hover:bg-white dark:hover:bg-gray-800",
+      isFinal ? "border-yellow-400 dark:border-yellow-600 shadow-lg scale-110 ring-2 ring-yellow-400/20" : ""
     )}>
-      <div className="text-[10px] text-yellow-500/70 mb-1 flex justify-between">
+      <div className="text-[10px] text-gray-400 mb-1 flex justify-between">
         <span>{match.id.toUpperCase()}</span>
         <span>{format(new Date(match.date), 'MMM d', { locale: dateLocale })}</span>
       </div>
@@ -115,20 +115,20 @@ const MatchCard: React.FC<{ match: Match; isFinal?: boolean }> = ({ match, isFin
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2 overflow-hidden">
             <span className="text-sm">{home?.flag || '🏳️'}</span>
-            <span className="text-xs font-medium truncate text-yellow-400">{homeName}</span>
+            <span className="text-xs font-medium truncate text-gray-900 dark:text-gray-100">{homeName}</span>
           </div>
-          <span className="text-xs font-bold bg-yellow-500/10 px-1.5 rounded text-yellow-500 border border-yellow-500/30">-</span>
+          <span className="text-xs font-bold bg-gray-100/50 dark:bg-gray-700/50 px-1.5 rounded text-gray-600 dark:text-gray-300">-</span>
         </div>
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2 overflow-hidden">
             <span className="text-sm">{away?.flag || '🏳️'}</span>
-            <span className="text-xs font-medium truncate text-yellow-400">{awayName}</span>
+            <span className="text-xs font-medium truncate text-gray-900 dark:text-gray-100">{awayName}</span>
           </div>
-          <span className="text-xs font-bold bg-yellow-500/10 px-1.5 rounded text-yellow-500 border border-yellow-500/30">-</span>
+          <span className="text-xs font-bold bg-gray-100/50 dark:bg-gray-700/50 px-1.5 rounded text-gray-600 dark:text-gray-300">-</span>
         </div>
       </div>
       
-      <div className="text-[9px] text-yellow-500/50 flex items-center pt-1 border-t border-yellow-500/20">
+      <div className="text-[9px] text-gray-400 flex items-center pt-1 border-t border-gray-100 dark:border-gray-700/50">
         <span className="mr-1">📍</span>
         <span className="truncate">{venueName}</span>
       </div>

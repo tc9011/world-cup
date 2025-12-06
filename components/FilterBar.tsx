@@ -17,8 +17,8 @@ export const FilterBar: React.FC = () => {
           className={clsx(
             "px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all duration-200",
             selectedGroup === group
-              ? "bg-linear-to-r from-yellow-500 to-yellow-600 text-black shadow-lg shadow-yellow-500/50"
-              : "bg-black/50 text-yellow-500/70 hover:bg-black/70 hover:text-yellow-400 border border-yellow-500/30"
+              ? "bg-linear-to-r from-blue-600 to-cyan-500 text-white shadow-md shadow-blue-500/20"
+              : "bg-white/50 dark:bg-gray-800/50 text-gray-600 dark:text-gray-300 hover:bg-white dark:hover:bg-gray-700 border border-gray-200/50 dark:border-gray-700/50"
           )}
         >
           {group === 'All' ? t.allMatches : `${t.group} ${group}`}
