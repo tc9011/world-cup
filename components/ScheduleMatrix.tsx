@@ -148,18 +148,30 @@ export const ScheduleMatrix: React.FC<ScheduleMatrixProps> = ({ matches }) => {
                           const homeName = language === 'zh' ? (home ? (teamNames[home.code] || home.name) : '待定') : (home?.name || 'TBD');
                           const awayName = language === 'zh' ? (away ? (teamNames[away.code] || away.name) : '待定') : (away?.name || 'TBD');
                           const stageName = match.group ? `${t.group} ${match.group}` : match.stage;
+                          
+                          const homeCode = home?.code || (language === 'zh' ? '?' : 'TBD');
+                          const awayCode = away?.code || (language === 'zh' ? '?' : 'TBD');
+                          const matchTime = format(new Date(match.date), 'HH:mm');
 
                           return (
                             <div 
                               key={match.id}
                               className={clsx(
-                                "w-full h-full rounded shadow-sm flex flex-col items-center justify-center text-[10px] text-white font-bold p-0.5 cursor-pointer hover:scale-110 transition-transform z-0 hover:z-10",
+                                "w-full h-full rounded shadow-sm flex flex-col items-center justify-between text-white font-bold p-0.5 py-1 cursor-pointer hover:scale-110 transition-transform z-0 hover:z-10 overflow-hidden",
                                 colorClass
                               )}
-                              title={`${stageName} - ${homeName} vs ${awayName}`}
+                              title={`${stageName} - ${homeName} vs ${awayName} (${matchTime})`}
                             >
-                              <span>{match.id.toUpperCase()}</span>
-                              {match.group && <span className="text-[8px] opacity-90">{match.group}</span>}
+                              <div className="flex flex-col items-center leading-none">
+                                <span className="text-[10px]">{match.id.toUpperCase()}</span>
+                                {match.group && <span className="text-[8px] opacity-90">{match.group}</span>}
+                              </div>
+                              <div className="flex flex-col items-center justify-center w-full flex-1 min-h-0">
+                                <span className="text-[9px] leading-none truncate w-full text-center">{homeCode}</span>
+                                <span className="text-[7px] leading-none opacity-75 my-0.5">vs</span>
+                                <span className="text-[9px] leading-none truncate w-full text-center">{awayCode}</span>
+                              </div>
+                              <span className="text-[9px] leading-none opacity-90">{matchTime}</span>
                             </div>
                           );
                         })}
