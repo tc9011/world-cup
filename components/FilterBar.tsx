@@ -1,9 +1,11 @@
 import React from 'react';
 import { useStore } from '../store/useStore';
 import clsx from 'clsx';
+import { translations } from '../data/locales';
 
 export const FilterBar: React.FC = () => {
-  const { selectedGroup, setSelectedGroup } = useStore();
+  const { selectedGroup, setSelectedGroup, language } = useStore();
+  const t = translations[language];
   const groups = ['All', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L'];
 
   return (
@@ -19,7 +21,7 @@ export const FilterBar: React.FC = () => {
               : "bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
           )}
         >
-          {group === 'All' ? 'All Matches' : `Group ${group}`}
+          {group === 'All' ? t.allMatches : `${t.group} ${group}`}
         </button>
       ))}
     </div>

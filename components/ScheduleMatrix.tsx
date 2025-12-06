@@ -1,7 +1,10 @@
 import React from 'react';
 import { Match, Venue } from '../types';
 import { format, eachDayOfInterval, isSameDay } from 'date-fns';
+import { enUS, zhCN } from 'date-fns/locale';
 import { venues, teams } from '../data/worldCupData';
+import { useStore } from '../store/useStore';
+import { translations, cityNames, teamNames } from '../data/locales';
 import clsx from 'clsx';
 
 interface ScheduleMatrixProps {
@@ -33,6 +36,11 @@ const STAGE_COLORS: Record<string, string> = {
 };
 
 export const ScheduleMatrix: React.FC<ScheduleMatrixProps> = ({ matches }) => {
+  const { language } = useStore();
+  const t = translations[language];
+  const dateLocale = language === 'zh' ? zhCN : enUS;
+  const dateFormat = language === 'zh' ? 'MMMdo EEE' : 'EEE d MMM';
+
   // Define date range: June 11 to July 19, 2026
   const startDate = new Date(2026, 5, 11); // June 11
   const endDate = new Date(2026, 6, 19);   // July 19
@@ -52,17 +60,17 @@ export const ScheduleMatrix: React.FC<ScheduleMatrixProps> = ({ matches }) => {
           <thead>
             <tr>
               {/* Region Column Header */}
-              <th className="sticky left-0 z-30 bg-gray-100 dark:bg-gray-800 p-2 border-b border-r border-gray-200 dark:border-gray-700 w-10 min-w-[40px]">
+              <th className="sticky left-0 z-30 bg-gray-100 dark:bg-gray-800 p-2 border-b border-r border-gray-200 dark:border-gray-700 w-10 min-w-10">
               </th>
               {/* Venue Column Header */}
               <th className="sticky left-10 z-30 bg-gray-100 dark:bg-gray-800 p-2 border-b border-r border-gray-200 dark:border-gray-700 min-w-[200px] text-left text-xs font-bold text-gray-500 uppercase tracking-wider">
-                Venue / Date
+                {t.venueDate}
               </th>
               {days.map(day => (
-                <th key={day.toISOString()} className="p-1 border-b border-gray-200 dark:border-gray-700 min-w-[40px] text-center bg-gray-50 dark:bg-gray-900 align-bottom pb-2 h-32">
+                <th key={day.toISOString()} className="p-1 border-b border-gray-200 dark:border-gray-700 min-w-10 text-center bg-gray-50 dark:bg-gray-900 align-bottom pb-2 h-32">
                   <div className="flex items-center justify-center h-full w-full">
                     <span className="text-[10px] text-gray-500 font-medium whitespace-nowrap [writing-mode:vertical-rl] rotate-180">
-                      {format(day, 'EEE d MMM')}
+                      {format(day, dateFormat, { locale: dateLocale })}
                     </span>
                   </div>
                 </th>
@@ -82,7 +90,7 @@ export const ScheduleMatrix: React.FC<ScheduleMatrixProps> = ({ matches }) => {
                     >
                       <div className="h-full w-full flex items-center justify-center">
                         <span className="text-xs font-bold text-gray-600 dark:text-gray-400 uppercase tracking-widest whitespace-nowrap [writing-mode:vertical-rl] rotate-180">
-                          {region} Region
+                          {t[`${region.toLowerCase()}Region` as keyof typeof t] as string}
                         </span>
                       </div>
                     </td>
@@ -91,7 +99,9 @@ export const ScheduleMatrix: React.FC<ScheduleMatrixProps> = ({ matches }) => {
                   {/* Venue Name */}
                   <td className="sticky left-10 z-10 bg-white dark:bg-gray-900 p-2 border-b border-r border-gray-200 dark:border-gray-700 text-xs font-medium text-gray-600 dark:text-gray-300 group-hover:bg-gray-50 dark:group-hover:bg-gray-800">
                     <div className="flex flex-col">
-                      <span className="font-bold text-gray-800 dark:text-white uppercase">{venue.city}</span>
+                      <span className="font-bold text-gray-800 dark:text-white uppercase">
+                        {language === 'zh' ? (cityNames[venue.city] || venue.city) : venue.city}
+                      </span>
                       <span className="text-[10px] text-gray-400 truncate max-w-[180px]">{venue.name}</span>
                     </div>
                   </td>
@@ -111,6 +121,10 @@ export const ScheduleMatrix: React.FC<ScheduleMatrixProps> = ({ matches }) => {
                           
                           const home = teams.find(t => t.id === match.homeTeamId);
                           const away = teams.find(t => t.id === match.awayTeamId);
+                          
+                          const homeName = language === 'zh' ? (home ? (teamNames[home.code] || home.name) : '待定') : (home?.name || 'TBD');
+                          const awayName = language === 'zh' ? (away ? (teamNames[away.code] || away.name) : '待定') : (away?.name || 'TBD');
+                          const stageName = match.group ? `${t.group} ${match.group}` : match.stage;
 
                           return (
                             <div 
@@ -119,7 +133,7 @@ export const ScheduleMatrix: React.FC<ScheduleMatrixProps> = ({ matches }) => {
                                 "w-full h-full rounded shadow-sm flex flex-col items-center justify-center text-[10px] text-white font-bold p-0.5 cursor-pointer hover:scale-110 transition-transform z-0 hover:z-10",
                                 colorClass
                               )}
-                              title={`${match.stage} - ${home?.name || 'TBD'} vs ${away?.name || 'TBD'}`}
+                              title={`${stageName} - ${homeName} vs ${awayName}`}
                             >
                               <span>{match.id.toUpperCase()}</span>
                               {match.group && <span className="text-[8px] opacity-90">{match.group}</span>}

@@ -2,9 +2,11 @@ import React from 'react';
 import { useStore } from '../store/useStore';
 import { LayoutList, Calendar as CalendarIcon } from 'lucide-react';
 import clsx from 'clsx';
+import { translations } from '../data/locales';
 
 export const ViewSwitcher: React.FC = () => {
-  const { viewMode, setViewMode } = useStore();
+  const { viewMode, setViewMode, language } = useStore();
+  const t = translations[language];
 
   return (
     <div className="flex bg-gray-100 dark:bg-gray-800 p-1 rounded-lg">
@@ -18,7 +20,7 @@ export const ViewSwitcher: React.FC = () => {
         )}
       >
         <LayoutList size={16} className="mr-2" />
-        List View
+        {t.listView}
       </button>
       <button
         onClick={() => setViewMode('calendar')}
@@ -30,7 +32,7 @@ export const ViewSwitcher: React.FC = () => {
         )}
       >
         <CalendarIcon size={16} className="mr-2" />
-        Calendar View
+        {t.calendarView}
       </button>
     </div>
   );

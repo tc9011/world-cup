@@ -6,17 +6,23 @@ interface WorldCupState {
   setViewMode: (mode: ViewMode) => void;
   selectedGroup: string | 'All';
   setSelectedGroup: (group: string | 'All') => void;
+  selectedTeam: string | 'All';
+  setSelectedTeam: (teamId: string | 'All') => void;
   selectedDate: Date | null;
   setSelectedDate: (date: Date | null) => void;
   favorites: string[];
   toggleFavorite: (teamId: string) => void;
+  language: 'en' | 'zh';
+  setLanguage: (lang: 'en' | 'zh') => void;
 }
 
 export const useStore = create<WorldCupState>((set) => ({
   viewMode: 'list',
   setViewMode: (mode) => set({ viewMode: mode }),
   selectedGroup: 'All',
-  setSelectedGroup: (group) => set({ selectedGroup: group }),
+  setSelectedGroup: (group) => set({ selectedGroup: group, selectedTeam: 'All' }), // Reset team when group changes
+  selectedTeam: 'All',
+  setSelectedTeam: (teamId) => set({ selectedTeam: teamId, selectedGroup: 'All' }), // Reset group when team changes
   selectedDate: null,
   setSelectedDate: (date) => set({ selectedDate: date }),
   favorites: [],
@@ -26,4 +32,6 @@ export const useStore = create<WorldCupState>((set) => ({
     }
     return { favorites: [...state.favorites, teamId] };
   }),
+  language: 'en',
+  setLanguage: (lang) => set({ language: lang }),
 }));
