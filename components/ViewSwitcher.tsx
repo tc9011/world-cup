@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStore } from '../store/useStore';
-import { LayoutList, Calendar as CalendarIcon } from 'lucide-react';
+import { LayoutList, Calendar as CalendarIcon, GitMerge } from 'lucide-react';
 import clsx from 'clsx';
 import { translations } from '../data/locales';
 
@@ -33,6 +33,18 @@ export const ViewSwitcher: React.FC = () => {
       >
         <CalendarIcon size={16} className="mr-2" />
         {t.calendarView}
+      </button>
+      <button
+        onClick={() => setViewMode('bracket')}
+        className={clsx(
+          "flex items-center px-4 py-2 rounded-md text-sm font-medium transition-all",
+          viewMode === 'bracket'
+            ? "bg-white dark:bg-gray-700 text-blue-600 dark:text-blue-400 shadow-sm"
+            : "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200"
+        )}
+      >
+        <GitMerge size={16} className="mr-2" />
+        {t.bracketView}
       </button>
     </div>
   );

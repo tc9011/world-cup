@@ -5,6 +5,7 @@ import { useStore } from '../store/useStore';
 import { matches } from '../data/worldCupData';
 import { CalendarView } from '../components/CalendarView';
 import { ScheduleMatrix } from '../components/ScheduleMatrix';
+import { BracketView } from '../components/BracketView';
 import { ViewSwitcher } from '../components/ViewSwitcher';
 import { FilterBar } from '../components/FilterBar';
 import { TeamSelector } from '../components/TeamSelector';
@@ -57,11 +58,9 @@ export default function Home() {
 
         {/* Content */}
         <div className="min-h-[500px]">
-          {viewMode === 'list' ? (
-            <ScheduleMatrix matches={filteredMatches} />
-          ) : (
-            <CalendarView matches={filteredMatches} />
-          )}
+          {viewMode === 'list' && <ScheduleMatrix matches={filteredMatches} />}
+          {viewMode === 'calendar' && <CalendarView matches={filteredMatches} />}
+          {viewMode === 'bracket' && <BracketView matches={matches} />}
         </div>
         
         <footer className="text-center text-sm text-gray-400 py-8 border-t border-gray-200 dark:border-gray-800">
