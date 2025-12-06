@@ -29,4 +29,4 @@ export interface Match {
   status: 'scheduled' | 'live' | 'finished';
 }
 
-export type ViewMode = 'list' | 'calendar' | 'bracket';
+export type ViewMode = 'list' | 'calendar' | 'bracket' | 'standings';
