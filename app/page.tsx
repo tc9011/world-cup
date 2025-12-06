@@ -51,10 +51,12 @@ export default function Home() {
           </div>
         </header>
 
-        {/* Filters - Show for both views now */}
-        <div className="sticky top-0 z-40 bg-gray-50/95 dark:bg-gray-900/95 backdrop-blur-sm py-4 border-b border-gray-200 dark:border-gray-800 overflow-x-auto">
-            <FilterBar />
-        </div>
+        {/* Filters - Show for list and calendar views */}
+        {viewMode !== 'bracket' && (
+          <div className="sticky top-0 z-40 bg-gray-50/95 dark:bg-gray-900/95 backdrop-blur-sm py-4 border-b border-gray-200 dark:border-gray-800 overflow-x-auto">
+              <FilterBar />
+          </div>
+        )}
 
         {/* Content */}
         <div className="min-h-[500px]">
