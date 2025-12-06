@@ -865,7 +865,7 @@
   },
   {
     "id": "m73",
-    "date": "2026-06-28T07:00:00.000Z",
+    "date": "2026-06-28T19:00:00.000Z",
     "stage": "Round of 32",
     "homeTeamId": "2A",
     "awayTeamId": "2B",
@@ -876,7 +876,7 @@
   },
   {
     "id": "m74",
-    "date": "2026-06-29T04:00:00.000Z",
+    "date": "2026-06-29T16:00:00.000Z",
     "stage": "Round of 32",
     "homeTeamId": "1E",
     "awayTeamId": "3ABCD",
@@ -887,7 +887,7 @@
   },
   {
     "id": "m75",
-    "date": "2026-06-29T07:00:00.000Z",
+    "date": "2026-06-30T01:00:00.000Z",
     "stage": "Round of 32",
     "homeTeamId": "1F",
     "awayTeamId": "2C",
@@ -898,7 +898,7 @@
   },
   {
     "id": "m76",
-    "date": "2026-06-29T10:00:00.000Z",
+    "date": "2026-06-30T01:00:00.000Z",
     "stage": "Round of 32",
     "homeTeamId": "1C",
     "awayTeamId": "2F",
@@ -909,7 +909,7 @@
   },
   {
     "id": "m77",
-    "date": "2026-06-30T04:00:00.000Z",
+    "date": "2026-06-30T16:00:00.000Z",
     "stage": "Round of 32",
     "homeTeamId": "1I",
     "awayTeamId": "3CDFGH",
@@ -920,7 +920,7 @@
   },
   {
     "id": "m78",
-    "date": "2026-06-30T07:00:00.000Z",
+    "date": "2026-06-30T17:00:00.000Z",
     "stage": "Round of 32",
     "homeTeamId": "2E",
     "awayTeamId": "2I",
@@ -931,7 +931,7 @@
   },
   {
     "id": "m79",
-    "date": "2026-06-30T10:00:00.000Z",
+    "date": "2026-07-01T02:00:00.000Z",
     "stage": "Round of 32",
     "homeTeamId": "1A",
     "awayTeamId": "3CEFHI",
@@ -942,10 +942,10 @@
   },
   {
     "id": "m80",
-    "date": "2026-07-01T04:00:00.000Z",
+    "date": "2026-07-01T16:00:00.000Z",
     "stage": "Round of 32",
-    "homeTeamId": "1L",
-    "awayTeamId": "3EHIJK",
+    "homeTeamId": "2D",
+    "awayTeamId": "2G",
     "venueId": "v9",
     "status": "scheduled",
     "homeScore": null,
@@ -953,7 +953,7 @@
   },
   {
     "id": "m81",
-    "date": "2026-07-01T07:00:00.000Z",
+    "date": "2026-07-02T03:00:00.000Z",
     "stage": "Round of 32",
     "homeTeamId": "1D",
     "awayTeamId": "3BEFJ",
@@ -964,7 +964,7 @@
   },
   {
     "id": "m82",
-    "date": "2026-07-01T10:00:00.000Z",
+    "date": "2026-07-02T03:00:00.000Z",
     "stage": "Round of 32",
     "homeTeamId": "1G",
     "awayTeamId": "3AEHIJ",
@@ -975,7 +975,7 @@
   },
   {
     "id": "m83",
-    "date": "2026-07-02T04:00:00.000Z",
+    "date": "2026-07-02T16:00:00.000Z",
     "stage": "Round of 32",
     "homeTeamId": "2K",
     "awayTeamId": "2L",
@@ -986,7 +986,7 @@
   },
   {
     "id": "m84",
-    "date": "2026-07-02T07:00:00.000Z",
+    "date": "2026-07-02T22:00:00.000Z",
     "stage": "Round of 32",
     "homeTeamId": "1H",
     "awayTeamId": "2J",
@@ -997,7 +997,7 @@
   },
   {
     "id": "m85",
-    "date": "2026-07-02T10:00:00.000Z",
+    "date": "2026-07-03T03:00:00.000Z",
     "stage": "Round of 32",
     "homeTeamId": "1B",
     "awayTeamId": "3EFGIJ",
@@ -1008,7 +1008,7 @@
   },
   {
     "id": "m86",
-    "date": "2026-07-03T04:00:00.000Z",
+    "date": "2026-07-03T16:00:00.000Z",
     "stage": "Round of 32",
     "homeTeamId": "1J",
     "awayTeamId": "2H",
@@ -1019,7 +1019,7 @@
   },
   {
     "id": "m87",
-    "date": "2026-07-03T07:00:00.000Z",
+    "date": "2026-07-04T01:00:00.000Z",
     "stage": "Round of 32",
     "homeTeamId": "1K",
     "awayTeamId": "3DEIJL",
@@ -1030,10 +1030,10 @@
   },
   {
     "id": "m88",
-    "date": "2026-07-03T10:00:00.000Z",
+    "date": "2026-07-03T17:00:00.000Z",
     "stage": "Round of 32",
-    "homeTeamId": "2D",
-    "awayTeamId": "2G",
+    "homeTeamId": "1L",
+    "awayTeamId": "3EHIJK",
     "venueId": "v8",
     "status": "scheduled",
     "homeScore": null,
@@ -1041,7 +1041,7 @@
   },
   {
     "id": "m89",
-    "date": "2026-07-04T04:00:00.000Z",
+    "date": "2026-07-04T16:00:00.000Z",
     "stage": "Round of 16",
     "homeTeamId": "W74",
     "awayTeamId": "W77",
@@ -1052,7 +1052,7 @@
   },
   {
     "id": "m90",
-    "date": "2026-07-04T07:00:00.000Z",
+    "date": "2026-07-05T01:00:00.000Z",
     "stage": "Round of 16",
     "homeTeamId": "W73",
     "awayTeamId": "W75",
@@ -1063,7 +1063,7 @@
   },
   {
     "id": "m91",
-    "date": "2026-07-05T04:00:00.000Z",
+    "date": "2026-07-05T16:00:00.000Z",
     "stage": "Round of 16",
     "homeTeamId": "W76",
     "awayTeamId": "W78",
@@ -1074,7 +1074,7 @@
   },
   {
     "id": "m92",
-    "date": "2026-07-05T07:00:00.000Z",
+    "date": "2026-07-06T02:00:00.000Z",
     "stage": "Round of 16",
     "homeTeamId": "W79",
     "awayTeamId": "W80",
@@ -1085,7 +1085,7 @@
   },
   {
     "id": "m93",
-    "date": "2026-07-06T07:00:00.000Z",
+    "date": "2026-07-06T17:00:00.000Z",
     "stage": "Round of 16",
     "homeTeamId": "W83",
     "awayTeamId": "W84",
@@ -1096,7 +1096,7 @@
   },
   {
     "id": "m94",
-    "date": "2026-07-06T10:00:00.000Z",
+    "date": "2026-07-07T03:00:00.000Z",
     "stage": "Round of 16",
     "homeTeamId": "W81",
     "awayTeamId": "W82",
@@ -1107,7 +1107,7 @@
   },
   {
     "id": "m95",
-    "date": "2026-07-07T07:00:00.000Z",
+    "date": "2026-07-07T16:00:00.000Z",
     "stage": "Round of 16",
     "homeTeamId": "W86",
     "awayTeamId": "W88",
@@ -1118,7 +1118,7 @@
   },
   {
     "id": "m96",
-    "date": "2026-07-07T10:00:00.000Z",
+    "date": "2026-07-08T03:00:00.000Z",
     "stage": "Round of 16",
     "homeTeamId": "W85",
     "awayTeamId": "W87",
@@ -1129,7 +1129,7 @@
   },
   {
     "id": "m97",
-    "date": "2026-07-09T07:00:00.000Z",
+    "date": "2026-07-10T00:00:00.000Z",
     "stage": "Quarter-finals",
     "homeTeamId": "W89",
     "awayTeamId": "W90",
@@ -1140,7 +1140,7 @@
   },
   {
     "id": "m98",
-    "date": "2026-07-10T07:00:00.000Z",
+    "date": "2026-07-11T03:00:00.000Z",
     "stage": "Quarter-finals",
     "homeTeamId": "W93",
     "awayTeamId": "W94",
@@ -1151,7 +1151,7 @@
   },
   {
     "id": "m99",
-    "date": "2026-07-11T07:00:00.000Z",
+    "date": "2026-07-11T16:00:00.000Z",
     "stage": "Quarter-finals",
     "homeTeamId": "W91",
     "awayTeamId": "W92",
@@ -1162,7 +1162,7 @@
   },
   {
     "id": "m100",
-    "date": "2026-07-11T10:00:00.000Z",
+    "date": "2026-07-12T01:00:00.000Z",
     "stage": "Quarter-finals",
     "homeTeamId": "W95",
     "awayTeamId": "W96",
@@ -1173,7 +1173,7 @@
   },
   {
     "id": "m101",
-    "date": "2026-07-14T20:00:00.000Z",
+    "date": "2026-07-15T01:00:00.000Z",
     "stage": "Semi-finals",
     "homeTeamId": "W97",
     "awayTeamId": "W98",
@@ -1184,7 +1184,7 @@
   },
   {
     "id": "m102",
-    "date": "2026-07-15T20:00:00.000Z",
+    "date": "2026-07-16T00:00:00.000Z",
     "stage": "Semi-finals",
     "homeTeamId": "W99",
     "awayTeamId": "W100",
@@ -1195,7 +1195,7 @@
   },
   {
     "id": "m103",
-    "date": "2026-07-18T20:00:00.000Z",
+    "date": "2026-07-19T00:00:00.000Z",
     "stage": "Third place",
     "homeTeamId": "L101",
     "awayTeamId": "L102",
@@ -1206,7 +1206,7 @@
   },
   {
     "id": "m104",
-    "date": "2026-07-19T15:00:00.000Z",
+    "date": "2026-07-19T19:00:00.000Z",
     "stage": "Final",
     "homeTeamId": "W101",
     "awayTeamId": "W102",

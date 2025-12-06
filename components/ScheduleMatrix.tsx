@@ -48,8 +48,8 @@ export const ScheduleMatrix: React.FC<ScheduleMatrixProps> = ({ matches }) => {
   const dateFormat = language === 'zh' ? 'MMMdo EEE' : 'EEE d MMM';
 
   // Define date range: June 11 to July 19, 2026
-  const startDate = new Date(2026, 5, 11); // June 11
-  const endDate = new Date(2026, 6, 19);   // July 19
+  const startDate = new Date(matches[0].date); // June 11
+  const endDate = new Date(matches[matches.length - 1].date);   // July 19
   const days = eachDayOfInterval({ start: startDate, end: endDate });
 
   // Group venues by region
@@ -66,13 +66,13 @@ export const ScheduleMatrix: React.FC<ScheduleMatrixProps> = ({ matches }) => {
           <thead>
             <tr>
               {/* Region Column Header */}
-              <th 
+              <th
                 className="sticky left-0 z-30 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md p-2 border-b border-r border-gray-200/50 dark:border-gray-700/50 rounded-tl-xl shadow-[2px_0_5px_-2px_rgba(0,0,0,0.1)]"
                 style={{ width: '40px', minWidth: '40px', maxWidth: '40px' }}
               >
               </th>
               {/* Venue Column Header */}
-              <th 
+              <th
                 className="sticky left-10 z-30 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md p-2 border-b border-r border-gray-200/50 dark:border-gray-700/50 text-left text-xs font-bold text-gray-500 uppercase tracking-wider shadow-[2px_0_5px_-2px_rgba(0,0,0,0.1)]"
                 style={{ minWidth: '200px' }}
               >
@@ -96,8 +96,8 @@ export const ScheduleMatrix: React.FC<ScheduleMatrixProps> = ({ matches }) => {
                 <tr key={venue.id} className="group hover:bg-white/30 dark:hover:bg-gray-800/30 transition-colors">
                   {/* Region Label (RowSpan) */}
                   {index === 0 && (
-                    <td 
-                      rowSpan={regionVenues.length} 
+                    <td
+                      rowSpan={regionVenues.length}
                       className={clsx(
                         "sticky left-0 z-20 backdrop-blur-md border-b border-r border-gray-300 dark:border-gray-600 text-center align-middle p-0 shadow-[2px_0_5px_-2px_rgba(0,0,0,0.1)]",
                         REGION_COLORS[region]
@@ -111,9 +111,9 @@ export const ScheduleMatrix: React.FC<ScheduleMatrixProps> = ({ matches }) => {
                       </div>
                     </td>
                   )}
-                  
+
                   {/* Venue Name */}
-                  <td 
+                  <td
                     className={clsx(
                       "sticky left-10 z-10 backdrop-blur-md p-2 border-b border-r border-gray-300 dark:border-gray-600 text-xs font-medium shadow-[2px_0_5px_-2px_rgba(0,0,0,0.1)]",
                       REGION_COLORS[region],
@@ -131,34 +131,34 @@ export const ScheduleMatrix: React.FC<ScheduleMatrixProps> = ({ matches }) => {
 
                   {/* Matches Grid */}
                   {days.map(day => {
-                    const dayMatches = matches.filter(m => 
+                    const dayMatches = matches.filter(m =>
                       m.venueId === venue.id && isSameDay(new Date(m.date), day)
                     );
-                    
+
                     return (
                       <td key={day.toISOString()} className="border-b border-r border-gray-300 dark:border-gray-600 p-1 h-16 relative">
                         {dayMatches.map(match => {
-                          const colorClass = match.group 
-                            ? GROUP_COLORS[match.group] 
+                          const colorClass = match.group
+                            ? GROUP_COLORS[match.group]
                             : STAGE_COLORS[match.stage] || 'bg-gray-500';
-                          
+
                           const home = teams.find(t => t.id === match.homeTeamId);
                           const away = teams.find(t => t.id === match.awayTeamId);
-                          
-                          const homeName = language === 'zh' 
-                            ? (home ? (teamNames[home.code] || home.name) : (match.homeTeamId.match(/^(W|L|[123][A-L])/) ? match.homeTeamId : '待定')) 
+
+                          const homeName = language === 'zh'
+                            ? (home ? (teamNames[home.code] || home.name) : (match.homeTeamId.match(/^(W|L|[123][A-L])/) ? match.homeTeamId : '待定'))
                             : (home?.name || (match.homeTeamId.match(/^(W|L|[123][A-L])/) ? match.homeTeamId : 'TBD'));
-                          const awayName = language === 'zh' 
-                            ? (away ? (teamNames[away.code] || away.name) : (match.awayTeamId.match(/^(W|L|[123][A-L])/) ? match.awayTeamId : '待定')) 
+                          const awayName = language === 'zh'
+                            ? (away ? (teamNames[away.code] || away.name) : (match.awayTeamId.match(/^(W|L|[123][A-L])/) ? match.awayTeamId : '待定'))
                             : (away?.name || (match.awayTeamId.match(/^(W|L|[123][A-L])/) ? match.awayTeamId : 'TBD'));
                           const stageName = match.group ? `${t.group} ${match.group}` : match.stage;
-                          
+
                           const homeCode = home?.code || (match.homeTeamId.match(/^(W|L|[123][A-L])/) ? match.homeTeamId : (language === 'zh' ? '?' : 'TBD'));
                           const awayCode = away?.code || (match.awayTeamId.match(/^(W|L|[123][A-L])/) ? match.awayTeamId : (language === 'zh' ? '?' : 'TBD'));
                           const matchTime = format(new Date(match.date), 'HH:mm');
 
                           return (
-                            <div 
+                            <div
                               key={match.id}
                               className={clsx(
                                 "w-full h-full rounded shadow-sm flex flex-col items-center justify-between text-white font-bold p-0.5 py-1 cursor-pointer hover:scale-110 transition-transform z-0 hover:z-10 overflow-hidden",
