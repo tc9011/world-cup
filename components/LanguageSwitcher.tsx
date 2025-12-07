@@ -14,7 +14,7 @@ export const LanguageSwitcher: React.FC = () => {
         className={clsx(
           "px-2 py-1 text-[10px] md:text-xs font-medium rounded-md transition-all",
           language === 'en'
-            ? "bg-linear-to-r from-primary to-accent text-white shadow-md shadow-primary/20"
+            ? "bg-linear-to-r from-primary to-accent text-primary-foreground shadow-md shadow-primary/20"
             : "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200"
         )}
       >
@@ -25,7 +25,7 @@ export const LanguageSwitcher: React.FC = () => {
         className={clsx(
           "px-2 py-1 text-[10px] md:text-xs font-medium rounded-md transition-all",
           language === 'zh'
-            ? "bg-linear-to-r from-primary to-accent text-white shadow-md shadow-primary/20"
+            ? "bg-linear-to-r from-primary to-accent text-primary-foreground shadow-md shadow-primary/20"
             : "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200"
         )}
       >
