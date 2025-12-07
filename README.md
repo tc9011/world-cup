@@ -70,6 +70,16 @@ A comprehensive, interactive guide for the **2026 FIFA World Cup** (United State
 4. **Open your browser**
    Navigate to [http://localhost:3000](http://localhost:3000).
 
+## ☁️ Deployment
+
+The easiest way to deploy this Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme).
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Ftc9011%2Fworld-cup)
+
+1. Push your code to a GitHub repository.
+2. Import your project into Vercel.
+3. Vercel will automatically detect the Next.js configuration and deploy.
+
 ## 📂 Project Structure
 
 ```
