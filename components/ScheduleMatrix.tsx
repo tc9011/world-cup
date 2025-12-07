@@ -42,14 +42,34 @@ const STAGE_COLORS: Record<string, string> = {
 };
 
 export const ScheduleMatrix: React.FC<ScheduleMatrixProps> = ({ matches }) => {
-  const { language } = useStore();
+  const { language, timezoneMode } = useStore();
   const t = translations[language];
   const dateLocale = language === 'zh' ? zhCN : enUS;
   const dateFormat = language === 'zh' ? 'MMMdo EEE' : 'EEE d MMM';
 
-  // Define date range: June 11 to July 19, 2026
-  const startDate = new Date(matches[0].date); // June 11
-  const endDate = new Date(matches[matches.length - 1].date);   // July 19
+  // Helper to get display date based on timezone mode
+  const getDisplayDate = (date: Date, timezone: string | undefined) => {
+    if (timezoneMode === 'local' || !timezone) return date;
+    
+    const parts = new Intl.DateTimeFormat('en-US', {
+      timeZone: timezone,
+      year: 'numeric', month: 'numeric', day: 'numeric',
+      hour: 'numeric', minute: 'numeric', second: 'numeric',
+      hour12: false
+    }).formatToParts(date);
+    
+    const part = (type: string) => parseInt(parts.find(p => p.type === type)?.value || '0');
+    return new Date(part('year'), part('month') - 1, part('day'), part('hour'), part('minute'), part('second'));
+  };
+
+  // Calculate date range based on displayed dates to ensure all matches are visible in the current timezone mode
+  const displayDates = matches.map(m => {
+    const venue = venues.find(v => v.id === m.venueId);
+    return getDisplayDate(new Date(m.date), venue?.timezone);
+  });
+
+  const startDate = new Date(Math.min(...displayDates.map(d => d.getTime())));
+  const endDate = new Date(Math.max(...displayDates.map(d => d.getTime())));
   const days = eachDayOfInterval({ start: startDate, end: endDate });
 
   // Group venues by region
@@ -67,12 +87,12 @@ export const ScheduleMatrix: React.FC<ScheduleMatrixProps> = ({ matches }) => {
             <tr>
               {/* Region Column Header */}
               <th
-                className="sticky left-0 z-30 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md p-2 border-b border-r border-gray-200/50 dark:border-gray-700/50 rounded-tl-xl shadow-[2px_0_5px_-2px_rgba(0,0,0,0.1)] w-[30px] min-w-[30px] max-w-[30px] md:w-[40px] md:min-w-[40px] md:max-w-[40px]"
+                className="sticky left-0 z-30 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md p-2 border-b border-r border-gray-200/50 dark:border-gray-700/50 rounded-tl-xl shadow-[2px_0_5px_-2px_rgba(0,0,0,0.1)] w-[30px] min-w-[30px] max-w-[30px] md:w-10 md:min-w-10 md:max-w-10"
               >
               </th>
               {/* Venue Column Header */}
               <th
-                className="sticky left-[30px] md:left-[40px] z-30 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md p-2 border-b border-r border-gray-200/50 dark:border-gray-700/50 text-left text-xs font-bold text-gray-500 uppercase tracking-wider shadow-[2px_0_5px_-2px_rgba(0,0,0,0.1)] min-w-[120px] md:min-w-[200px]"
+                className="sticky left-[30px] md:left-10 z-30 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md p-2 border-b border-r border-gray-200/50 dark:border-gray-700/50 text-left text-xs font-bold text-gray-500 uppercase tracking-wider shadow-[2px_0_5px_-2px_rgba(0,0,0,0.1)] min-w-[120px] md:min-w-[200px]"
               >
                 {t.venueDate}
               </th>
@@ -97,7 +117,7 @@ export const ScheduleMatrix: React.FC<ScheduleMatrixProps> = ({ matches }) => {
                     <td
                       rowSpan={regionVenues.length}
                       className={clsx(
-                        "sticky left-0 z-20 backdrop-blur-md border-b border-r border-gray-300 dark:border-gray-600 text-center align-middle p-0 shadow-[2px_0_5px_-2px_rgba(0,0,0,0.1)] w-[30px] min-w-[30px] max-w-[30px] md:w-[40px] md:min-w-[40px] md:max-w-[40px]",
+                        "sticky left-0 z-20 backdrop-blur-md border-b border-r border-gray-300 dark:border-gray-600 text-center align-middle p-0 shadow-[2px_0_5px_-2px_rgba(0,0,0,0.1)] w-[30px] min-w-[30px] max-w-[30px] md:w-10 md:min-w-10 md:max-w-10",
                         REGION_COLORS[region]
                       )}
                     >
@@ -112,7 +132,7 @@ export const ScheduleMatrix: React.FC<ScheduleMatrixProps> = ({ matches }) => {
                   {/* Venue Name */}
                   <td
                     className={clsx(
-                      "sticky left-[30px] md:left-[40px] z-10 backdrop-blur-md p-2 border-b border-r border-gray-300 dark:border-gray-600 text-xs font-medium shadow-[2px_0_5px_-2px_rgba(0,0,0,0.1)] min-w-[120px] md:min-w-[200px]",
+                      "sticky left-[30px] md:left-10 z-10 backdrop-blur-md p-2 border-b border-r border-gray-300 dark:border-gray-600 text-xs font-medium shadow-[2px_0_5px_-2px_rgba(0,0,0,0.1)] min-w-[120px] md:min-w-[200px]",
                       REGION_COLORS[region],
                       "group-hover:brightness-95 transition-all"
                     )}
@@ -127,9 +147,11 @@ export const ScheduleMatrix: React.FC<ScheduleMatrixProps> = ({ matches }) => {
 
                   {/* Matches Grid */}
                   {days.map(day => {
-                    const dayMatches = matches.filter(m =>
-                      m.venueId === venue.id && isSameDay(new Date(m.date), day)
-                    );
+                    const dayMatches = matches.filter(m => {
+                      if (m.venueId !== venue.id) return false;
+                      const displayDate = getDisplayDate(new Date(m.date), venue.timezone);
+                      return isSameDay(displayDate, day);
+                    });
 
                     return (
                       <td key={day.toISOString()} className="border-b border-r border-gray-300 dark:border-gray-600 p-1 h-20 md:h-24 relative">
@@ -151,7 +173,9 @@ export const ScheduleMatrix: React.FC<ScheduleMatrixProps> = ({ matches }) => {
 
                           const homeCode = home?.code || (match.homeTeamId.match(/^(W|L|[123][A-L])/) ? match.homeTeamId : (language === 'zh' ? '?' : 'TBD'));
                           const awayCode = away?.code || (match.awayTeamId.match(/^(W|L|[123][A-L])/) ? match.awayTeamId : (language === 'zh' ? '?' : 'TBD'));
-                          const matchTime = format(new Date(match.date), 'HH:mm');
+                          
+                          const displayDate = getDisplayDate(new Date(match.date), venue.timezone);
+                          const matchTime = format(displayDate, 'HH:mm');
                           const matchIdDisplay = match.id.replace(/^m/, '');
 
                           return (

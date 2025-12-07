@@ -25,8 +25,25 @@ export const CalendarView: React.FC<CalendarViewProps> = ({ matches }) => {
 };
 
 const MonthGrid: React.FC<{ monthStart: Date; matches: Match[] }> = ({ monthStart, matches }) => {
-  const { language } = useStore();
+  const { language, timezoneMode } = useStore();
   const dateLocale = language === 'zh' ? zhCN : enUS;
+
+  // Helper to get display date based on timezone mode
+  const getDisplayDate = (date: Date, venueId: string) => {
+    if (timezoneMode === 'local') return date;
+    const venue = venues.find(v => v.id === venueId);
+    if (!venue?.timezone) return date;
+    
+    const parts = new Intl.DateTimeFormat('en-US', {
+      timeZone: venue.timezone,
+      year: 'numeric', month: 'numeric', day: 'numeric',
+      hour: 'numeric', minute: 'numeric', second: 'numeric',
+      hour12: false
+    }).formatToParts(date);
+    
+    const part = (type: string) => parseInt(parts.find(p => p.type === type)?.value || '0');
+    return new Date(part('year'), part('month') - 1, part('day'), part('hour'), part('minute'), part('second'));
+  };
 
   const monthEnd = endOfMonth(monthStart);
   const days = eachDayOfInterval({ start: monthStart, end: monthEnd });
@@ -65,7 +82,10 @@ const MonthGrid: React.FC<{ monthStart: Date; matches: Match[] }> = ({ monthStar
             ))}
 
             {days.map(day => {
-              const dayMatches = matches.filter(m => isSameDay(new Date(m.date), day));
+              const dayMatches = matches.filter(m => {
+                const displayDate = getDisplayDate(new Date(m.date), m.venueId);
+                return isSameDay(displayDate, day);
+              });
               const isToday = isSameDay(day, new Date());
               
               return (
@@ -95,12 +115,14 @@ const MonthGrid: React.FC<{ monthStart: Date; matches: Match[] }> = ({ monthStar
                       const venue = venues.find(v => v.id === match.venueId);
                       const venueName = language === 'zh' ? (venue ? (cityNames[venue.city] || venue.city) : '') : (venue?.city || '');
 
+                      const displayDate = getDisplayDate(new Date(match.date), match.venueId);
+
                       return (
                         <div key={match.id} className="bg-white dark:bg-gray-700 rounded-lg shadow-sm border border-gray-100 dark:border-gray-600 p-2 hover:shadow-md hover:border-blue-300 dark:hover:border-blue-500 transition-all cursor-pointer group/card">
                           {/* Header: Time & Group */}
                           <div className="flex justify-between items-center text-[10px] text-gray-500 dark:text-gray-400 mb-1.5 border-b border-gray-100 dark:border-gray-600/50 pb-1">
                             <span className="font-bold text-gray-900 dark:text-white bg-gray-100 dark:bg-gray-600 px-1 rounded">
-                              {format(new Date(match.date), 'HH:mm')}
+                              {format(displayDate, 'HH:mm')}
                             </span>
                             <span>{match.group ? `${language === 'zh' ? '组' : 'Grp'} ${match.group}` : (language === 'zh' ? '淘汰赛' : 'KO')}</span>
                           </div>

@@ -23,6 +23,10 @@ export const translations = {
     allMatches: 'All Matches',
     group: 'Group',
     venueDate: 'Venue / Date',
+    timezone: {
+      local: 'My Time',
+      venue: 'Venue Time',
+    },
     westernRegion: 'Western Region',
     centralRegion: 'Central Region',
     easternRegion: 'Eastern Region',
@@ -61,6 +65,10 @@ export const translations = {
     allMatches: '全部比赛',
     group: '小组',
     venueDate: '场馆 / 日期',
+    timezone: {
+      local: '我的时间',
+      venue: '当地时间',
+    },
     westernRegion: '西部赛区',
     centralRegion: '中部赛区',
     easternRegion: '东部赛区',

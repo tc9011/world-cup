@@ -3,16 +3,36 @@ import { Match } from '../types';
 import { format } from 'date-fns';
 import { MapPin, Calendar, Clock } from 'lucide-react';
 import { teams, venues } from '../data/worldCupData';
+import { useStore } from '../store/useStore';
 
 interface MatchCardProps {
   match: Match;
 }
 
 export const MatchCard: React.FC<MatchCardProps> = ({ match }) => {
+  const { timezoneMode } = useStore();
   const homeTeam = teams.find(t => t.id === match.homeTeamId);
   const awayTeam = teams.find(t => t.id === match.awayTeamId);
   const venue = venues.find(v => v.id === match.venueId);
-  const matchDate = new Date(match.date);
+  
+  // Helper to get display date based on timezone mode
+  const getDisplayDate = (date: Date, venueId: string) => {
+    if (timezoneMode === 'local') return date;
+    const venue = venues.find(v => v.id === venueId);
+    if (!venue?.timezone) return date;
+    
+    const parts = new Intl.DateTimeFormat('en-US', {
+      timeZone: venue.timezone,
+      year: 'numeric', month: 'numeric', day: 'numeric',
+      hour: 'numeric', minute: 'numeric', second: 'numeric',
+      hour12: false
+    }).formatToParts(date);
+    
+    const part = (type: string) => parseInt(parts.find(p => p.type === type)?.value || '0');
+    return new Date(part('year'), part('month') - 1, part('day'), part('hour'), part('minute'), part('second'));
+  };
+
+  const matchDate = getDisplayDate(new Date(match.date), match.venueId);
 
   return (
     <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-4 hover:shadow-md transition-shadow">

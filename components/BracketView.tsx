@@ -90,8 +90,26 @@ const Column: React.FC<{ matches: Match[]; title: string; spacer?: boolean }> = 
 };
 
 const MatchCard: React.FC<{ match: Match; isFinal?: boolean }> = ({ match, isFinal }) => {
-  const { language } = useStore();
+  const { language, timezoneMode } = useStore();
   const dateLocale = language === 'zh' ? zhCN : enUS;
+
+  const getDisplayDate = (date: Date, venueId: string) => {
+    if (timezoneMode === 'local') return date;
+    const venue = venues.find(v => v.id === venueId);
+    if (!venue?.timezone) return date;
+    
+    const parts = new Intl.DateTimeFormat('en-US', {
+      timeZone: venue.timezone,
+      year: 'numeric', month: 'numeric', day: 'numeric',
+      hour: 'numeric', minute: 'numeric', second: 'numeric',
+      hour12: false
+    }).formatToParts(date);
+    
+    const part = (type: string) => parseInt(parts.find(p => p.type === type)?.value || '0');
+    return new Date(part('year'), part('month') - 1, part('day'), part('hour'), part('minute'), part('second'));
+  };
+
+  const displayDate = getDisplayDate(new Date(match.date), match.venueId);
 
   const home = teams.find(t => t.id === match.homeTeamId);
   const away = teams.find(t => t.id === match.awayTeamId);
@@ -109,7 +127,7 @@ const MatchCard: React.FC<{ match: Match; isFinal?: boolean }> = ({ match, isFin
     )}>
       <div className="text-[10px] text-gray-400 mb-1 flex justify-between">
         <span>{match.id.toUpperCase()}</span>
-        <span>{format(new Date(match.date), 'MMM d', { locale: dateLocale })}</span>
+        <span>{format(displayDate, 'MMM d', { locale: dateLocale })}</span>
       </div>
       <div className="flex flex-col gap-1 mb-1">
         <div className="flex items-center justify-between">

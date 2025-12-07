@@ -11,6 +11,7 @@ import { ViewSwitcher } from '../components/ViewSwitcher';
 import { FilterBar } from '../components/FilterBar';
 import { TeamSelector } from '../components/TeamSelector';
 import { LanguageSwitcher } from '../components/LanguageSwitcher';
+import { TimezoneSwitcher } from '../components/TimezoneSwitcher';
 import Image from 'next/image';
 import { translations } from '../data/locales';
 
@@ -48,7 +49,10 @@ export default function Home() {
                 <p className="text-xs md:text-base text-gray-500 dark:text-gray-400 font-medium mt-0.5 md:mt-1">{t.subtitle}</p>
               </div>
             </div>
-            <LanguageSwitcher />
+            <div className="flex flex-col md:flex-row items-end md:items-center gap-2">
+              <TimezoneSwitcher />
+              <LanguageSwitcher />
+            </div>
           </div>
 
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 pt-2 border-t border-gray-200/50 dark:border-gray-700/50">
