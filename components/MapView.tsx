@@ -19,9 +19,10 @@ interface MapViewProps {
 }
 
 export const MapView: React.FC<MapViewProps> = ({ matches: filteredMatches }) => {
-  const { language, timezoneMode } = useStore();
+  const { language, timezoneMode, themeMode } = useStore();
   const [selectedVenue, setSelectedVenue] = useState<Venue | null>(null);
   const [mounted, setMounted] = useState(false);
+  const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -29,6 +30,32 @@ export const MapView: React.FC<MapViewProps> = ({ matches: filteredMatches }) =>
     }, 0);
     return () => clearTimeout(timer);
   }, []);
+
+  useEffect(() => {
+    const checkDark = () => {
+      if (themeMode === 'system') {
+        return window.matchMedia('(prefers-color-scheme: dark)').matches;
+      }
+      return themeMode === 'dark';
+    };
+
+    // Use setTimeout to avoid synchronous state update warning
+    const timer = setTimeout(() => {
+      setIsDark(checkDark());
+    }, 0);
+
+    if (themeMode === 'system') {
+      const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+      const handler = (e: MediaQueryListEvent) => setIsDark(e.matches);
+      mediaQuery.addEventListener('change', handler);
+      return () => {
+        mediaQuery.removeEventListener('change', handler);
+        clearTimeout(timer);
+      };
+    }
+    
+    return () => clearTimeout(timer);
+  }, [themeMode]);
 
   // Helper to get display date based on timezone mode
   const getDisplayDate = (date: Date, timezone: string | undefined) => {
@@ -77,7 +104,7 @@ export const MapView: React.FC<MapViewProps> = ({ matches: filteredMatches }) =>
           zoom: 3
         }}
         style={{ width: '100%', height: '100%' }}
-        mapStyle="mapbox://styles/mapbox/streets-v12"
+        mapStyle={isDark ? "mapbox://styles/mapbox/dark-v11" : "mapbox://styles/mapbox/streets-v12"}
         mapboxAccessToken={MAPBOX_TOKEN}
       >
         <NavigationControl position="top-right" />
