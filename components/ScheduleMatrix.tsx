@@ -83,24 +83,24 @@ export const ScheduleMatrix: React.FC<ScheduleMatrixProps> = ({ matches }) => {
   }, {} as Record<typeof regions[number], Venue[]>);
 
   return (
-    <div className="overflow-x-auto pb-4 rounded-xl">
+    <div className="overflow-auto pb-4 rounded-xl max-h-[75vh]">
       <div className="min-w-[2000px]"> {/* Ensure horizontal scroll */}
         <table className="w-full border-collapse border-spacing-0">
           <thead>
             <tr>
               {/* Region Column Header */}
               <th
-                className="sticky left-0 z-30 bg-white/95 dark:bg-black/95 backdrop-blur-md p-2 border-b border-r border-gray-200/50 dark:border-primary/20 rounded-tl-xl shadow-[2px_0_5px_-2px_rgba(0,0,0,0.1)] w-[30px] min-w-[30px] max-w-[30px] md:w-10 md:min-w-10 md:max-w-10"
+                className="sticky left-0 top-0 z-50 bg-white/95 dark:bg-black/95 backdrop-blur-md p-2 border-b border-r border-gray-200/50 dark:border-primary/20 rounded-tl-xl shadow-[2px_0_5px_-2px_rgba(0,0,0,0.1)] w-[30px] min-w-[30px] max-w-[30px] md:w-10 md:min-w-10 md:max-w-10"
               >
               </th>
               {/* Venue Column Header */}
               <th
-                className="sticky left-[30px] md:left-10 z-30 bg-white/95 dark:bg-black/95 backdrop-blur-md p-2 border-b border-r border-gray-200/50 dark:border-primary/20 text-left text-xs font-bold text-gray-500 dark:text-primary/80 uppercase tracking-wider shadow-[2px_0_5px_-2px_rgba(0,0,0,0.1)] w-[90px] min-w-[90px] max-w-[90px] md:w-40 md:min-w-40 md:max-w-40"
+                className="sticky left-[30px] md:left-10 top-0 z-50 bg-white/95 dark:bg-black/95 backdrop-blur-md p-2 border-b border-r border-gray-200/50 dark:border-primary/20 text-left text-xs font-bold text-gray-500 dark:text-primary/80 uppercase tracking-wider shadow-[2px_0_5px_-2px_rgba(0,0,0,0.1)] w-[90px] min-w-[90px] max-w-[90px] md:w-40 md:min-w-40 md:max-w-40"
               >
                 {t.venueDate}
               </th>
               {days.map(day => (
-                <th key={day.toISOString()} className="p-1 border-b border-r border-gray-300 dark:border-primary/20 min-w-10 text-center bg-white/50 dark:bg-black/50 align-bottom pb-2 h-24 md:h-32">
+                <th key={day.toISOString()} className="sticky top-0 z-40 p-1 border-b border-r border-gray-300 dark:border-primary/20 min-w-10 text-center bg-white/95 dark:bg-black/95 backdrop-blur-md align-bottom pb-2 h-24 md:h-32">
                   <div className="flex items-center justify-center h-full w-full">
                     <span className="text-[10px] text-gray-500 dark:text-primary/60 font-medium whitespace-nowrap -rotate-90">
                       {format(day, dateFormat, { locale: dateLocale })}
