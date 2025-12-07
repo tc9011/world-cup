@@ -7,6 +7,7 @@ import { CalendarView } from '../components/CalendarView';
 import { ScheduleMatrix } from '../components/ScheduleMatrix';
 import { BracketView } from '../components/BracketView';
 import { StandingsView } from '../components/StandingsView';
+import { MapView } from '../components/MapView';
 import { ViewSwitcher } from '../components/ViewSwitcher';
 import { FilterBar } from '../components/FilterBar';
 import { TeamSelector } from '../components/TeamSelector';
@@ -86,6 +87,7 @@ export default function Home() {
           {viewMode === 'calendar' && <CalendarView matches={filteredMatches} />}
           {viewMode === 'bracket' && <BracketView matches={matches} />}
           {viewMode === 'standings' && <StandingsView matches={matches} />}
+          {viewMode === 'map' && <MapView matches={filteredMatches} />}
         </div>
 
         <footer className="text-center text-sm text-gray-500 dark:text-gray-400 py-8">

@@ -6,6 +6,7 @@ export const translations = {
     calendarView: 'Calendar View',
     bracketView: 'Bracket View',
     standingsView: 'Standings',
+    mapView: 'Map View',
     filterByTeam: 'Filter by Team:',
     standings: {
       rank: 'Pos',
@@ -48,7 +49,8 @@ export const translations = {
     calendarView: '日历视图',
     bracketView: '淘汰赛视图',
     standingsView: '积分榜',
-    filterByTeam: '按球队筛选:',
+    mapView: '地图视图',
+    filterByTeam: '按球队筛选：',
     standings: {
       rank: '排名',
       team: '球队',

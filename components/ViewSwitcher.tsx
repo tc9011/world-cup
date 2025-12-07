@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStore } from '../store/useStore';
-import { LayoutList, Calendar as CalendarIcon, GitMerge, Table2 } from 'lucide-react';
+import { LayoutList, Calendar as CalendarIcon, GitMerge, Table2, Map } from 'lucide-react';
 import clsx from 'clsx';
 import { translations } from '../data/locales';
 
@@ -57,6 +57,18 @@ export const ViewSwitcher: React.FC = () => {
       >
         <Table2 size={16} className="mr-2" />
         {t.standingsView}
+      </button>
+      <button
+        onClick={() => setViewMode('map')}
+        className={clsx(
+          "flex items-center px-4 py-2 rounded-lg text-sm font-medium transition-all whitespace-nowrap",
+          viewMode === 'map'
+            ? "bg-linear-to-r from-primary to-accent text-primary-foreground shadow-md shadow-primary/20"
+            : "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 hover:bg-white/50 dark:hover:bg-gray-700/50"
+        )}
+      >
+        <Map size={16} className="mr-2" />
+        {t.mapView}
       </button>
     </div>
   );

@@ -12,6 +12,10 @@ export interface Venue {
   city: string;
   timezone: string; // e.g., "America/New_York"
   region: 'Western' | 'Central' | 'Eastern';
+  coordinates?: {
+    lat: number;
+    lng: number;
+  };
 }
 
 export interface Match {
@@ -27,4 +31,4 @@ export interface Match {
   status: 'scheduled' | 'live' | 'finished';
 }
 
-export type ViewMode = 'list' | 'calendar' | 'bracket' | 'standings';
+export type ViewMode = 'list' | 'calendar' | 'bracket' | 'standings' | 'map';
