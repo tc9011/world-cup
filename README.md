@@ -13,6 +13,7 @@ A comprehensive, interactive guide for the **2026 FIFA World Cup** (United State
 - **📅 Multi-View Schedule**
   - **List View**: Comprehensive matrix of matches by venue and date.
   - **Calendar View**: Monthly calendar grid for quick date-based navigation.
+  - **Map View**: Interactive map showing venue locations and match details.
   - **Bracket View**: Interactive visualization of the knockout stages.
   - **Standings View**: Real-time group stage tables.
 
@@ -35,6 +36,7 @@ A comprehensive, interactive guide for the **2026 FIFA World Cup** (United State
 - **UI Library**: [React 19](https://react.dev/)
 - **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
 - **State Management**: [Zustand](https://github.com/pmndrs/zustand) (with persistence)
+- **Maps**: [Mapbox GL JS](https://docs.mapbox.com/mapbox-gl-js/) & [React Map GL](https://visgl.github.io/react-map-gl/)
 - **Icons**: [Lucide React](https://lucide.dev/)
 - **Utilities**: `date-fns`, `html-to-image`, `qrcode`
 
@@ -61,6 +63,13 @@ A comprehensive, interactive guide for the **2026 FIFA World Cup** (United State
    ```
 
 3. **Run the development server**
+   
+   Create a `.env.local` file with your Mapbox token:
+   ```bash
+   NEXT_PUBLIC_MAPBOX_TOKEN=your_token_here
+   ```
+
+   Then run the server:
    ```bash
    pnpm dev
    # or

@@ -8,6 +8,7 @@ A comprehensive, interactive guide for the 2026 FIFA World Cup (United States, M
 - **Core**: React 19
 - **Styling**: Tailwind CSS v4 (with custom "Glassmorphism" theme)
 - **State Management**: Zustand (with local storage persistence)
+- **Maps**: Mapbox GL JS, React Map GL
 - **Icons**: Lucide React
 - **Date Handling**: date-fns
 - **Export**: html-to-image, qrcode
@@ -34,6 +35,7 @@ A comprehensive, interactive guide for the 2026 FIFA World Cup (United States, M
 │   ├── FilterBar.tsx       # Group selection
 │   ├── GroupView.tsx       # Group display component
 │   ├── LanguageSwitcher.tsx # EN/ZH toggle
+│   ├── MapView.tsx         # Interactive map view with venue details
 │   ├── MatchCard.tsx       # Reusable match display component
 │   ├── MatchDetailModal.tsx # Detailed match info modal
 │   ├── ScheduleMatrix.tsx  # List view (Venue x Date)
@@ -57,7 +59,7 @@ A comprehensive, interactive guide for the 2026 FIFA World Cup (United States, M
 ```
 
 ## 4. Key Features
-- **Multiple Views**: List, Calendar, Bracket, and Standings views.
+- **Multiple Views**: List, Calendar, Map, Bracket, and Standings views.
 - **Personalization**:
     - **Theming**: Light/Dark mode and Team-specific themes (changes primary colors based on selected team).
     - **Timezone**: Toggle between Local time and Venue time.
