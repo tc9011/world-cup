@@ -1,4 +1,5 @@
 import React from 'react';
+import { createPortal } from 'react-dom';
 import { Match, Team, Venue } from '../types';
 import { useStore } from '../store/useStore';
 import { translations, teamNames, cityNames } from '../data/locales';
@@ -11,13 +12,53 @@ interface MatchDetailModalProps {
   homeTeam?: Team;
   awayTeam?: Team;
   venue?: Venue;
+  position?: { x: number; y: number } | null;
   onClose: () => void;
 }
 
-export const MatchDetailModal: React.FC<MatchDetailModalProps> = ({ match, homeTeam, awayTeam, venue, onClose }) => {
+export const MatchDetailModal: React.FC<MatchDetailModalProps> = ({ match, homeTeam, awayTeam, venue, position, onClose }) => {
+  const [mounted, setMounted] = React.useState(false);
   const { language } = useStore();
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
   const t = translations[language];
   const dateLocale = language === 'zh' ? zhCN : enUS;
+  const modalRef = React.useRef<HTMLDivElement>(null);
+  const [style, setStyle] = React.useState<React.CSSProperties>({});
+
+  React.useLayoutEffect(() => {
+    if (position && modalRef.current) {
+      const { x, y } = position;
+      const { offsetWidth: width, offsetHeight: height } = modalRef.current;
+      const padding = 20;
+
+      let top = y - height / 2;
+      let left = x - width / 2;
+
+      // Clamp to viewport
+      if (left < padding) left = padding;
+      if (left + width > window.innerWidth - padding) left = window.innerWidth - width - padding;
+      if (top < padding) top = padding;
+      if (top + height > window.innerHeight - padding) top = window.innerHeight - height - padding;
+
+      setStyle({
+        position: 'absolute',
+        top: top,
+        left: left,
+        margin: 0,
+        transform: 'none'
+      });
+      
+      // Scroll into view if needed (for the modal itself)
+      // Since we clamped it, it should be in view. 
+      // But if the user wants the *background* to scroll to the modal...
+      // Let's try to scroll the modal element into view smoothly just in case clamping wasn't enough (e.g. mobile browser bars)
+      // modalRef.current.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
+    }
+  }, [position]);
 
   // Helper for team names
   const getTeamName = (team?: Team, placeholderId?: string) => {
@@ -48,9 +89,13 @@ export const MatchDetailModal: React.FC<MatchDetailModalProps> = ({ match, homeT
     }).format(date);
   };
 
-  return (
+  if (!mounted) return null;
+
+  return createPortal(
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200" onClick={onClose}>
       <div 
+        ref={modalRef}
+        style={window.innerWidth >= 768 && position ? style : {}}
         className="relative w-full max-w-lg bg-white dark:bg-gray-900 rounded-3xl shadow-2xl overflow-hidden border border-white/20 dark:border-gray-800 animate-in zoom-in-95 duration-200"
         onClick={e => e.stopPropagation()}
       >
@@ -163,6 +208,7 @@ export const MatchDetailModal: React.FC<MatchDetailModalProps> = ({ match, homeT
           </div>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 };

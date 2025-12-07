@@ -45,6 +45,7 @@ const STAGE_COLORS: Record<string, string> = {
 export const ScheduleMatrix: React.FC<ScheduleMatrixProps> = ({ matches }) => {
   const { language, timezoneMode } = useStore();
   const [selectedMatch, setSelectedMatch] = React.useState<Match | null>(null);
+  const [modalPosition, setModalPosition] = React.useState<{ x: number; y: number } | null>(null);
   const t = translations[language];
   const dateLocale = language === 'zh' ? zhCN : enUS;
   const dateFormat = language === 'zh' ? 'MMMdo EEE' : 'EEE d MMM';
@@ -183,7 +184,14 @@ export const ScheduleMatrix: React.FC<ScheduleMatrixProps> = ({ matches }) => {
                           return (
                             <div
                               key={match.id}
-                              onClick={() => setSelectedMatch(match)}
+                              onClick={(e) => {
+                                const rect = e.currentTarget.getBoundingClientRect();
+                                setModalPosition({
+                                  x: rect.left + rect.width / 2,
+                                  y: rect.top + rect.height / 2
+                                });
+                                setSelectedMatch(match);
+                              }}
                               className={clsx(
                                 "w-full h-full rounded shadow-sm relative text-white font-bold p-1 cursor-pointer hover:scale-110 transition-transform z-0 hover:z-10 overflow-hidden flex flex-col",
                                 colorClass
@@ -228,7 +236,11 @@ export const ScheduleMatrix: React.FC<ScheduleMatrixProps> = ({ matches }) => {
           homeTeam={teams.find(t => t.id === selectedMatch.homeTeamId)}
           awayTeam={teams.find(t => t.id === selectedMatch.awayTeamId)}
           venue={venues.find(v => v.id === selectedMatch.venueId)}
-          onClose={() => setSelectedMatch(null)}
+          position={modalPosition}
+          onClose={() => {
+            setSelectedMatch(null);
+            setModalPosition(null);
+          }}
         />
       )}
     </div>
