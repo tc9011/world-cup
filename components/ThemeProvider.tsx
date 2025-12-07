@@ -5,8 +5,9 @@ import { useStore } from '../store/useStore';
 import { teamColors } from '../data/teamColors';
 
 export const ThemeProvider = () => {
-  const { themeTeamId } = useStore();
+  const { themeTeamId, themeMode } = useStore();
 
+  // Handle Team Theme
   useEffect(() => {
     const root = document.documentElement;
     
@@ -20,6 +21,30 @@ export const ThemeProvider = () => {
       root.style.removeProperty('--accent');
     }
   }, [themeTeamId]);
+
+  // Handle Dark Mode
+  useEffect(() => {
+    const root = document.documentElement;
+    
+    const applyTheme = (isDark: boolean) => {
+      if (isDark) {
+        root.classList.add('dark');
+      } else {
+        root.classList.remove('dark');
+      }
+    };
+
+    if (themeMode === 'system') {
+      const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+      applyTheme(mediaQuery.matches);
+
+      const handler = (e: MediaQueryListEvent) => applyTheme(e.matches);
+      mediaQuery.addEventListener('change', handler);
+      return () => mediaQuery.removeEventListener('change', handler);
+    } else {
+      applyTheme(themeMode === 'dark');
+    }
+  }, [themeMode]);
 
   return null;
 };

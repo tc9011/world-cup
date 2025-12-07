@@ -19,6 +19,8 @@ interface WorldCupState {
   setTimezoneMode: (mode: 'local' | 'venue') => void;
   themeTeamId: string | null;
   setThemeTeamId: (teamId: string | null) => void;
+  themeMode: 'light' | 'dark' | 'system';
+  setThemeMode: (mode: 'light' | 'dark' | 'system') => void;
 }
 
 export const useStore = create<WorldCupState>()(
@@ -45,10 +47,12 @@ export const useStore = create<WorldCupState>()(
       setTimezoneMode: (mode) => set({ timezoneMode: mode }),
       themeTeamId: null,
       setThemeTeamId: (teamId) => set({ themeTeamId: teamId }),
+      themeMode: 'system',
+      setThemeMode: (mode) => set({ themeMode: mode }),
     }),
     {
       name: 'world-cup-storage',
-      partialize: (state) => ({ language: state.language, timezoneMode: state.timezoneMode, themeTeamId: state.themeTeamId }),
+      partialize: (state) => ({ language: state.language, timezoneMode: state.timezoneMode, themeTeamId: state.themeTeamId, themeMode: state.themeMode }),
     }
   )
 );

@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@variant dark (&:where(.dark, .dark *));
+
 :root {
   --background: #f8fafc;
   --foreground: #0f172a;
@@ -17,14 +19,27 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #020617;
-    --foreground: #f8fafc;
-    --primary: #0a84ff;
-    --secondary: #94a3b8;
-    --accent: #22d3ee;
-  }
+:root.dark {
+  --background: #000000;
+  --foreground: #f8fafc;
+  --primary: #D4AF37;
+  --secondary: #9ca3af;
+  --accent: #FFD700;
+}
+
+.dark body {
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(212, 175, 55, 0.15) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(255, 215, 0, 0.15) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(212, 175, 55, 0.15) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(255, 215, 0, 0.15) 0px, transparent 50%);
+}
+
+.dark .world-cup-text-gradient {
+  background: linear-gradient(to right, #D4AF37, #FFD700);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 @layer utilities {
@@ -37,7 +52,7 @@
   }
   
   .glass-panel {
-    @apply bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border border-white/20 dark:border-gray-800/50 shadow-xl;
+    @apply bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border border-white/20 dark:border-primary/20 shadow-xl;
   }
   
   .world-cup-gradient {

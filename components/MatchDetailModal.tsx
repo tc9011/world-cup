@@ -96,7 +96,7 @@ export const MatchDetailModal: React.FC<MatchDetailModalProps> = ({ match, homeT
       <div 
         ref={modalRef}
         style={window.innerWidth >= 768 && position ? style : {}}
-        className="relative w-full max-w-lg bg-white dark:bg-gray-900 rounded-3xl shadow-2xl overflow-hidden border border-white/20 dark:border-gray-800 animate-in zoom-in-95 duration-200"
+        className="relative w-full max-w-lg bg-white dark:bg-black rounded-3xl shadow-2xl overflow-hidden border border-white/20 dark:border-primary/30 animate-in zoom-in-95 duration-200"
         onClick={e => e.stopPropagation()}
       >
         {/* Header Background with Gradient */}
