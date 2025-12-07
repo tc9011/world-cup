@@ -111,20 +111,20 @@ export const ExportButton: React.FC<ExportButtonProps> = ({ targetRef }) => {
       };
       processNode(clone);
 
-      // 6. Add Footer
-      const footer = document.createElement('div');
-      footer.style.width = '100%';
-      footer.style.height = '150px';
-      footer.style.display = 'flex';
-      footer.style.justifyContent = 'space-between';
-      footer.style.alignItems = 'center';
-      footer.style.padding = '30px 50px';
-      footer.style.boxSizing = 'border-box';
-      footer.style.background = bgColor;
-      footer.style.borderTop = `1px solid ${borderColor}`;
-      footer.style.color = textColor;
-      footer.style.fontFamily = 'system-ui, -apple-system, sans-serif';
-      footer.style.marginTop = '40px';
+      // 6. Add Header
+      const header = document.createElement('div');
+      header.style.width = '100%';
+      header.style.height = '150px';
+      header.style.display = 'flex';
+      header.style.justifyContent = 'space-between';
+      header.style.alignItems = 'center';
+      header.style.padding = '30px 50px';
+      header.style.boxSizing = 'border-box';
+      header.style.background = bgColor;
+      header.style.borderBottom = `1px solid ${borderColor}`;
+      header.style.color = textColor;
+      header.style.fontFamily = 'system-ui, -apple-system, sans-serif';
+      header.style.marginBottom = '40px';
 
       // Left side
       const textContainer = document.createElement('div');
@@ -163,10 +163,10 @@ export const ExportButton: React.FC<ExportButtonProps> = ({ targetRef }) => {
       qrImage.style.display = 'block';
 
       qrContainer.appendChild(qrImage);
-      footer.appendChild(textContainer);
-      footer.appendChild(qrContainer);
+      header.appendChild(textContainer);
+      header.appendChild(qrContainer);
       
-      clone.appendChild(footer);
+      clone.insertBefore(header, clone.firstChild);
       container.appendChild(clone);
       document.body.appendChild(container);
 
