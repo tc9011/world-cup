@@ -95,7 +95,7 @@ export const ScheduleMatrix: React.FC<ScheduleMatrixProps> = ({ matches }) => {
               </th>
               {/* Venue Column Header */}
               <th
-                className="sticky left-[30px] md:left-10 z-30 bg-white/95 dark:bg-black/95 backdrop-blur-md p-2 border-b border-r border-gray-200/50 dark:border-primary/20 text-left text-xs font-bold text-gray-500 dark:text-primary/80 uppercase tracking-wider shadow-[2px_0_5px_-2px_rgba(0,0,0,0.1)] min-w-[90px] md:min-w-40"
+                className="sticky left-[30px] md:left-10 z-30 bg-white/95 dark:bg-black/95 backdrop-blur-md p-2 border-b border-r border-gray-200/50 dark:border-primary/20 text-left text-xs font-bold text-gray-500 dark:text-primary/80 uppercase tracking-wider shadow-[2px_0_5px_-2px_rgba(0,0,0,0.1)] w-[90px] min-w-[90px] max-w-[90px] md:w-40 md:min-w-40 md:max-w-40"
               >
                 {t.venueDate}
               </th>
@@ -135,7 +135,7 @@ export const ScheduleMatrix: React.FC<ScheduleMatrixProps> = ({ matches }) => {
                   {/* Venue Name */}
                   <td
                     className={clsx(
-                      "sticky left-[30px] md:left-10 z-10 backdrop-blur-md p-2 border-b border-r border-gray-300 dark:border-primary/20 text-xs font-medium shadow-[2px_0_5px_-2px_rgba(0,0,0,0.1)] min-w-[90px] md:min-w-40",
+                      "sticky left-[30px] md:left-10 z-10 backdrop-blur-md p-2 border-b border-r border-gray-300 dark:border-primary/20 text-xs font-medium shadow-[2px_0_5px_-2px_rgba(0,0,0,0.1)] w-[90px] min-w-[90px] max-w-[90px] md:w-40 md:min-w-40 md:max-w-40",
                       REGION_COLORS[region],
                       "group-hover:brightness-95 transition-all"
                     )}
