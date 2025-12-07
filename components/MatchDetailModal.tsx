@@ -92,7 +92,7 @@ export const MatchDetailModal: React.FC<MatchDetailModalProps> = ({ match, homeT
   if (!mounted) return null;
 
   return createPortal(
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200" onClick={onClose}>
+    <div className="fixed inset-0 z-100 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200" onClick={onClose}>
       <div 
         ref={modalRef}
         style={window.innerWidth >= 768 && position ? style : {}}
