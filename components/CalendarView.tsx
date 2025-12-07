@@ -11,9 +11,21 @@ interface CalendarViewProps {
 }
 
 export const CalendarView: React.FC<CalendarViewProps> = ({ matches }) => {
-  const startDate = new Date(new Date(matches[0].date))
-  const endDate = new Date(new Date(matches[matches.length - 1].date))
-  const months = [new Date(startDate.getFullYear(), startDate.getMonth(), 1), new Date(endDate.getFullYear(), endDate.getMonth(), 1)]; // June and July 2026
+  if (matches.length === 0) {
+    return (
+      <div className="flex flex-col items-center justify-center py-12 text-gray-500 dark:text-gray-400">
+        <p className="text-lg">No matches found</p>
+      </div>
+    );
+  }
+
+  // Get unique months from matches
+  const months = Array.from(new Set(matches.map(m => {
+    const date = new Date(m.date);
+    return new Date(date.getFullYear(), date.getMonth(), 1).getTime();
+  })))
+  .sort((a, b) => a - b)
+  .map(time => new Date(time));
 
   return (
     <div className="space-y-8">
