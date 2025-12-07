@@ -13,7 +13,7 @@ export const TimezoneSwitcher: React.FC = () => {
         onClick={() => setTimezoneMode('local')}
         className={`flex items-center px-3 py-1.5 rounded-md text-xs font-medium transition-all ${
           timezoneMode === 'local'
-            ? 'bg-white dark:bg-gray-700 text-blue-600 dark:text-blue-400 shadow-sm'
+            ? 'bg-linear-to-r from-primary to-accent text-white shadow-md shadow-primary/20'
             : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300'
         }`}
       >
@@ -24,7 +24,7 @@ export const TimezoneSwitcher: React.FC = () => {
         onClick={() => setTimezoneMode('venue')}
         className={`flex items-center px-3 py-1.5 rounded-md text-xs font-medium transition-all ${
           timezoneMode === 'venue'
-            ? 'bg-white dark:bg-gray-700 text-blue-600 dark:text-blue-400 shadow-sm'
+            ? 'bg-linear-to-r from-primary to-accent text-white shadow-md shadow-primary/20'
             : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300'
         }`}
       >

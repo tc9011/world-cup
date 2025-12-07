@@ -15,7 +15,7 @@ export const ViewSwitcher: React.FC = () => {
         className={clsx(
           "flex items-center px-4 py-2 rounded-lg text-sm font-medium transition-all whitespace-nowrap",
           viewMode === 'list'
-            ? "bg-white dark:bg-gray-700 text-blue-600 dark:text-blue-400 shadow-sm"
+            ? "bg-linear-to-r from-primary to-accent text-white shadow-md shadow-primary/20"
             : "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 hover:bg-white/50 dark:hover:bg-gray-700/50"
         )}
       >
@@ -27,7 +27,7 @@ export const ViewSwitcher: React.FC = () => {
         className={clsx(
           "flex items-center px-4 py-2 rounded-lg text-sm font-medium transition-all whitespace-nowrap",
           viewMode === 'calendar'
-            ? "bg-white dark:bg-gray-700 text-blue-600 dark:text-blue-400 shadow-sm"
+            ? "bg-linear-to-r from-primary to-accent text-white shadow-md shadow-primary/20"
             : "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 hover:bg-white/50 dark:hover:bg-gray-700/50"
         )}
       >
@@ -39,7 +39,7 @@ export const ViewSwitcher: React.FC = () => {
         className={clsx(
           "flex items-center px-4 py-2 rounded-lg text-sm font-medium transition-all whitespace-nowrap",
           viewMode === 'bracket'
-            ? "bg-white dark:bg-gray-700 text-blue-600 dark:text-blue-400 shadow-sm"
+            ? "bg-linear-to-r from-primary to-accent text-white shadow-md shadow-primary/20"
             : "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 hover:bg-white/50 dark:hover:bg-gray-700/50"
         )}
       >
@@ -51,7 +51,7 @@ export const ViewSwitcher: React.FC = () => {
         className={clsx(
           "flex items-center px-4 py-2 rounded-lg text-sm font-medium transition-all whitespace-nowrap",
           viewMode === 'standings'
-            ? "bg-white dark:bg-gray-700 text-blue-600 dark:text-blue-400 shadow-sm"
+            ? "bg-linear-to-r from-primary to-accent text-white shadow-md shadow-primary/20"
             : "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 hover:bg-white/50 dark:hover:bg-gray-700/50"
         )}
       >

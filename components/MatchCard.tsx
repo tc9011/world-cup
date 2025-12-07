@@ -38,7 +38,7 @@ export const MatchCard: React.FC<MatchCardProps> = ({ match }) => {
     <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-4 hover:shadow-md transition-shadow">
       <div className="flex justify-between items-start mb-4">
         <div className="flex items-center space-x-2 text-sm text-gray-500 dark:text-gray-400">
-          <span className="font-semibold text-blue-600 dark:text-blue-400">{match.stage}</span>
+          <span className="font-semibold text-primary dark:text-primary">{match.stage}</span>
           {match.group && <span>• Group {match.group}</span>}
         </div>
         <div className="flex items-center space-x-1 text-xs text-gray-400">

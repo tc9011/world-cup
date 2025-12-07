@@ -89,13 +89,13 @@ const MonthGrid: React.FC<{ monthStart: Date; matches: Match[] }> = ({ monthStar
               const isToday = isSameDay(day, new Date());
               
               return (
-                <div key={day.toISOString()} className={`min-h-[180px] bg-white dark:bg-gray-800 p-2 relative group hover:bg-gray-50 dark:hover:bg-gray-800/80 transition-colors flex flex-col ${isToday ? 'ring-2 ring-inset ring-blue-500' : ''}`}>
-                  <div className={`text-sm font-bold mb-2 flex justify-between items-center ${dayMatches.length > 0 ? 'text-blue-600 dark:text-blue-400' : 'text-gray-400'}`}>
-                    <span className={isToday ? 'bg-blue-600 text-white w-6 h-6 rounded-full flex items-center justify-center' : ''}>
+                <div key={day.toISOString()} className={`min-h-[180px] bg-white dark:bg-gray-800 p-2 relative group hover:bg-gray-50 dark:hover:bg-gray-800/80 transition-colors flex flex-col ${isToday ? 'ring-2 ring-inset ring-primary' : ''}`}>
+                  <div className={`text-sm font-bold mb-2 flex justify-between items-center ${dayMatches.length > 0 ? 'text-primary dark:text-primary' : 'text-gray-400'}`}>
+                    <span className={isToday ? 'bg-primary text-white w-6 h-6 rounded-full flex items-center justify-center' : ''}>
                       {format(day, 'd')}
                     </span>
                     {dayMatches.length > 0 && (
-                      <span className="text-xs font-normal bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 px-1.5 py-0.5 rounded-full">
+                      <span className="text-xs font-normal bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary px-1.5 py-0.5 rounded-full">
                         {dayMatches.length} {language === 'zh' ? '场' : 'matches'}
                       </span>
                     )}
@@ -118,7 +118,7 @@ const MonthGrid: React.FC<{ monthStart: Date; matches: Match[] }> = ({ monthStar
                       const displayDate = getDisplayDate(new Date(match.date), match.venueId);
 
                       return (
-                        <div key={match.id} className="bg-white dark:bg-gray-700 rounded-lg shadow-sm border border-gray-100 dark:border-gray-600 p-2 hover:shadow-md hover:border-blue-300 dark:hover:border-blue-500 transition-all cursor-pointer group/card">
+                        <div key={match.id} className="bg-white dark:bg-gray-700 rounded-lg shadow-sm border border-gray-100 dark:border-gray-600 p-2 hover:shadow-md hover:border-primary/50 dark:hover:border-primary transition-all cursor-pointer group/card">
                           {/* Header: Time & Group */}
                           <div className="flex justify-between items-center text-[10px] text-gray-500 dark:text-gray-400 mb-1.5 border-b border-gray-100 dark:border-gray-600/50 pb-1">
                             <span className="font-bold text-gray-900 dark:text-white bg-gray-100 dark:bg-gray-600 px-1 rounded">

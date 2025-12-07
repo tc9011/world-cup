@@ -20,7 +20,7 @@ export const TeamSelector: React.FC = () => {
       <select
         value={selectedTeam}
         onChange={(e) => setSelectedTeam(e.target.value)}
-        className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-300/50 dark:border-gray-700/50 text-gray-900 dark:text-gray-100 text-sm rounded-xl focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 shadow-sm transition-all hover:bg-white/80 dark:hover:bg-gray-800/80"
+        className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-300/50 dark:border-gray-700/50 text-gray-900 dark:text-gray-100 text-sm rounded-xl focus:ring-primary focus:border-primary block w-full p-2.5 shadow-sm transition-all hover:bg-white/80 dark:hover:bg-gray-800/80"
       >
         <option value="All">{t.allTeams}</option>
         {sortedTeams.map((team) => (

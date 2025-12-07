@@ -114,7 +114,7 @@ export const StandingsView: React.FC<StandingsViewProps> = ({ matches }) => {
                 {getGroupStandings(group).map((stat, index) => {
                   const teamName = language === 'zh' ? (teamNames[stat.team.code] || stat.team.name) : stat.team.name;
                   return (
-                    <tr key={stat.team.id} className="border-b border-gray-100/50 dark:border-gray-700/50 last:border-0 hover:bg-blue-50/50 dark:hover:bg-blue-900/20 transition-colors">
+                    <tr key={stat.team.id} className="border-b border-gray-100/50 dark:border-gray-700/50 last:border-0 hover:bg-primary/5 dark:hover:bg-primary/20 transition-colors">
                       <td className="px-3 py-2 text-center text-gray-500">{index + 1}</td>
                       <td className="px-3 py-2 font-medium text-gray-900 dark:text-white flex items-center gap-2">
                         <span className="text-lg">{stat.team.flag}</span>
@@ -127,7 +127,7 @@ export const StandingsView: React.FC<StandingsViewProps> = ({ matches }) => {
                       <td className="px-2 py-2 text-center text-gray-500 hidden sm:table-cell">{stat.gf}</td>
                       <td className="px-2 py-2 text-center text-gray-500 hidden sm:table-cell">{stat.ga}</td>
                       <td className="px-2 py-2 text-center font-medium">{stat.gf - stat.ga}</td>
-                      <td className="px-3 py-2 text-center font-bold text-blue-600 dark:text-blue-400">{stat.points}</td>
+                      <td className="px-3 py-2 text-center font-bold text-primary dark:text-primary">{stat.points}</td>
                     </tr>
                   );
                 })}
