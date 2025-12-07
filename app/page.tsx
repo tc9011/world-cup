@@ -13,12 +13,15 @@ import { TeamSelector } from '../components/TeamSelector';
 import { LanguageSwitcher } from '../components/LanguageSwitcher';
 import { TimezoneSwitcher } from '../components/TimezoneSwitcher';
 import { ThemeSelector } from '../components/ThemeSelector';
+import { ExportButton } from '../components/ExportButton';
 import Image from 'next/image';
 import { translations } from '../data/locales';
+import { useRef } from 'react';
 
 export default function Home() {
   const { viewMode, selectedGroup, selectedTeam, language } = useStore();
   const t = translations[language];
+  const contentRef = useRef<HTMLDivElement>(null);
 
   // Filter matches based on Group OR Team
   const filteredMatches = matches.filter(m => {
@@ -51,6 +54,7 @@ export default function Home() {
               </div>
             </div>
             <div className="flex items-center gap-2 w-full md:w-auto justify-between md:justify-end">
+              <ExportButton targetRef={contentRef} />
               <ThemeSelector />
               <div className="flex gap-2 overflow-x-auto no-scrollbar">
                 <TimezoneSwitcher />
@@ -77,7 +81,7 @@ export default function Home() {
         )}
 
         {/* Content */}
-        <div className="min-h-[500px] bg-white/40 dark:bg-gray-900/40 backdrop-blur-sm rounded-3xl p-1 md:p-6 border border-white/20 dark:border-gray-800">
+        <div ref={contentRef} className="min-h-[500px] bg-white/40 dark:bg-gray-900/40 backdrop-blur-sm rounded-3xl p-1 md:p-6 border border-white/20 dark:border-gray-800">
           {viewMode === 'list' && <ScheduleMatrix matches={filteredMatches} />}
           {viewMode === 'calendar' && <CalendarView matches={filteredMatches} />}
           {viewMode === 'bracket' && <BracketView matches={matches} />}
