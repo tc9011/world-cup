@@ -142,16 +142,22 @@ const MonthGrid: React.FC<{ monthStart: Date; matches: Match[] }> = ({ monthStar
                           {/* Teams */}
                           <div className="flex flex-col gap-1 mb-1.5">
                             <div className="flex items-center justify-between">
-                              <div className="flex items-center gap-1.5 overflow-hidden">
+                              <div className="flex items-center gap-1.5 overflow-hidden flex-1">
                                 <span className="text-base">{homeFlag}</span>
                                 <span className="text-xs font-bold text-gray-900 dark:text-gray-100 truncate">{homeName}</span>
                               </div>
+                              <span className={`text-xs font-mono font-bold ${match.status === 'scheduled' ? 'text-gray-300 dark:text-gray-600' : 'text-gray-900 dark:text-white'}`}>
+                                {match.status === 'scheduled' ? '-' : (match.homeScore ?? 0)}
+                              </span>
                             </div>
                             <div className="flex items-center justify-between">
-                              <div className="flex items-center gap-1.5 overflow-hidden">
+                              <div className="flex items-center gap-1.5 overflow-hidden flex-1">
                                 <span className="text-base">{awayFlag}</span>
                                 <span className="text-xs font-bold text-gray-900 dark:text-gray-100 truncate">{awayName}</span>
                               </div>
+                              <span className={`text-xs font-mono font-bold ${match.status === 'scheduled' ? 'text-gray-300 dark:text-gray-600' : 'text-gray-900 dark:text-white'}`}>
+                                {match.status === 'scheduled' ? '-' : (match.awayScore ?? 0)}
+                              </span>
                             </div>
                           </div>
 
