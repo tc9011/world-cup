@@ -182,17 +182,19 @@ export const ScheduleMatrix: React.FC<ScheduleMatrixProps> = ({ matches }) => {
                             <div
                               key={match.id}
                               className={clsx(
-                                "w-full h-full rounded shadow-sm relative text-white font-bold p-1 cursor-pointer hover:scale-110 transition-transform z-0 hover:z-10 overflow-hidden",
+                                "w-full h-full rounded shadow-sm relative text-white font-bold p-1 cursor-pointer hover:scale-110 transition-transform z-0 hover:z-10 overflow-hidden flex flex-col",
                                 colorClass
                               )}
                               title={`${stageName} - ${homeName} vs ${awayName} (${matchTime})`}
                             >
                               {/* Top Row: ID and Time */}
-                              <div className="absolute top-1 left-1 text-[10px] leading-none font-mono">{matchIdDisplay}</div>
-                              <div className="absolute top-1 right-1 text-[10px] leading-none font-mono">{matchTime}</div>
+                              <div className="flex justify-between items-center w-full text-[10px] leading-none font-mono mb-0.5">
+                                <span>{matchIdDisplay}</span>
+                                <span>{matchTime}</span>
+                              </div>
 
                               {/* Center: Teams */}
-                              <div className="absolute inset-0 flex flex-col items-center justify-center pt-2">
+                              <div className="flex-1 flex flex-col items-center justify-center min-h-0">
                                 <span className="text-[12px] leading-none tracking-wider uppercase">{homeCode}</span>
                                 <span className="text-[8px] leading-none opacity-75 my-0.5">vs</span>
                                 <span className="text-[12px] leading-none tracking-wider uppercase">{awayCode}</span>
@@ -200,7 +202,7 @@ export const ScheduleMatrix: React.FC<ScheduleMatrixProps> = ({ matches }) => {
 
                               {/* Bottom: Group */}
                               {match.group && (
-                                <div className="absolute bottom-1 left-0 right-0 text-center">
+                                <div className="text-center mt-0.5">
                                   <span className="text-[10px] leading-none opacity-90 font-mono">{match.group}</span>
                                 </div>
                               )}
