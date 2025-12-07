@@ -10,6 +10,7 @@ A comprehensive, interactive guide for the 2026 FIFA World Cup (United States, M
 - **State Management**: Zustand (with local storage persistence)
 - **Icons**: Lucide React
 - **Date Handling**: date-fns
+- **Export**: html-to-image, qrcode
 - **Analytics**: Vercel Analytics
 - **Language**: TypeScript
 
@@ -27,79 +28,40 @@ A comprehensive, interactive guide for the 2026 FIFA World Cup (United States, M
 │   ├── robots.ts           # SEO Robots configuration
 │   └── sitemap.ts          # SEO Sitemap generation
 ├── components/             # UI Components
-│   ├── views/              # (Conceptual grouping)
-│   │   ├── BracketView.tsx     # Knockout stage visualization
-│   │   ├── CalendarView.tsx    # Monthly calendar grid view
-│   │   ├── ScheduleMatrix.tsx  # List view (Venue x Date)
-│   │   └── StandingsView.tsx   # Group stage tables
-│   ├── controls/           # (Conceptual grouping)
-│   │   ├── FilterBar.tsx       # Group selection
-│   │   ├── TeamSelector.tsx    # Team filtering
-│   │   ├── ViewSwitcher.tsx    # Navigation between views
-│   │   ├── LanguageSwitcher.tsx # EN/ZH toggle
-│   │   ├── ThemeSelector.tsx   # Light/Dark & Team Theme picker
-│   │   └── TimezoneSwitcher.tsx # Local/Venue time toggle
+│   ├── BracketView.tsx     # Knockout stage visualization
+│   ├── CalendarView.tsx    # Monthly calendar grid view
+│   ├── ExportButton.tsx    # Export view to image functionality
+│   ├── FilterBar.tsx       # Group selection
+│   ├── GroupView.tsx       # Group display component
+│   ├── LanguageSwitcher.tsx # EN/ZH toggle
 │   ├── MatchCard.tsx       # Reusable match display component
 │   ├── MatchDetailModal.tsx # Detailed match info modal
-│   └── ThemeProvider.tsx   # Handles dynamic CSS variable injection
+│   ├── ScheduleMatrix.tsx  # List view (Venue x Date)
+│   ├── StandingsView.tsx   # Group stage tables
+│   ├── TeamSelector.tsx    # Team filtering
+│   ├── ThemeProvider.tsx   # Handles dynamic CSS variable injection
+│   ├── ThemeSelector.tsx   # Light/Dark & Team Theme picker
+│   ├── TimezoneSwitcher.tsx # Local/Venue time toggle
+│   └── ViewSwitcher.tsx    # Navigation between views
 ├── data/                   # Static Data
-│   ├── worldCupData.ts     # Core data (Teams, Venues, Matches)
+│   ├── worldCupData.ts     # Core data loader (Teams, Venues, Matches)
+│   ├── matches.json        # Match schedule data
+│   ├── teams.json          # Team data
+│   ├── venues.json         # Venue data
 │   ├── teamColors.ts       # Primary/Secondary colors for team themes
 │   └── locales.ts          # Translation strings (en, zh)
 ├── store/                  # State Management
 │   └── useStore.ts         # Global store (viewMode, filters, theme, timezone)
-└── types/                  # TypeScript Definitions
-    └── index.ts            # Domain models
+├── types/                  # TypeScript Definitions
+│   └── index.ts            # Core interfaces (Team, Match, Venue, ViewMode)
 ```
 
-### 3.2. State Management (Zustand)
-The application uses a centralized store (`useStore.ts`) persisted to `localStorage`.
-- **View State**: Current view mode (List, Calendar, Bracket, Standings).
-- **Filters**: Selected Group, Selected Team, Favorites.
-- **Preferences**: Language (en/zh), Timezone Mode (local/venue), Theme Mode (light/dark/system), Theme Team ID.
-
 ## 4. Key Features
-
-### 4.1. Multi-View Visualization
-- **List View (Schedule Matrix)**: Matrix format (Venues x Dates), grouped by Region (Western, Central, Eastern).
-- **Calendar View**: Monthly calendar (June/July 2026) showing matches per day.
-- **Bracket View**: Interactive tree visualization of the knockout stage (Round of 32 to Final).
-- **Standings View**: Live-calculated group tables (Points, GF, GA, GD).
-
-### 4.2. Advanced Personalization
-- **Team-Based Theming**: Users can select a national team to apply its primary and secondary colors to the entire application UI.
-- **Timezone Switching**: Toggle match times between:
-  - **Local Time**: User's browser timezone.
-  - **Venue Time**: Local time at the stadium location.
-- **Appearance Modes**: Light, Dark, and System sync.
-- **Internationalization**: Full English and Chinese (Simplified) support.
-
-### 4.3. Interactive Elements
-- **Match Details Modal**: Click on any match to view detailed info (Teams, Venue, Time, Status) in a responsive modal.
-- **Smart Filtering**: Filter schedule and standings by specific Groups or Teams.
-- **Favorites**: Mark teams as favorites (supported in data model/store).
-
-### 4.4. SEO & Performance
-- **Metadata**: Rich OpenGraph and Twitter Card tags.
-- **Structured Data**: JSON-LD for `SportsEvent` schema.
-- **PWA Ready**: Web manifest and icons.
-- **Font Optimization**: Uses `next/font` with Geist Sans/Mono.
-
-## 5. Data Model
-- **Teams**: 48 teams with metadata (ID, Name, Code, Flag, Group).
-- **Venues**: 16 Host Cities with Timezone and Region data.
-- **Matches**: 104 matches with support for:
-  - Stages: Group, R32, R16, QF, SF, 3rd, Final.
-  - Status: Scheduled, Live, Finished.
-  - Placeholders: "Winner of Match X", "1st Group A", etc.
-
-## 6. UI/UX Design System
-- **Theme**: "World Cup Atmosphere" with Glassmorphism.
-- **Visuals**:
-  - Radial gradient backgrounds.
-  - Backdrop blur effects.
-  - Smooth transitions and animations (fade-in, zoom-in).
-- **Responsiveness**:
-  - Mobile-first approach.
-  - Horizontal scrolling for complex tables.
-  - Adaptive modals and controls.
+- **Multiple Views**: List, Calendar, Bracket, and Standings views.
+- **Personalization**:
+    - **Theming**: Light/Dark mode and Team-specific themes (changes primary colors based on selected team).
+    - **Timezone**: Toggle between Local time and Venue time.
+    - **Language**: English and Chinese (Simplified) support.
+- **Filtering**: Filter matches by Group or specific Team.
+- **Export**: Ability to export the current view as an image.
+- **Responsive Design**: Optimized for both desktop and mobile devices with a glassmorphism aesthetic.
