@@ -53,14 +53,14 @@ export const ScheduleMatrix: React.FC<ScheduleMatrixProps> = ({ matches }) => {
   // Helper to get display date based on timezone mode
   const getDisplayDate = (date: Date, timezone: string | undefined) => {
     if (timezoneMode === 'local' || !timezone) return date;
-    
+
     const parts = new Intl.DateTimeFormat('en-US', {
       timeZone: timezone,
       year: 'numeric', month: 'numeric', day: 'numeric',
       hour: 'numeric', minute: 'numeric', second: 'numeric',
       hour12: false
     }).formatToParts(date);
-    
+
     const part = (type: string) => parseInt(parts.find(p => p.type === type)?.value || '0');
     return new Date(part('year'), part('month') - 1, part('day'), part('hour'), part('minute'), part('second'));
   };
@@ -95,7 +95,7 @@ export const ScheduleMatrix: React.FC<ScheduleMatrixProps> = ({ matches }) => {
               </th>
               {/* Venue Column Header */}
               <th
-                className="sticky left-[30px] md:left-10 z-30 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md p-2 border-b border-r border-gray-200/50 dark:border-gray-700/50 text-left text-xs font-bold text-gray-500 uppercase tracking-wider shadow-[2px_0_5px_-2px_rgba(0,0,0,0.1)] min-w-[120px] md:min-w-[200px]"
+                className="sticky left-[30px] md:left-10 z-30 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md p-2 border-b border-r border-gray-200/50 dark:border-gray-700/50 text-left text-xs font-bold text-gray-500 uppercase tracking-wider shadow-[2px_0_5px_-2px_rgba(0,0,0,0.1)] min-w-[90px] md:min-w-40"
               >
                 {t.venueDate}
               </th>
@@ -135,7 +135,7 @@ export const ScheduleMatrix: React.FC<ScheduleMatrixProps> = ({ matches }) => {
                   {/* Venue Name */}
                   <td
                     className={clsx(
-                      "sticky left-[30px] md:left-10 z-10 backdrop-blur-md p-2 border-b border-r border-gray-300 dark:border-gray-600 text-xs font-medium shadow-[2px_0_5px_-2px_rgba(0,0,0,0.1)] min-w-[120px] md:min-w-[200px]",
+                      "sticky left-[30px] md:left-10 z-10 backdrop-blur-md p-2 border-b border-r border-gray-300 dark:border-gray-600 text-xs font-medium shadow-[2px_0_5px_-2px_rgba(0,0,0,0.1)] min-w-[90px] md:min-w-40",
                       REGION_COLORS[region],
                       "group-hover:brightness-95 transition-all"
                     )}
@@ -144,7 +144,7 @@ export const ScheduleMatrix: React.FC<ScheduleMatrixProps> = ({ matches }) => {
                       <span className="font-bold uppercase opacity-90">
                         {language === 'zh' ? (cityNames[venue.city] || venue.city) : venue.city}
                       </span>
-                      <span className="text-[10px] opacity-75 truncate max-w-[100px] md:max-w-[180px]">{venue.name}</span>
+                      <span className="text-[10px] opacity-75 max-w-20 md:max-w-[140px]">{venue.name}</span>
                     </div>
                   </td>
 
@@ -176,7 +176,7 @@ export const ScheduleMatrix: React.FC<ScheduleMatrixProps> = ({ matches }) => {
 
                           const homeCode = home?.code || (match.homeTeamId.match(/^(W|L|[123][A-L])/) ? match.homeTeamId : (language === 'zh' ? '?' : 'TBD'));
                           const awayCode = away?.code || (match.awayTeamId.match(/^(W|L|[123][A-L])/) ? match.awayTeamId : (language === 'zh' ? '?' : 'TBD'));
-                          
+
                           const displayDate = getDisplayDate(new Date(match.date), venue.timezone);
                           const matchTime = format(displayDate, 'HH:mm');
                           const matchIdDisplay = match.id.replace(/^m/, '');
@@ -229,7 +229,7 @@ export const ScheduleMatrix: React.FC<ScheduleMatrixProps> = ({ matches }) => {
           </tbody>
         </table>
       </div>
-      
+
       {selectedMatch && (
         <MatchDetailModal
           match={selectedMatch}
