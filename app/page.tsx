@@ -32,20 +32,20 @@ export default function Home() {
   });
 
   return (
-    <main className="min-h-screen p-4 md:p-8">
-      <div className="max-w-[1600px] mx-auto space-y-6">
+    <main className="min-h-screen p-2 md:p-8">
+      <div className="max-w-[1600px] mx-auto space-y-4 md:space-y-6">
         {/* Header */}
-        <header className="space-y-6 bg-white/50 dark:bg-gray-900/50 backdrop-blur-xl p-6 rounded-3xl border border-white/20 dark:border-gray-800 shadow-sm">
+        <header className="space-y-4 md:space-y-6 bg-white/50 dark:bg-gray-900/50 backdrop-blur-xl p-4 md:p-6 rounded-3xl border border-white/20 dark:border-gray-800 shadow-sm">
           <div className="flex justify-between items-start md:items-center">
-            <div className="flex items-center space-x-4">
-              <div className="p-4 bg-linear-to-br from-blue-600 to-cyan-500 rounded-2xl text-white shadow-lg shadow-blue-500/30 transform hover:scale-105 transition-transform duration-300">
-                <Image src="/2026_FIFA_World_Cup_emblem.svg" alt="Trophy" width={40} height={40} />
+            <div className="flex items-center space-x-3 md:space-x-4">
+              <div className="p-2 md:p-4 bg-linear-to-br from-blue-600 to-cyan-500 rounded-2xl text-white shadow-lg shadow-blue-500/30 transform hover:scale-105 transition-transform duration-300">
+                <Image src="/2026_FIFA_World_Cup_emblem.svg" alt="Trophy" width={32} height={32} className="w-8 h-8 md:w-10 md:h-10" />
               </div>
               <div>
-                <h1 className="text-3xl md:text-4xl font-black tracking-tight text-gray-900 dark:text-white">
+                <h1 className="text-2xl md:text-4xl font-black tracking-tight text-gray-900 dark:text-white">
                   {t.title}
                 </h1>
-                <p className="text-gray-500 dark:text-gray-400 font-medium mt-1">{t.subtitle}</p>
+                <p className="text-xs md:text-base text-gray-500 dark:text-gray-400 font-medium mt-0.5 md:mt-1">{t.subtitle}</p>
               </div>
             </div>
             <LanguageSwitcher />
