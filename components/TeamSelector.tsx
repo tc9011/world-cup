@@ -47,7 +47,7 @@ export const TeamSelector: React.FC = () => {
           onClick={() => setIsOpen(!isOpen)}
           className="flex items-center justify-between w-full md:w-60 px-3 py-2 text-sm bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-300/50 dark:border-gray-700/50 rounded-xl shadow-sm hover:bg-white/80 dark:hover:bg-gray-800/80 transition-all focus:outline-none focus:ring-2 focus:ring-primary/50"
         >
-          <span className="flex-1 flex items-center truncate text-left">
+          <span className="flex-1 flex items-center truncate text-left text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200">
             {selectedTeam === 'All' ? (
               <span>{t.allTeams}</span>
             ) : (
