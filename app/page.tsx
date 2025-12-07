@@ -38,8 +38,8 @@ export default function Home() {
       <div className="max-w-[1600px] mx-auto space-y-4 md:space-y-6">
         {/* Header */}
         <header className="relative z-50 space-y-4 md:space-y-6 bg-white/50 dark:bg-gray-900/50 backdrop-blur-xl p-4 md:p-6 rounded-3xl border border-white/20 dark:border-gray-800 shadow-sm">
-          <div className="flex justify-between items-start md:items-center">
-            <div className="flex items-center space-x-3 md:space-x-4">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0">
+            <div className="flex items-center space-x-3 md:space-x-4 w-full md:w-auto">
               <div className="p-2 md:p-4 bg-linear-to-br from-primary to-cyan-500 rounded-2xl text-white shadow-lg shadow-primary/30 transform hover:scale-105 transition-transform duration-300">
                 <Image src="/2026_FIFA_World_Cup_emblem.svg" alt="Trophy" width={32} height={32} className="w-8 h-8 md:w-10 md:h-10" />
               </div>
@@ -50,10 +50,12 @@ export default function Home() {
                 <p className="text-xs md:text-base text-gray-500 dark:text-gray-400 font-medium mt-0.5 md:mt-1">{t.subtitle}</p>
               </div>
             </div>
-            <div className="flex flex-col md:flex-row items-end md:items-center gap-2">
+            <div className="flex items-center gap-2 w-full md:w-auto justify-between md:justify-end">
               <ThemeSelector />
-              <TimezoneSwitcher />
-              <LanguageSwitcher />
+              <div className="flex gap-2 overflow-x-auto no-scrollbar">
+                <TimezoneSwitcher />
+                <LanguageSwitcher />
+              </div>
             </div>
           </div>
 
