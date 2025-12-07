@@ -110,7 +110,7 @@ export const MapView: React.FC<MapViewProps> = ({ matches: filteredMatches }) =>
         <NavigationControl position="top-right" />
 
         {venues.map((venue) => (
-          venue.coordinates && (
+          venue.coordinates && venueMatches.has(venue.id) && (
             <Marker
               key={venue.id}
               longitude={venue.coordinates.lng}
