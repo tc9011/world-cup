@@ -125,7 +125,7 @@ export const ScheduleMatrix: React.FC<ScheduleMatrixProps> = ({ matches }) => {
                       )}
                     >
                       <div className="h-full w-full flex items-center justify-center">
-                        <span className="text-xs font-bold uppercase tracking-widest whitespace-nowrap -rotate-90 text-white">
+                        <span className="text-xs font-bold uppercase tracking-widest whitespace-nowrap -rotate-90 text-gray-600 dark:text-gray-800">
                           {t[`${region.toLowerCase()}Region` as keyof typeof t] as string}
                         </span>
                       </div>
@@ -141,10 +141,10 @@ export const ScheduleMatrix: React.FC<ScheduleMatrixProps> = ({ matches }) => {
                     )}
                   >
                     <div className="flex flex-col text-white">
-                      <span className="font-bold uppercase opacity-90">
+                      <span className="font-bold uppercase opacity-90 text-gray-600 dark:text-gray-800">
                         {language === 'zh' ? (cityNames[venue.city] || venue.city) : venue.city}
                       </span>
-                      <span className="text-[10px] opacity-75 max-w-20 md:max-w-[140px]">{venue.name}</span>
+                      <span className="text-[10px] opacity-75 max-w-20 md:max-w-[140px] text-gray-600 dark:text-gray-800">{venue.name}</span>
                     </div>
                   </td>
 
