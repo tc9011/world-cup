@@ -8,7 +8,7 @@ import { venues, teams } from '../data/worldCupData';
 import { Venue, Match } from '../types';
 import { useStore } from '../store/useStore';
 import { format } from 'date-fns';
-import { X, MapPin, Calendar } from 'lucide-react';
+import { X, Calendar, MapPin } from 'lucide-react';
 import { cityNames } from '../data/locales';
 
 // Note: In a real application, this should be in an environment variable
@@ -125,7 +125,7 @@ export const MapView: React.FC<MapViewProps> = ({ matches: filteredMatches }) =>
               <div className="cursor-pointer transform hover:scale-110 transition-transform group">
                 <div className="text-2xl drop-shadow-md">🏟️</div>
                 <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 bg-white dark:bg-gray-800 text-xs px-2 py-1 rounded shadow opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-10 pointer-events-none">
-                  {venue.name}
+                  {language === 'zh' ? cityNames[venue.city] || venue.city : venue.city}
                 </div>
               </div>
             </Marker>
@@ -146,13 +146,14 @@ export const MapView: React.FC<MapViewProps> = ({ matches: filteredMatches }) =>
                 >
                   <X size={20} />
                 </button>
-                <h3 className="font-bold text-2xl pr-8 leading-tight">{selectedVenue.name}</h3>
-                <div className="flex items-center gap-4 text-blue-100 text-sm mt-2">
-                  <div className="flex items-center gap-1.5">
-                    <MapPin size={16} />
-                    <span>{language === 'zh' ? cityNames[selectedVenue.city] || selectedVenue.city : selectedVenue.city}</span>
-                  </div>
-                  <div className="w-1 h-1 rounded-full bg-blue-300/50" />
+                <h3 className="font-bold text-2xl pr-8 leading-tight mb-1">
+                  {language === 'zh' ? cityNames[selectedVenue.city] || selectedVenue.city : selectedVenue.city}
+                </h3>
+                <div className="flex items-center gap-1.5 text-blue-200 text-sm font-medium mb-2">
+                  <MapPin size={14} />
+                  <span>{selectedVenue.name}</span>
+                </div>
+                <div className="flex items-center gap-4 text-blue-100 text-sm">
                   <div className="flex items-center gap-1.5">
                     <Calendar size={16} />
                     <span>
