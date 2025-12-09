@@ -98,7 +98,7 @@ export const DateFilter: React.FC<DateFilterProps> = ({ availableDates }) => {
   };
 
   return (
-    <div className="relative flex items-center gap-2" ref={containerRef}>
+    <div className="relative flex items-center gap-2 w-full md:w-auto" ref={containerRef}>
       <span className="text-sm font-medium text-gray-500 dark:text-gray-400 whitespace-nowrap hidden sm:inline">
         {language === 'zh' ? '按日期筛选' : 'Filter by Date'}
       :</span>
@@ -106,14 +106,14 @@ export const DateFilter: React.FC<DateFilterProps> = ({ availableDates }) => {
       <button
         onClick={() => setIsOpen(!isOpen)}
         className={clsx(
-          "flex items-center gap-2 px-4 py-2 rounded-xl border transition-all duration-200 group",
+          "flex items-center gap-2 px-4 py-2 rounded-xl border transition-all duration-200 group w-full md:w-auto",
           dateRange.start
             ? "bg-white dark:bg-gray-800 border-primary/50 text-primary shadow-sm"
             : "bg-white/50 dark:bg-gray-900/50 border-gray-200 dark:border-gray-700 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 hover:bg-white dark:hover:bg-gray-800"
         )}
       >
         <CalendarIcon size={18} />
-        <span className="text-sm">{formatDateRange()}</span>
+        <span className="text-sm flex-1 text-left">{formatDateRange()}</span>
         {dateRange.start && (
           <div
             onClick={(e) => {

@@ -39,13 +39,13 @@ export const TeamSelector: React.FC = () => {
   };
 
   return (
-    <div className="flex items-center space-x-2 relative" ref={dropdownRef}>
+    <div className="flex items-center space-x-2 relative w-full md:w-auto" ref={dropdownRef}>
       <span className="text-sm font-medium text-gray-500 dark:text-gray-400 whitespace-nowrap hidden sm:inline">{t.filterByTeam}</span>
       
-      <div className="relative">
+      <div className="relative w-full md:w-auto">
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="flex items-center justify-between w-40 sm:w-48 md:w-60 px-3 py-2 text-sm bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-300/50 dark:border-gray-700/50 rounded-xl shadow-sm hover:bg-white/80 dark:hover:bg-gray-800/80 transition-all focus:outline-none focus:ring-2 focus:ring-primary/50"
+          className="flex items-center justify-between w-full md:w-60 px-3 py-2 text-sm bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-300/50 dark:border-gray-700/50 rounded-xl shadow-sm hover:bg-white/80 dark:hover:bg-gray-800/80 transition-all focus:outline-none focus:ring-2 focus:ring-primary/50"
         >
           <span className="flex-1 flex items-center truncate text-left text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200">
             {selectedTeam === 'All' ? (
@@ -61,7 +61,7 @@ export const TeamSelector: React.FC = () => {
         </button>
 
         {isOpen && (
-          <div className="absolute left-0 md:left-auto md:right-0 z-50 w-64 mt-2 overflow-hidden bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl shadow-xl animate-in fade-in zoom-in-95 duration-100 origin-top-left md:origin-top-right">
+          <div className="absolute left-0 md:left-auto md:right-0 z-50 w-full md:w-64 mt-2 overflow-hidden bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl shadow-xl animate-in fade-in zoom-in-95 duration-100 origin-top-left md:origin-top-right">
             <div className="max-h-64 overflow-y-auto p-1">
               <button
                 onClick={() => handleSelect('All')}
