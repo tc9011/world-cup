@@ -9,8 +9,8 @@ interface WorldCupState {
   setSelectedGroup: (group: string | 'All') => void;
   selectedTeam: string | 'All';
   setSelectedTeam: (teamId: string | 'All') => void;
-  selectedDate: Date | null;
-  setSelectedDate: (date: Date | null) => void;
+  dateRange: { start: Date | null; end: Date | null };
+  setDateRange: (range: { start: Date | null; end: Date | null }) => void;
   favorites: string[];
   toggleFavorite: (teamId: string) => void;
   language: 'en' | 'zh';
@@ -32,8 +32,8 @@ export const useStore = create<WorldCupState>()(
       setSelectedGroup: (group) => set({ selectedGroup: group, selectedTeam: 'All' }), // Reset team when group changes
       selectedTeam: 'All',
       setSelectedTeam: (teamId) => set({ selectedTeam: teamId, selectedGroup: 'All' }), // Reset group when team changes
-      selectedDate: null,
-      setSelectedDate: (date) => set({ selectedDate: date }),
+      dateRange: { start: null, end: null },
+      setDateRange: (range) => set({ dateRange: range }),
       favorites: [],
       toggleFavorite: (teamId) => set((state) => {
         if (state.favorites.includes(teamId)) {
