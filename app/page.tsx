@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { useStore } from '../store/useStore';
-import { matches } from '../data/worldCupData';
+import { matches, venues } from '../data/worldCupData';
 import { CalendarView } from '../components/CalendarView';
 import { ScheduleMatrix } from '../components/ScheduleMatrix';
 import { BracketView } from '../components/BracketView';
@@ -22,10 +22,35 @@ import { useRef, useState } from 'react';
 import { Filter, ChevronDown, ChevronUp } from 'lucide-react';
 
 export default function Home() {
-  const { viewMode, selectedGroup, selectedTeam, dateRange, language } = useStore();
+  const { viewMode, selectedGroup, selectedTeam, dateRange, language, timezoneMode } = useStore();
   const t = translations[language];
   const contentRef = useRef<HTMLDivElement>(null);
   const [isFiltersOpen, setIsFiltersOpen] = useState(false);
+
+  // Helper to get match date timestamp based on timezone mode
+  const getMatchDateTimestamp = (match: typeof matches[0]) => {
+    if (timezoneMode === 'venue') {
+      const venue = venues.find(v => v.id === match.venueId);
+      if (venue) {
+        // Get date parts in venue timezone
+        const parts = new Intl.DateTimeFormat('en-US', {
+          timeZone: venue.timezone,
+          year: 'numeric',
+          month: 'numeric',
+          day: 'numeric'
+        }).formatToParts(new Date(match.date));
+        
+        const year = parseInt(parts.find(p => p.type === 'year')?.value || '0');
+        const month = parseInt(parts.find(p => p.type === 'month')?.value || '0') - 1;
+        const day = parseInt(parts.find(p => p.type === 'day')?.value || '0');
+        
+        return new Date(year, month, day).getTime();
+      }
+    }
+    // Local time fallback
+    const date = new Date(match.date);
+    return new Date(date.getFullYear(), date.getMonth(), date.getDate()).getTime();
+  };
 
   // Filter matches based on Group OR Team OR Date
   const filteredMatches = matches.filter(m => {
@@ -39,23 +64,22 @@ export default function Home() {
     }
     // 3. Filter by Date Range
     if (dateRange.start) {
-      const matchDate = new Date(m.date);
+      const matchTimestamp = getMatchDateTimestamp(m);
       const startDate = new Date(dateRange.start);
-      
-      // Reset times for comparison
-      matchDate.setHours(0, 0, 0, 0);
       startDate.setHours(0, 0, 0, 0);
+      const startTimestamp = startDate.getTime();
       
       if (dateRange.end) {
         const endDate = new Date(dateRange.end);
         endDate.setHours(0, 0, 0, 0);
+        const endTimestamp = endDate.getTime();
         
-        if (matchDate < startDate || matchDate > endDate) {
+        if (matchTimestamp < startTimestamp || matchTimestamp > endTimestamp) {
           return false;
         }
       } else {
         // Only start date selected - exact match
-        if (matchDate.getTime() !== startDate.getTime()) {
+        if (matchTimestamp !== startTimestamp) {
           return false;
         }
       }
@@ -65,10 +89,7 @@ export default function Home() {
 
   // Get available dates from matches for date filter
   const availableDates = Array.from(new Set(
-    matches.map(m => {
-      const date = new Date(m.date);
-      return new Date(date.getFullYear(), date.getMonth(), date.getDate()).getTime();
-    })
+    matches.map(m => getMatchDateTimestamp(m))
   )).sort((a, b) => a - b).map(time => new Date(time));
 
   return (
