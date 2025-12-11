@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo, useEffect, useRef, useCallback } from 'react';
 import { createPortal } from 'react-dom';
-import MapGL, { Marker, NavigationControl } from 'react-map-gl/mapbox';
+import MapGL, { Marker, NavigationControl, MapRef } from 'react-map-gl/mapbox';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { venues, teams } from '../data/worldCupData';
 import { Venue, Match } from '../types';
@@ -24,6 +24,7 @@ export const MapView: React.FC<MapViewProps> = ({ matches: filteredMatches }) =>
   const [selectedVenue, setSelectedVenue] = useState<Venue | null>(null);
   const [mounted, setMounted] = useState(false);
   const [isDark, setIsDark] = useState(false);
+  const mapRef = useRef<MapRef>(null);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -31,6 +32,56 @@ export const MapView: React.FC<MapViewProps> = ({ matches: filteredMatches }) =>
     }, 0);
     return () => clearTimeout(timer);
   }, []);
+
+  const updateMapLanguage = useCallback(() => {
+    const map = mapRef.current?.getMap();
+    if (!map) return;
+
+    const style = map.getStyle();
+    if (!style || !style.layers) return;
+
+    const labelField = language === 'zh' ? 'name_zh-Hans' : 'name_en';
+
+    style.layers.forEach((layer) => {
+      if (layer.type === 'symbol' && layer.layout && layer.layout['text-field']) {
+        // Only update layers that use the composite source (standard Mapbox layers)
+        // and have a text-field property
+        if (layer.source === 'composite') {
+          try {
+            map.setLayoutProperty(layer.id, 'text-field', [
+              'coalesce',
+              ['get', labelField],
+              ['get', 'name']
+            ]);
+          } catch (e) {
+            // Ignore errors for layers that might not support this property
+            console.debug('Failed to update layer language:', layer.id, e);
+          }
+        }
+      }
+    });
+  }, [language]);
+
+  // Update language when map loads or language changes
+  useEffect(() => {
+    if (!mounted) return;
+    
+    const map = mapRef.current?.getMap();
+    if (!map) return;
+
+    if (map.isStyleLoaded()) {
+      updateMapLanguage();
+    }
+
+    const handleStyleLoad = () => {
+      updateMapLanguage();
+    };
+
+    map.on('style.load', handleStyleLoad);
+    return () => {
+      map.off('style.load', handleStyleLoad);
+    };
+  }, [mounted, updateMapLanguage, isDark]); // Re-run when style changes (isDark)
 
   useEffect(() => {
     const checkDark = () => {
@@ -99,13 +150,17 @@ export const MapView: React.FC<MapViewProps> = ({ matches: filteredMatches }) =>
   return (
     <div className="w-full h-[600px] rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700 relative bg-gray-100 dark:bg-gray-800">
       <MapGL
+        ref={mapRef}
         initialViewState={{
           longitude: -95,
           latitude: 37,
           zoom: 3
         }}
         style={{ width: '100%', height: '100%' }}
-        mapStyle={isDark ? "mapbox://styles/mapbox/dark-v11" : "mapbox://styles/mapbox/streets-v12"}
+        mapStyle={isDark 
+          ? "mapbox://styles/mapbox/dark-v11"
+          : "mapbox://styles/mapbox/streets-v12"
+        }
         mapboxAccessToken={MAPBOX_TOKEN}
       >
         <NavigationControl position="top-right" />
