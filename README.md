@@ -17,6 +17,10 @@ A comprehensive, interactive guide for the **2026 FIFA World Cup** (United State
   - **Bracket View**: Interactive visualization of the knockout stages.
   - **Standings View**: Real-time group stage tables.
 
+- **🔍 Advanced Filtering**
+  - **Group & Team**: Filter matches by specific groups or teams.
+  - **Date Range**: Interactive calendar picker to filter matches by date range (supported in List, Calendar, and Map views).
+
 - **🎨 Deep Personalization**
   - **Team Themes**: Select your favorite team to theme the entire UI with their colors.
   - **Dark/Light Mode**: Fully supported with system preference sync.

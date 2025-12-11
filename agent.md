@@ -33,6 +33,7 @@ A comprehensive, interactive guide for the 2026 FIFA World Cup (United States, M
 │   ├── CalendarView.tsx    # Monthly calendar grid view
 │   ├── ExportButton.tsx    # Export view to image functionality
 │   ├── FilterBar.tsx       # Group selection
+│   ├── DateFilter.tsx      # Date range picker with calendar popover
 │   ├── GroupView.tsx       # Group display component
 │   ├── LanguageSwitcher.tsx # EN/ZH toggle
 │   ├── MapView.tsx         # Interactive map view with venue details
@@ -64,6 +65,8 @@ A comprehensive, interactive guide for the 2026 FIFA World Cup (United States, M
     - **Theming**: Light/Dark mode and Team-specific themes (changes primary colors based on selected team).
     - **Timezone**: Toggle between Local time and Venue time.
     - **Language**: English and Chinese (Simplified) support.
-- **Filtering**: Filter matches by Group or specific Team.
+- **Filtering**: 
+    - Filter matches by Group or specific Team.
+    - **Date Range**: Filter matches by a specific date range using an interactive calendar picker (available in List, Calendar, and Map views).
 - **Export**: Ability to export the current view as an image.
 - **Responsive Design**: Optimized for both desktop and mobile devices with a glassmorphism aesthetic.

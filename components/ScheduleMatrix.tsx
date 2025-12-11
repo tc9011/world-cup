@@ -50,6 +50,15 @@ export const ScheduleMatrix: React.FC<ScheduleMatrixProps> = ({ matches }) => {
   const dateLocale = language === 'zh' ? zhCN : enUS;
   const dateFormat = language === 'zh' ? 'MMMdo EEE' : 'EEE d MMM';
 
+  if (matches.length === 0) {
+    return (
+      <div className="flex flex-col items-center justify-center py-20 text-gray-500 dark:text-gray-400">
+        <p className="text-lg font-medium">{language === 'zh' ? '没有找到比赛' : 'No matches found'}</p>
+        <p className="text-sm mt-2">{language === 'zh' ? '请尝试调整筛选条件' : 'Try adjusting your filters'}</p>
+      </div>
+    );
+  }
+
   // Helper to get display date based on timezone mode
   const getDisplayDate = (date: Date, timezone: string | undefined) => {
     if (timezoneMode === 'local' || !timezone) return date;
