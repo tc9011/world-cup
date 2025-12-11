@@ -12,7 +12,7 @@ import { X, Calendar, MapPin } from 'lucide-react';
 import { cityNames, translations } from '../data/locales';
 
 // Note: In a real application, this should be in an environment variable
-const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
+const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN; 
 
 interface MapViewProps {
   matches: Match[];
@@ -54,7 +54,7 @@ export const MapView: React.FC<MapViewProps> = ({ matches: filteredMatches }) =>
         clearTimeout(timer);
       };
     }
-
+    
     return () => clearTimeout(timer);
   }, [themeMode]);
 
@@ -81,22 +81,16 @@ export const MapView: React.FC<MapViewProps> = ({ matches: filteredMatches }) =>
       }
       map.get(match.venueId)?.push(match);
     });
-
+    
     // Sort matches by date
     map.forEach((matches: Match[]) => {
       matches.sort((a: Match, b: Match) => new Date(a.date).getTime() - new Date(b.date).getTime());
     });
-
+    
     return map;
   }, [filteredMatches]);
 
   const getTeam = (id: string) => teams.find(t => t.id === id);
-
-  // Add a helper function to get the Mapbox style URL based on language
-  const getMapStyle = (isDark: boolean, language: string) => {
-    const baseStyle = isDark ? "mapbox://styles/mapbox/dark-v11" : "mapbox://styles/mapbox/streets-v12";
-    return `${baseStyle}?language=${language}`;
-  };
 
   if (!mounted) {
     return <div className="w-full h-[600px] rounded-xl bg-gray-100 dark:bg-gray-800 animate-pulse" />;
@@ -111,7 +105,7 @@ export const MapView: React.FC<MapViewProps> = ({ matches: filteredMatches }) =>
           zoom: 3
         }}
         style={{ width: '100%', height: '100%' }}
-        mapStyle={getMapStyle(isDark, language)}
+        mapStyle={isDark ? "mapbox://styles/mapbox/dark-v11" : "mapbox://styles/mapbox/streets-v12"}
         mapboxAccessToken={MAPBOX_TOKEN}
       >
         <NavigationControl position="top-right" />
@@ -141,13 +135,13 @@ export const MapView: React.FC<MapViewProps> = ({ matches: filteredMatches }) =>
 
         {selectedVenue && mounted && createPortal(
           <div className="fixed inset-0 z-9999 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm animate-in fade-in duration-200" onClick={() => setSelectedVenue(null)}>
-            <div
+            <div 
               className="w-full max-w-md bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-2xl ring-1 ring-black/5 animate-in zoom-in-95 duration-200"
               onClick={e => e.stopPropagation()}
             >
               {/* Header */}
               <div className="relative bg-linear-to-r from-blue-600 to-blue-800 p-6 text-white">
-                <button
+                <button 
                   onClick={() => setSelectedVenue(null)}
                   className="absolute top-4 right-4 p-2 hover:bg-white/20 rounded-full transition-colors"
                 >
@@ -169,14 +163,14 @@ export const MapView: React.FC<MapViewProps> = ({ matches: filteredMatches }) =>
                   </div>
                 </div>
               </div>
-
+              
               {/* Matches List */}
               <div className="max-h-[60vh] overflow-y-auto p-4 space-y-3 bg-gray-50 dark:bg-gray-800/50">
                 {venueMatches.get(selectedVenue.id)?.map((match: Match) => {
                   const homeTeam = getTeam(match.homeTeamId);
                   const awayTeam = getTeam(match.awayTeamId);
                   const date = getDisplayDate(new Date(match.date), selectedVenue.timezone);
-
+                  
                   return (
                     <div key={match.id} className="bg-white dark:bg-gray-800 p-4 rounded-xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md transition-all group">
                       {/* Date & Stage */}
@@ -189,7 +183,7 @@ export const MapView: React.FC<MapViewProps> = ({ matches: filteredMatches }) =>
                           {match.stage}
                         </span>
                       </div>
-
+                      
                       {/* Teams */}
                       <div className="flex items-center justify-between gap-4">
                         {/* Home */}
@@ -199,7 +193,7 @@ export const MapView: React.FC<MapViewProps> = ({ matches: filteredMatches }) =>
                             {homeTeam?.code || match.homeTeamId}
                           </span>
                         </div>
-
+                        
                         {/* VS */}
                         <div className="flex flex-col items-center justify-center w-10">
                           <span className="text-sm font-bold text-gray-300 dark:text-gray-600">VS</span>
@@ -216,7 +210,7 @@ export const MapView: React.FC<MapViewProps> = ({ matches: filteredMatches }) =>
                     </div>
                   );
                 })}
-
+                
                 {(!venueMatches.get(selectedVenue.id) || venueMatches.get(selectedVenue.id)?.length === 0) && (
                   <div className="flex flex-col items-center justify-center py-12 text-gray-400 dark:text-gray-500">
                     <Calendar size={48} className="mb-3 opacity-50" />
