@@ -1,7 +1,7 @@
 [
   {
     "id": "v1",
-    "name": "Estadio Azteca",
+    "name": "Mexico City Stadium",
     "city": "Mexico City",
     "timezone": "America/Mexico_City",
     "region": "Central",
@@ -12,7 +12,7 @@
   },
   {
     "id": "v2",
-    "name": "SoFi Stadium",
+    "name": "Los Angeles Stadium",
     "city": "Los Angeles",
     "timezone": "America/Los_Angeles",
     "region": "Western",
@@ -23,7 +23,7 @@
   },
   {
     "id": "v3",
-    "name": "BMO Field",
+    "name": "Toronto Stadium",
     "city": "Toronto",
     "timezone": "America/Toronto",
     "region": "Eastern",
@@ -34,7 +34,7 @@
   },
   {
     "id": "v4",
-    "name": "BC Place",
+    "name": "BC Place Vancouver",
     "city": "Vancouver",
     "timezone": "America/Vancouver",
     "region": "Western",
@@ -45,7 +45,7 @@
   },
   {
     "id": "v5",
-    "name": "Estadio Akron",
+    "name": "Guadalajara Stadium",
     "city": "Guadalajara",
     "timezone": "America/Mexico_City",
     "region": "Central",
@@ -56,7 +56,7 @@
   },
   {
     "id": "v6",
-    "name": "Estadio BBVA",
+    "name": "Monterrey Stadium",
     "city": "Monterrey",
     "timezone": "America/Mexico_City",
     "region": "Central",
@@ -78,7 +78,7 @@
   },
   {
     "id": "v8",
-    "name": "AT&T Stadium",
+    "name": "Dallas Stadium",
     "city": "Dallas",
     "timezone": "America/Chicago",
     "region": "Central",
@@ -89,7 +89,7 @@
   },
   {
     "id": "v9",
-    "name": "Mercedes-Benz Stadium",
+    "name": "Atlanta Stadium",
     "city": "Atlanta",
     "timezone": "America/New_York",
     "region": "Eastern",
@@ -100,7 +100,7 @@
   },
   {
     "id": "v10",
-    "name": "Hard Rock Stadium",
+    "name": "Miami Stadium",
     "city": "Miami",
     "timezone": "America/New_York",
     "region": "Eastern",
@@ -111,7 +111,7 @@
   },
   {
     "id": "v11",
-    "name": "Gillette Stadium",
+    "name": "Boston Stadium",
     "city": "Boston",
     "timezone": "America/New_York",
     "region": "Eastern",
@@ -122,7 +122,7 @@
   },
   {
     "id": "v12",
-    "name": "Lincoln Financial Field",
+    "name": "Philadelphia Stadium",
     "city": "Philadelphia",
     "timezone": "America/New_York",
     "region": "Eastern",
@@ -133,7 +133,7 @@
   },
   {
     "id": "v13",
-    "name": "NRG Stadium",
+    "name": "Houston Stadium",
     "city": "Houston",
     "timezone": "America/Chicago",
     "region": "Central",
@@ -144,7 +144,7 @@
   },
   {
     "id": "v14",
-    "name": "Arrowhead Stadium",
+    "name": "Kansas City Stadium",
     "city": "Kansas City",
     "timezone": "America/Chicago",
     "region": "Central",
@@ -155,7 +155,7 @@
   },
   {
     "id": "v15",
-    "name": "Lumen Field",
+    "name": "Seattle Stadium",
     "city": "Seattle",
     "timezone": "America/Los_Angeles",
     "region": "Western",
