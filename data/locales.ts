@@ -21,6 +21,9 @@ export const translations = {
     system: 'System',
     selectTeamTheme: 'Select Team Theme',
     resetDefault: 'Reset Default',
+    noMatchesFound: 'No matches found',
+    adjustFilters: 'Try adjusting your filters',
+    monthFormat: 'MMMM yyyy',
     grp: 'Grp',
     knockout: 'KO',
     standings: {
@@ -79,6 +82,9 @@ export const translations = {
     system: '跟随系统',
     selectTeamTheme: '选择球队主题',
     resetDefault: '恢复默认',
+    noMatchesFound: '没有找到比赛',
+    adjustFilters: '请尝试调整筛选条件',
+    monthFormat: 'yyyy年 MMMM',
     grp: '组',
     knockout: '淘汰赛',
     standings: {
