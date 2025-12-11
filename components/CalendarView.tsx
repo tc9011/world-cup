@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Match } from '../types';
 import { format, endOfMonth, eachDayOfInterval, isSameDay, getDay, startOfWeek, addDays } from 'date-fns';
 import { enUS, zhCN } from 'date-fns/locale';
 import { teams, venues } from '../data/worldCupData';
 import { useStore } from '../store/useStore';
 import { teamNames, cityNames, translations } from '../data/locales';
+import { MatchDetailModal } from './MatchDetailModal';
 
 interface CalendarViewProps {
   matches: Match[];
@@ -13,6 +14,9 @@ interface CalendarViewProps {
 export const CalendarView: React.FC<CalendarViewProps> = ({ matches }) => {
   const { language } = useStore();
   const t = translations[language];
+  const [selectedMatch, setSelectedMatch] = useState<Match | null>(null);
+  const [modalPosition, setModalPosition] = useState<{ x: number; y: number } | null>(null);
+
   if (matches.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center py-12 text-gray-500 dark:text-gray-400">
@@ -21,6 +25,15 @@ export const CalendarView: React.FC<CalendarViewProps> = ({ matches }) => {
       </div>
     );
   }
+
+  const handleMatchClick = (match: Match, e: React.MouseEvent) => {
+    const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
+    setModalPosition({
+      x: rect.left + rect.width / 2,
+      y: rect.top + rect.height / 2
+    });
+    setSelectedMatch(match);
+  };
 
   // Get unique months from matches
   const months = Array.from(new Set(matches.map(m => {
@@ -31,15 +44,35 @@ export const CalendarView: React.FC<CalendarViewProps> = ({ matches }) => {
   .map(time => new Date(time));
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 relative">
       {months.map(monthStart => (
-        <MonthGrid key={monthStart.toISOString()} monthStart={monthStart} matches={matches} />
+        <MonthGrid 
+          key={monthStart.toISOString()} 
+          monthStart={monthStart} 
+          matches={matches} 
+          onMatchClick={handleMatchClick}
+        />
       ))}
+
+      {selectedMatch && (
+        <MatchDetailModal
+          match={selectedMatch}
+          homeTeam={teams.find(t => t.id === selectedMatch.homeTeamId)}
+          awayTeam={teams.find(t => t.id === selectedMatch.awayTeamId)}
+          venue={venues.find(v => v.id === selectedMatch.venueId)}
+          position={modalPosition}
+          onClose={() => setSelectedMatch(null)}
+        />
+      )}
     </div>
   );
 };
 
-const MonthGrid: React.FC<{ monthStart: Date; matches: Match[] }> = ({ monthStart, matches }) => {
+const MonthGrid: React.FC<{ 
+  monthStart: Date; 
+  matches: Match[];
+  onMatchClick: (match: Match, e: React.MouseEvent) => void;
+}> = ({ monthStart, matches, onMatchClick }) => {
   const { language, timezoneMode } = useStore();
   const t = translations[language];
   const dateLocale = language === 'zh' ? zhCN : enUS;
@@ -134,7 +167,11 @@ const MonthGrid: React.FC<{ monthStart: Date; matches: Match[] }> = ({ monthStar
                       const displayDate = getDisplayDate(new Date(match.date), match.venueId);
 
                       return (
-                        <div key={match.id} className="bg-white dark:bg-gray-700 rounded-lg shadow-sm border border-gray-100 dark:border-gray-600 p-2 hover:shadow-md hover:border-primary/50 dark:hover:border-primary transition-all cursor-pointer group/card">
+                        <div 
+                          key={match.id} 
+                          onClick={(e) => onMatchClick(match, e)}
+                          className="bg-white dark:bg-gray-700 rounded-lg shadow-sm border border-gray-100 dark:border-gray-600 p-2 hover:shadow-md hover:border-primary/50 dark:hover:border-primary transition-all cursor-pointer group/card"
+                        >
                           {/* Header: Time & Group */}
                           <div className="flex justify-between items-center text-[10px] text-gray-500 dark:text-gray-400 mb-1.5 border-b border-gray-100 dark:border-gray-600/50 pb-1">
                             <span className="font-bold text-gray-900 dark:text-white bg-gray-100 dark:bg-gray-600 px-1 rounded">
