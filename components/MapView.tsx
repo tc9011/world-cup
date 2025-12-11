@@ -23,6 +23,7 @@ export const MapView: React.FC<MapViewProps> = ({ matches: filteredMatches }) =>
   const t = translations[language];
   const [selectedVenue, setSelectedVenue] = useState<Venue | null>(null);
   const [mounted, setMounted] = useState(false);
+  const [mapReady, setMapReady] = useState(false);
   const [isDark, setIsDark] = useState(false);
   const mapRef = useRef<MapRef>(null);
 
@@ -64,7 +65,7 @@ export const MapView: React.FC<MapViewProps> = ({ matches: filteredMatches }) =>
 
   // Update language when map loads or language changes
   useEffect(() => {
-    if (!mounted) return;
+    if (!mapReady) return;
     
     const map = mapRef.current?.getMap();
     if (!map) return;
@@ -81,7 +82,7 @@ export const MapView: React.FC<MapViewProps> = ({ matches: filteredMatches }) =>
     return () => {
       map.off('style.load', handleStyleLoad);
     };
-  }, [mounted, updateMapLanguage, isDark]); // Re-run when style changes (isDark)
+  }, [mapReady, updateMapLanguage, isDark]); // Re-run when style changes (isDark)
 
   useEffect(() => {
     const checkDark = () => {
@@ -151,6 +152,7 @@ export const MapView: React.FC<MapViewProps> = ({ matches: filteredMatches }) =>
     <div className="w-full h-[600px] rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700 relative bg-gray-100 dark:bg-gray-800">
       <MapGL
         ref={mapRef}
+        onLoad={() => setMapReady(true)}
         initialViewState={{
           longitude: -95,
           latitude: 37,
