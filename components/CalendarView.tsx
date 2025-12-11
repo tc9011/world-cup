@@ -125,7 +125,7 @@ const MonthGrid: React.FC<{
             ))}
           </div>
 
-          <div className="grid grid-cols-7 bg-gray-200 dark:bg-gray-700 gap-px border-b border-gray-200 dark:border-gray-700">
+          <div className="grid grid-cols-7 bg-gray-300 dark:bg-gray-600 gap-0.5 border-b border-gray-300 dark:border-gray-600">
             {emptySlots.map((_, i) => (
               <div key={`empty-${i}`} className="min-h-[180px] bg-gray-50/50 dark:bg-gray-900/50" />
             ))}
