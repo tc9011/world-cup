@@ -1,60 +1,5 @@
 [
   {
-    "id": "v4",
-    "name": "BC Place",
-    "city": "Vancouver",
-    "timezone": "America/Vancouver",
-    "region": "Western",
-    "coordinates": {
-      "lat": 49.2768,
-      "lng": -123.1120
-    }
-  },
-  {
-    "id": "v15",
-    "name": "Lumen Field",
-    "city": "Seattle",
-    "timezone": "America/Los_Angeles",
-    "region": "Western",
-    "coordinates": {
-      "lat": 47.5952,
-      "lng": -122.3316
-    }
-  },
-  {
-    "id": "v16",
-    "name": "Levi's Stadium",
-    "city": "San Francisco",
-    "timezone": "America/Los_Angeles",
-    "region": "Western",
-    "coordinates": {
-      "lat": 37.4030,
-      "lng": -121.9700
-    }
-  },
-  {
-    "id": "v2",
-    "name": "SoFi Stadium",
-    "city": "Los Angeles",
-    "timezone": "America/Los_Angeles",
-    "region": "Western",
-    "coordinates": {
-      "lat": 33.9535,
-      "lng": -118.3390
-    }
-  },
-  {
-    "id": "v5",
-    "name": "Estadio Akron",
-    "city": "Guadalajara",
-    "timezone": "America/Mexico_City",
-    "region": "Central",
-    "coordinates": {
-      "lat": 20.6820,
-      "lng": -103.4626
-    }
-  },
-  {
     "id": "v1",
     "name": "Estadio Azteca",
     "city": "Mexico City",
@@ -66,25 +11,69 @@
     }
   },
   {
+    "id": "v2",
+    "name": "SoFi Stadium",
+    "city": "Los Angeles",
+    "timezone": "America/Los_Angeles",
+    "region": "Western",
+    "coordinates": {
+      "lat": 33.9535,
+      "lng": -118.339
+    }
+  },
+  {
+    "id": "v3",
+    "name": "BMO Field",
+    "city": "Toronto",
+    "timezone": "America/Toronto",
+    "region": "Eastern",
+    "coordinates": {
+      "lat": 43.6332,
+      "lng": -79.4186
+    }
+  },
+  {
+    "id": "v4",
+    "name": "BC Place",
+    "city": "Vancouver",
+    "timezone": "America/Vancouver",
+    "region": "Western",
+    "coordinates": {
+      "lat": 49.2768,
+      "lng": -123.112
+    }
+  },
+  {
+    "id": "v5",
+    "name": "Estadio Akron",
+    "city": "Guadalajara",
+    "timezone": "America/Mexico_City",
+    "region": "Central",
+    "coordinates": {
+      "lat": 20.682,
+      "lng": -103.4626
+    }
+  },
+  {
     "id": "v6",
     "name": "Estadio BBVA",
     "city": "Monterrey",
     "timezone": "America/Mexico_City",
     "region": "Central",
     "coordinates": {
-      "lat": 25.6180,
-      "lng": -100.2440
+      "lat": 25.618,
+      "lng": -100.244
     }
   },
   {
-    "id": "v13",
-    "name": "NRG Stadium",
-    "city": "Houston",
-    "timezone": "America/Chicago",
-    "region": "Central",
+    "id": "v7",
+    "name": "MetLife Stadium",
+    "city": "New York/New Jersey",
+    "timezone": "America/New_York",
+    "region": "Eastern",
     "coordinates": {
-      "lat": 29.6847,
-      "lng": -95.4107
+      "lat": 40.8135,
+      "lng": -74.0745
     }
   },
   {
@@ -96,17 +85,6 @@
     "coordinates": {
       "lat": 32.7473,
       "lng": -97.0945
-    }
-  },
-  {
-    "id": "v14",
-    "name": "Arrowhead Stadium",
-    "city": "Kansas City",
-    "timezone": "America/Chicago",
-    "region": "Central",
-    "coordinates": {
-      "lat": 39.0489,
-      "lng": -94.4839
     }
   },
   {
@@ -127,19 +105,8 @@
     "timezone": "America/New_York",
     "region": "Eastern",
     "coordinates": {
-      "lat": 25.9580,
+      "lat": 25.958,
       "lng": -80.2389
-    }
-  },
-  {
-    "id": "v3",
-    "name": "BMO Field",
-    "city": "Toronto",
-    "timezone": "America/Toronto",
-    "region": "Eastern",
-    "coordinates": {
-      "lat": 43.6332,
-      "lng": -79.4186
     }
   },
   {
@@ -165,14 +132,47 @@
     }
   },
   {
-    "id": "v7",
-    "name": "MetLife Stadium",
-    "city": "New York/New Jersey",
-    "timezone": "America/New_York",
-    "region": "Eastern",
+    "id": "v13",
+    "name": "NRG Stadium",
+    "city": "Houston",
+    "timezone": "America/Chicago",
+    "region": "Central",
     "coordinates": {
-      "lat": 40.8135,
-      "lng": -74.0745
+      "lat": 29.6847,
+      "lng": -95.4107
+    }
+  },
+  {
+    "id": "v14",
+    "name": "Arrowhead Stadium",
+    "city": "Kansas City",
+    "timezone": "America/Chicago",
+    "region": "Central",
+    "coordinates": {
+      "lat": 39.0489,
+      "lng": -94.4839
+    }
+  },
+  {
+    "id": "v15",
+    "name": "Lumen Field",
+    "city": "Seattle",
+    "timezone": "America/Los_Angeles",
+    "region": "Western",
+    "coordinates": {
+      "lat": 47.5952,
+      "lng": -122.3316
+    }
+  },
+  {
+    "id": "v16",
+    "name": "Levi's Stadium",
+    "city": "San Francisco",
+    "timezone": "America/Los_Angeles",
+    "region": "Western",
+    "coordinates": {
+      "lat": 37.403,
+      "lng": -121.97
     }
   }
 ]
