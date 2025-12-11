@@ -120,6 +120,9 @@ const MatchCard: React.FC<{ match: Match; isFinal?: boolean }> = ({ match, isFin
   const venue = venues.find(v => v.id === match.venueId);
   const venueName = language === 'zh' ? (venue ? (cityNames[venue.city] || venue.city) : '') : (venue?.city || '');
 
+  const showScore = match.status === 'finished' || match.status === 'live';
+  const showPenalties = showScore && match.homePenaltyScore !== null && match.homePenaltyScore !== undefined && match.awayPenaltyScore !== null && match.awayPenaltyScore !== undefined;
+
   return (
     <div className={clsx(
       "bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-lg border border-gray-200/50 dark:border-gray-700/50 p-2 shadow-sm relative my-2 transition-all hover:scale-105 hover:shadow-md hover:bg-white dark:hover:bg-gray-800",
@@ -135,14 +138,24 @@ const MatchCard: React.FC<{ match: Match; isFinal?: boolean }> = ({ match, isFin
             <span className="text-sm">{home?.flag || '🏳️'}</span>
             <span className="text-xs font-medium truncate text-gray-900 dark:text-gray-100">{homeName}</span>
           </div>
-          <span className="text-xs font-bold bg-gray-100/50 dark:bg-gray-700/50 px-1.5 rounded text-gray-600 dark:text-gray-300">-</span>
+          <div className="flex items-center gap-1">
+            <span className="text-xs font-bold bg-gray-100/50 dark:bg-gray-700/50 px-1.5 rounded text-gray-600 dark:text-gray-300">
+              {showScore && match.homeScore !== null && match.homeScore !== undefined ? match.homeScore : '-'}
+            </span>
+            {showPenalties && <span className="text-[10px] text-gray-500">({match.homePenaltyScore})</span>}
+          </div>
         </div>
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2 overflow-hidden">
             <span className="text-sm">{away?.flag || '🏳️'}</span>
             <span className="text-xs font-medium truncate text-gray-900 dark:text-gray-100">{awayName}</span>
           </div>
-          <span className="text-xs font-bold bg-gray-100/50 dark:bg-gray-700/50 px-1.5 rounded text-gray-600 dark:text-gray-300">-</span>
+          <div className="flex items-center gap-1">
+            <span className="text-xs font-bold bg-gray-100/50 dark:bg-gray-700/50 px-1.5 rounded text-gray-600 dark:text-gray-300">
+              {showScore && match.awayScore !== null && match.awayScore !== undefined ? match.awayScore : '-'}
+            </span>
+            {showPenalties && <span className="text-[10px] text-gray-500">({match.awayPenaltyScore})</span>}
+          </div>
         </div>
       </div>
       

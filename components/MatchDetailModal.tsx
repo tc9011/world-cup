@@ -148,6 +148,11 @@ export const MatchDetailModal: React.FC<MatchDetailModalProps> = ({ match, homeT
                     <span className="text-gray-300 dark:text-gray-600 text-3xl">:</span>
                     <span>{match.awayScore ?? 0}</span>
                   </div>
+                  {match.homePenaltyScore !== null && match.homePenaltyScore !== undefined && match.awayPenaltyScore !== null && match.awayPenaltyScore !== undefined && (
+                    <div className="text-sm text-gray-500 font-medium mt-1">
+                      ({match.homePenaltyScore} - {match.awayPenaltyScore})
+                    </div>
+                  )}
                   <span className="mt-2 px-2 py-0.5 text-[10px] font-bold uppercase tracking-widest bg-primary/10 text-primary rounded-full">
                     {match.status === 'live' ? 'Live' : 'Full Time'}
                   </span>

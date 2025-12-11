@@ -15,6 +15,9 @@ export const MatchCard: React.FC<MatchCardProps> = ({ match }) => {
   const awayTeam = teams.find(t => t.id === match.awayTeamId);
   const venue = venues.find(v => v.id === match.venueId);
   
+  const showScore = match.status === 'finished' || match.status === 'live';
+  const showPenalties = showScore && match.homePenaltyScore !== null && match.homePenaltyScore !== undefined && match.awayPenaltyScore !== null && match.awayPenaltyScore !== undefined;
+
   // Helper to get display date based on timezone mode
   const getDisplayDate = (date: Date, venueId: string) => {
     if (timezoneMode === 'local') return date;
@@ -56,11 +59,31 @@ export const MatchCard: React.FC<MatchCardProps> = ({ match }) => {
 
         {/* VS / Score */}
         <div className="flex flex-col items-center w-1/3">
-          <div className="text-2xl font-bold text-gray-300">VS</div>
-          <div className="flex items-center mt-2 text-xs text-gray-500 bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded-full">
-            <Clock size={12} className="mr-1" />
-            {format(matchDate, 'HH:mm')}
-          </div>
+          {showScore ? (
+            <div className="flex flex-col items-center">
+              <div className="text-3xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
+                <span>{match.homeScore}</span>
+                <span className="text-gray-400 text-xl">-</span>
+                <span>{match.awayScore}</span>
+              </div>
+              {showPenalties && (
+                <div className="text-sm text-gray-500 mt-1">
+                  ({match.homePenaltyScore} - {match.awayPenaltyScore})
+                </div>
+              )}
+              <div className="mt-1 text-xs font-medium text-green-600 dark:text-green-400 uppercase">
+                {match.status === 'live' ? 'LIVE' : 'FT'}
+              </div>
+            </div>
+          ) : (
+            <>
+              <div className="text-2xl font-bold text-gray-300">VS</div>
+              <div className="flex items-center mt-2 text-xs text-gray-500 bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded-full">
+                <Clock size={12} className="mr-1" />
+                {format(matchDate, 'HH:mm')}
+              </div>
+            </>
+          )}
         </div>
 
         {/* Away Team */}

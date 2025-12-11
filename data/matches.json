@@ -1,7 +1,7 @@
 [
   {
     "id": "m1",
-    "date": "2026-06-11T21:00:00.000Z",
+    "date": "2026-06-11T19:00:00Z",
     "group": "A",
     "stage": "Group Stage",
     "homeTeamId": "MEX",
@@ -9,11 +9,13 @@
     "venueId": "v1",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m2",
-    "date": "2026-06-12T04:00:00.000Z",
+    "date": "2026-06-12T02:00:00Z",
     "group": "A",
     "stage": "Group Stage",
     "homeTeamId": "KOR",
@@ -21,7 +23,9 @@
     "venueId": "v5",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m3",
@@ -33,7 +37,9 @@
     "venueId": "v3",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m4",
@@ -45,7 +51,9 @@
     "venueId": "v2",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m5",
@@ -57,7 +65,9 @@
     "venueId": "v7",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m6",
@@ -69,7 +79,9 @@
     "venueId": "v4",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m7",
@@ -81,7 +93,9 @@
     "venueId": "v11",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m8",
@@ -93,7 +107,9 @@
     "venueId": "v16",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m9",
@@ -105,7 +121,9 @@
     "venueId": "v13",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m10",
@@ -117,7 +135,9 @@
     "venueId": "v12",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m11",
@@ -129,7 +149,9 @@
     "venueId": "v8",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m12",
@@ -141,7 +163,9 @@
     "venueId": "v6",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m13",
@@ -153,7 +177,9 @@
     "venueId": "v9",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m14",
@@ -165,7 +191,9 @@
     "venueId": "v10",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m15",
@@ -177,7 +205,9 @@
     "venueId": "v15",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m16",
@@ -189,7 +219,9 @@
     "venueId": "v2",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m17",
@@ -201,7 +233,9 @@
     "venueId": "v11",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m18",
@@ -213,7 +247,9 @@
     "venueId": "v3",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m19",
@@ -225,7 +261,9 @@
     "venueId": "v14",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m20",
@@ -237,7 +275,9 @@
     "venueId": "v16",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m21",
@@ -249,7 +289,9 @@
     "venueId": "v8",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m22",
@@ -261,7 +303,9 @@
     "venueId": "v3",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m23",
@@ -273,7 +317,9 @@
     "venueId": "v13",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m24",
@@ -285,7 +331,9 @@
     "venueId": "v1",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m25",
@@ -297,7 +345,9 @@
     "venueId": "v9",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m26",
@@ -309,7 +359,9 @@
     "venueId": "v2",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m27",
@@ -321,7 +373,9 @@
     "venueId": "v4",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m28",
@@ -333,7 +387,9 @@
     "venueId": "v5",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m29",
@@ -345,7 +401,9 @@
     "venueId": "v12",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m30",
@@ -357,7 +415,9 @@
     "venueId": "v11",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m31",
@@ -369,7 +429,9 @@
     "venueId": "v16",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m32",
@@ -381,7 +443,9 @@
     "venueId": "v15",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m33",
@@ -393,7 +457,9 @@
     "venueId": "v3",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m34",
@@ -405,7 +471,9 @@
     "venueId": "v14",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m35",
@@ -417,7 +485,9 @@
     "venueId": "v13",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m36",
@@ -429,7 +499,9 @@
     "venueId": "v6",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m37",
@@ -441,7 +513,9 @@
     "venueId": "v9",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m38",
@@ -453,7 +527,9 @@
     "venueId": "v10",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m39",
@@ -465,7 +541,9 @@
     "venueId": "v2",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m40",
@@ -477,7 +555,9 @@
     "venueId": "v4",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m41",
@@ -489,7 +569,9 @@
     "venueId": "v12",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m42",
@@ -501,7 +583,9 @@
     "venueId": "v7",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m43",
@@ -513,7 +597,9 @@
     "venueId": "v8",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m44",
@@ -525,7 +611,9 @@
     "venueId": "v16",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m45",
@@ -537,7 +625,9 @@
     "venueId": "v11",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m46",
@@ -549,7 +639,9 @@
     "venueId": "v3",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m47",
@@ -561,7 +653,9 @@
     "venueId": "v13",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m48",
@@ -573,7 +667,9 @@
     "venueId": "v5",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m49",
@@ -585,7 +681,9 @@
     "venueId": "v10",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m50",
@@ -597,7 +695,9 @@
     "venueId": "v9",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m51",
@@ -609,7 +709,9 @@
     "venueId": "v4",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m52",
@@ -621,7 +723,9 @@
     "venueId": "v15",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m53",
@@ -633,7 +737,9 @@
     "venueId": "v1",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m54",
@@ -645,7 +751,9 @@
     "venueId": "v6",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m55",
@@ -657,7 +765,9 @@
     "venueId": "v7",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m56",
@@ -669,7 +779,9 @@
     "venueId": "v12",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m57",
@@ -681,7 +793,9 @@
     "venueId": "v14",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m58",
@@ -693,7 +807,9 @@
     "venueId": "v8",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m59",
@@ -705,7 +821,9 @@
     "venueId": "v2",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m60",
@@ -717,7 +835,9 @@
     "venueId": "v16",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m61",
@@ -729,7 +849,9 @@
     "venueId": "v7",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m62",
@@ -741,7 +863,9 @@
     "venueId": "v3",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m63",
@@ -753,7 +877,9 @@
     "venueId": "v4",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m64",
@@ -765,7 +891,9 @@
     "venueId": "v15",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m65",
@@ -777,7 +905,9 @@
     "venueId": "v13",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m66",
@@ -789,7 +919,9 @@
     "venueId": "v5",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m67",
@@ -801,7 +933,9 @@
     "venueId": "v7",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m68",
@@ -813,7 +947,9 @@
     "venueId": "v12",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m69",
@@ -825,7 +961,9 @@
     "venueId": "v8",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m70",
@@ -837,7 +975,9 @@
     "venueId": "v14",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m71",
@@ -849,7 +989,9 @@
     "venueId": "v10",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m72",
@@ -861,7 +1003,9 @@
     "venueId": "v9",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m73",
@@ -872,7 +1016,9 @@
     "venueId": "v2",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m74",
@@ -883,7 +1029,9 @@
     "venueId": "v11",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m75",
@@ -894,7 +1042,9 @@
     "venueId": "v13",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m76",
@@ -905,7 +1055,9 @@
     "venueId": "v8",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m77",
@@ -916,7 +1068,9 @@
     "venueId": "v7",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m78",
@@ -927,7 +1081,9 @@
     "venueId": "v8",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m79",
@@ -938,7 +1094,9 @@
     "venueId": "v1",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m80",
@@ -949,7 +1107,9 @@
     "venueId": "v9",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m81",
@@ -960,7 +1120,9 @@
     "venueId": "v16",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m82",
@@ -971,7 +1133,9 @@
     "venueId": "v15",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m83",
@@ -982,7 +1146,9 @@
     "venueId": "v3",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m84",
@@ -993,7 +1159,9 @@
     "venueId": "v2",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m85",
@@ -1004,7 +1172,9 @@
     "venueId": "v4",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m86",
@@ -1015,7 +1185,9 @@
     "venueId": "v10",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m87",
@@ -1026,7 +1198,9 @@
     "venueId": "v14",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m88",
@@ -1037,7 +1211,9 @@
     "venueId": "v8",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m89",
@@ -1048,7 +1224,9 @@
     "venueId": "v12",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m90",
@@ -1059,7 +1237,9 @@
     "venueId": "v13",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m91",
@@ -1070,7 +1250,9 @@
     "venueId": "v7",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m92",
@@ -1081,7 +1263,9 @@
     "venueId": "v1",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m93",
@@ -1092,7 +1276,9 @@
     "venueId": "v8",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m94",
@@ -1103,7 +1289,9 @@
     "venueId": "v15",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m95",
@@ -1114,7 +1302,9 @@
     "venueId": "v9",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m96",
@@ -1125,7 +1315,9 @@
     "venueId": "v4",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m97",
@@ -1136,7 +1328,9 @@
     "venueId": "v11",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m98",
@@ -1147,7 +1341,9 @@
     "venueId": "v2",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m99",
@@ -1158,7 +1354,9 @@
     "venueId": "v10",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m100",
@@ -1169,7 +1367,9 @@
     "venueId": "v14",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m101",
@@ -1180,7 +1380,9 @@
     "venueId": "v8",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m102",
@@ -1191,7 +1393,9 @@
     "venueId": "v9",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m103",
@@ -1202,7 +1406,9 @@
     "venueId": "v10",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   },
   {
     "id": "m104",
@@ -1213,6 +1419,8 @@
     "venueId": "v7",
     "status": "scheduled",
     "homeScore": null,
-    "awayScore": null
+    "awayScore": null,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   }
 ]
