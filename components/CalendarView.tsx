@@ -4,7 +4,7 @@ import { format, endOfMonth, eachDayOfInterval, isSameDay, getDay, startOfWeek, 
 import { enUS, zhCN } from 'date-fns/locale';
 import { teams, venues } from '../data/worldCupData';
 import { useStore } from '../store/useStore';
-import { teamNames, cityNames } from '../data/locales';
+import { teamNames, cityNames, translations } from '../data/locales';
 
 interface CalendarViewProps {
   matches: Match[];
@@ -38,6 +38,7 @@ export const CalendarView: React.FC<CalendarViewProps> = ({ matches }) => {
 
 const MonthGrid: React.FC<{ monthStart: Date; matches: Match[] }> = ({ monthStart, matches }) => {
   const { language, timezoneMode } = useStore();
+  const t = translations[language];
   const dateLocale = language === 'zh' ? zhCN : enUS;
 
   // Helper to get display date based on timezone mode
@@ -108,7 +109,7 @@ const MonthGrid: React.FC<{ monthStart: Date; matches: Match[] }> = ({ monthStar
                     </span>
                     {dayMatches.length > 0 && (
                       <span className="text-xs font-normal bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary px-1.5 py-0.5 rounded-full">
-                        {dayMatches.length} {language === 'zh' ? '场' : 'matches'}
+                        {dayMatches.length} {t.matchesSuffix}
                       </span>
                     )}
                   </div>
@@ -118,8 +119,8 @@ const MonthGrid: React.FC<{ monthStart: Date; matches: Match[] }> = ({ monthStar
                       const home = teams.find(t => t.id === match.homeTeamId);
                       const away = teams.find(t => t.id === match.awayTeamId);
 
-                      const homeName = language === 'zh' ? (home ? (teamNames[home.code] || home.code) : '待定') : (home?.code || 'TBD');
-                      const awayName = language === 'zh' ? (away ? (teamNames[away.code] || away.code) : '待定') : (away?.code || 'TBD');
+                      const homeName = language === 'zh' ? (home ? (teamNames[home.code] || home.code) : t.tbd) : (home?.code || t.tbd);
+                      const awayName = language === 'zh' ? (away ? (teamNames[away.code] || away.code) : t.tbd) : (away?.code || t.tbd);
                       
                       const homeFlag = home?.flag || '🏳️';
                       const awayFlag = away?.flag || '🏳️';
@@ -136,7 +137,7 @@ const MonthGrid: React.FC<{ monthStart: Date; matches: Match[] }> = ({ monthStar
                             <span className="font-bold text-gray-900 dark:text-white bg-gray-100 dark:bg-gray-600 px-1 rounded">
                               {format(displayDate, 'HH:mm')}
                             </span>
-                            <span>{match.group ? `${language === 'zh' ? '组' : 'Grp'} ${match.group}` : (language === 'zh' ? '淘汰赛' : 'KO')}</span>
+                            <span>{match.group ? `${t.grp} ${match.group}` : t.knockout}</span>
                           </div>
 
                           {/* Teams */}

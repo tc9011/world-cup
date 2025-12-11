@@ -5,6 +5,7 @@ import { Download, Loader2 } from 'lucide-react';
 import { toPng } from 'html-to-image';
 import QRCode from 'qrcode';
 import { useStore } from '../store/useStore';
+import { translations } from '../data/locales';
 
 interface ExportButtonProps {
   targetRef: React.RefObject<HTMLElement | null>;
@@ -13,6 +14,7 @@ interface ExportButtonProps {
 export const ExportButton: React.FC<ExportButtonProps> = ({ targetRef }) => {
   const [isExporting, setIsExporting] = useState(false);
   const { language } = useStore();
+  const t = translations[language];
 
   const handleExport = async () => {
     if (!targetRef.current) return;
@@ -197,7 +199,7 @@ export const ExportButton: React.FC<ExportButtonProps> = ({ targetRef }) => {
 
     } catch (err) {
       console.error('Failed to export image:', err);
-      alert(language === 'zh' ? '导出图片失败，请重试' : 'Failed to export image, please try again.');
+      alert(t.exportImageFailed);
     } finally {
       setIsExporting(false);
     }
@@ -208,7 +210,7 @@ export const ExportButton: React.FC<ExportButtonProps> = ({ targetRef }) => {
       onClick={handleExport}
       disabled={isExporting}
       className="p-1.5 md:p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-600 dark:text-gray-300 disabled:opacity-50"
-      title={language === 'zh' ? '导出图片' : 'Export Image'}
+      title={t.exportImage}
     >
       {isExporting ? <Loader2 className="w-5 h-5 animate-spin" /> : <Download className="w-5 h-5" />}
     </button>

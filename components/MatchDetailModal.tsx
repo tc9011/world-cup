@@ -70,7 +70,7 @@ export const MatchDetailModal: React.FC<MatchDetailModalProps> = ({ match, homeT
     if (id.match(/^(W|L|[123][A-L])/)) {
       return id;
     }
-    return language === 'zh' ? '待定' : 'TBD';
+    return t.tbd;
   };
 
   const homeName = getTeamName(homeTeam, match.homeTeamId);
@@ -174,7 +174,7 @@ export const MatchDetailModal: React.FC<MatchDetailModalProps> = ({ match, homeT
               <div>
                 <p className="text-sm font-medium text-gray-500 dark:text-gray-400">{t.venueDate.split('/')[0].trim()}</p>
                 <p className="text-base font-semibold text-gray-900 dark:text-white">
-                  {venue ? (language === 'zh' ? (cityNames[venue.city] || venue.city) : venue.city) : 'TBD'}
+                  {venue ? (language === 'zh' ? (cityNames[venue.city] || venue.city) : venue.city) : t.tbd}
                 </p>
                 <p className="text-sm text-gray-600 dark:text-gray-300">{venue?.name}</p>
               </div>

@@ -9,7 +9,7 @@ import { Venue, Match } from '../types';
 import { useStore } from '../store/useStore';
 import { format } from 'date-fns';
 import { X, Calendar, MapPin } from 'lucide-react';
-import { cityNames } from '../data/locales';
+import { cityNames, translations } from '../data/locales';
 
 // Note: In a real application, this should be in an environment variable
 const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN; 
@@ -20,6 +20,7 @@ interface MapViewProps {
 
 export const MapView: React.FC<MapViewProps> = ({ matches: filteredMatches }) => {
   const { language, timezoneMode, themeMode } = useStore();
+  const t = translations[language];
   const [selectedVenue, setSelectedVenue] = useState<Venue | null>(null);
   const [mounted, setMounted] = useState(false);
   const [isDark, setIsDark] = useState(false);
@@ -157,7 +158,7 @@ export const MapView: React.FC<MapViewProps> = ({ matches: filteredMatches }) =>
                   <div className="flex items-center gap-1.5">
                     <Calendar size={16} />
                     <span>
-                      {venueMatches.get(selectedVenue.id)?.length || 0} {language === 'zh' ? '场比赛' : 'Matches'}
+                      {venueMatches.get(selectedVenue.id)?.length || 0} {t.matchesCount}
                     </span>
                   </div>
                 </div>
@@ -214,7 +215,7 @@ export const MapView: React.FC<MapViewProps> = ({ matches: filteredMatches }) =>
                   <div className="flex flex-col items-center justify-center py-12 text-gray-400 dark:text-gray-500">
                     <Calendar size={48} className="mb-3 opacity-50" />
                     <p className="text-base italic">
-                      {language === 'zh' ? '暂无符合条件的比赛' : 'No matches scheduled'}
+                      {t.noMatches}
                     </p>
                   </div>
                 )}

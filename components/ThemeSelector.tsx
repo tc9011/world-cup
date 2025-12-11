@@ -5,10 +5,12 @@ import { Palette, Sun, Moon, Monitor } from 'lucide-react';
 import { useStore } from '../store/useStore';
 import { teams } from '../data/worldCupData';
 import { teamColors } from '../data/teamColors';
+import { translations } from '../data/locales';
 
 export const ThemeSelector = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { themeTeamId, setThemeTeamId, themeMode, setThemeMode, language } = useStore();
+  const t = translations[language];
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   // Close on click outside
@@ -35,7 +37,7 @@ export const ThemeSelector = () => {
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="p-1.5 md:p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-600 dark:text-gray-300"
-        title={language === 'zh' ? '切换主题' : 'Change Theme'}
+        title={t.changeTheme}
       >
         <Palette className="w-5 h-5 md:w-5 md:h-5" />
       </button>
@@ -45,7 +47,7 @@ export const ThemeSelector = () => {
           {/* Appearance Mode */}
           <div className="p-3 border-b border-gray-100 dark:border-gray-800">
             <h3 className="font-bold text-sm text-gray-900 dark:text-white mb-2">
-              {language === 'zh' ? '外观模式' : 'Appearance'}
+              {t.appearance}
             </h3>
             <div className="flex bg-gray-100 dark:bg-gray-800 rounded-lg p-1">
               <button
@@ -57,7 +59,7 @@ export const ThemeSelector = () => {
                 }`}
               >
                 <Sun className="w-3.5 h-3.5" />
-                {language === 'zh' ? '浅色' : 'Light'}
+                {t.light}
               </button>
               <button
                 onClick={() => setThemeMode('dark')}
@@ -68,7 +70,7 @@ export const ThemeSelector = () => {
                 }`}
               >
                 <Moon className="w-3.5 h-3.5" />
-                {language === 'zh' ? '深色' : 'Dark'}
+                {t.dark}
               </button>
               <button
                 onClick={() => setThemeMode('system')}
@@ -79,20 +81,20 @@ export const ThemeSelector = () => {
                 }`}
               >
                 <Monitor className="w-3.5 h-3.5" />
-                {language === 'zh' ? '跟随系统' : 'System'}
+                {t.system}
               </button>
             </div>
           </div>
 
           <div className="p-3 border-b border-gray-100 dark:border-gray-800 flex justify-between items-center">
             <h3 className="font-bold text-sm text-gray-900 dark:text-white">
-              {language === 'zh' ? '选择球队主题' : 'Select Team Theme'}
+              {t.selectTeamTheme}
             </h3>
             <button 
               onClick={() => handleSelect(null)}
               className="text-xs text-gray-500 hover:text-primary dark:hover:text-primary"
             >
-              {language === 'zh' ? '恢复默认' : 'Reset Default'}
+              {t.resetDefault}
             </button>
           </div>
           
