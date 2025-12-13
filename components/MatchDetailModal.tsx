@@ -51,9 +51,9 @@ export const MatchDetailModal: React.FC<MatchDetailModalProps> = ({ match, homeT
         margin: 0,
         transform: 'none'
       });
-      
+
       // Scroll into view if needed (for the modal itself)
-      // Since we clamped it, it should be in view. 
+      // Since we clamped it, it should be in view.
       // But if the user wants the *background* to scroll to the modal...
       // Let's try to scroll the modal element into view smoothly just in case clamping wasn't enough (e.g. mobile browser bars)
       // modalRef.current.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
@@ -75,17 +75,18 @@ export const MatchDetailModal: React.FC<MatchDetailModalProps> = ({ match, homeT
 
   const homeName = getTeamName(homeTeam, match.homeTeamId);
   const awayName = getTeamName(awayTeam, match.awayTeamId);
-  
+
   const matchDate = new Date(match.date);
-  
+
   // Format dates
   const formatDate = (date: Date, timeZone?: string) => {
-    if (!timeZone) return format(date, 'PPP p', { locale: dateLocale });
-    
+    if (!timeZone) return format(date, 'PPPPp', { locale: dateLocale });
+
     return new Intl.DateTimeFormat(language === 'zh' ? 'zh-CN' : 'en-US', {
       timeZone,
       dateStyle: 'full',
       timeStyle: 'short',
+      hourCycle: 'h12'
     }).format(date);
   };
 
@@ -93,7 +94,7 @@ export const MatchDetailModal: React.FC<MatchDetailModalProps> = ({ match, homeT
 
   return createPortal(
     <div className="fixed inset-0 z-100 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200" onClick={onClose}>
-      <div 
+      <div
         ref={modalRef}
         style={window.innerWidth >= 768 && position ? style : {}}
         className="relative w-full max-w-lg bg-white dark:bg-black rounded-3xl shadow-2xl overflow-hidden border border-white/20 dark:border-primary/30 animate-in zoom-in-95 duration-200"
@@ -101,9 +102,9 @@ export const MatchDetailModal: React.FC<MatchDetailModalProps> = ({ match, homeT
       >
         {/* Header Background with Gradient */}
         <div className="absolute top-0 left-0 right-0 h-32 bg-linear-to-br from-primary/20 to-accent/20 dark:from-primary/10 dark:to-accent/10" />
-        
+
         {/* Close Button */}
-        <button 
+        <button
           onClick={onClose}
           className="absolute top-4 right-4 p-2 bg-white/50 dark:bg-black/50 hover:bg-white dark:hover:bg-black rounded-full backdrop-blur-md transition-colors z-10"
         >
