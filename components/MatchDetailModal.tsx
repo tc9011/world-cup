@@ -80,13 +80,13 @@ export const MatchDetailModal: React.FC<MatchDetailModalProps> = ({ match, homeT
 
   // Format dates
   const formatDate = (date: Date, timeZone?: string) => {
-    if (!timeZone) return format(date, 'PPPPp', { locale: dateLocale });
+    if (!timeZone) return format(date, 'PPPP HH:mm', { locale: dateLocale });
 
     return new Intl.DateTimeFormat(language === 'zh' ? 'zh-CN' : 'en-US', {
       timeZone,
       dateStyle: 'full',
       timeStyle: 'short',
-      hourCycle: 'h12'
+      hourCycle: 'h23'
     }).format(date);
   };
 
