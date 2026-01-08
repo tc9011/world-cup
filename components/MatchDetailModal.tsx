@@ -194,8 +194,7 @@ export const MatchDetailModal: React.FC<MatchDetailModalProps> = ({ match, homeT
               <div>
                 <p className="text-sm font-medium text-gray-500 dark:text-gray-400">{t.timezone.local}</p>
                 <p className="text-base font-semibold text-gray-900 dark:text-white">
-                  {formatDate(matchDate)}
-                </p>
+                  {format(new Date(match.date), 'EEEE, MMMM d, yyyy')}             </p>
               </div>
             </div>
 
