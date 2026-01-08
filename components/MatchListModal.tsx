@@ -9,7 +9,7 @@ import { X, Calendar } from 'lucide-react';
 import { translations, teamNames, cityNames } from '../data/locales';
 import { teams, venues } from '../data/worldCupData';
 
-interface MatchListModalProps {
+export interface MatchListModalProps {
   title: string;
   subtitle?: React.ReactNode;
   matches: Match[];
@@ -18,11 +18,11 @@ interface MatchListModalProps {
   showVenue?: boolean;
 }
 
-export const MatchListModal: React.FC<MatchListModalProps> = ({ 
-  title, 
-  subtitle, 
-  matches, 
-  timezone, 
+export const MatchListModal: React.FC<MatchListModalProps> = ({
+  title,
+  subtitle,
+  matches,
+  timezone,
   onClose,
   showVenue = false
 }) => {
@@ -90,7 +90,7 @@ export const MatchListModal: React.FC<MatchListModalProps> = ({
 
             const venueName = venue ? venue.name : '';
             const cityName = language === 'zh' ? (venue ? cityNames[venue.city] || venue.city : '') : (venue?.city || '');
-            
+
             const homeName = language === 'zh' ? (homeTeam ? (teamNames[homeTeam.code] || homeTeam.code) : t.tbd) : (homeTeam?.code || t.tbd);
             const awayName = language === 'zh' ? (awayTeam ? (teamNames[awayTeam.code] || awayTeam.code) : t.tbd) : (awayTeam?.code || t.tbd);
 
