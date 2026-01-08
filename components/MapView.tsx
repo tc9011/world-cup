@@ -164,6 +164,7 @@ export const MapView: React.FC<MapViewProps> = ({ matches: filteredMatches }) =>
           : "mapbox://styles/mapbox/streets-v12"
         }
         mapboxAccessToken={MAPBOX_TOKEN}
+        preserveDrawingBuffer={true}
       >
         <NavigationControl position="top-right" />
 

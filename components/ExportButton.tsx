@@ -52,6 +52,22 @@ export const ExportButton: React.FC<ExportButtonProps> = ({ targetRef }) => {
       // 3. Create Clone
       const clone = element.cloneNode(true) as HTMLElement;
 
+      // Manually copy canvas contents (WebGL buffers are not cloned)
+      const originalCanvases = element.querySelectorAll('canvas');
+      const clonedCanvases = clone.querySelectorAll('canvas');
+
+      Array.from(originalCanvases).forEach((originalCanvas, index) => {
+        const clonedCanvas = clonedCanvases[index] as HTMLCanvasElement;
+        if (clonedCanvas) {
+          clonedCanvas.width = originalCanvas.width;
+          clonedCanvas.height = originalCanvas.height;
+          const ctx = clonedCanvas.getContext('2d');
+          if (ctx) {
+            ctx.drawImage(originalCanvas, 0, 0);
+          }
+        }
+      });
+
       // 4. Setup Clone Container
       // We use a wrapper to ensure the clone is isolated but rendered
       const container = document.createElement('div');
