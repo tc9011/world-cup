@@ -52,23 +52,26 @@ export const MatchListModal: React.FC<MatchListModalProps> = ({
         className="w-full max-w-md bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-2xl ring-1 ring-black/5 animate-in zoom-in-95 duration-200"
         onClick={e => e.stopPropagation()}
       >
-        {/* Header */}
-        <div className="relative bg-linear-to-r from-blue-600 to-blue-800 p-6 text-white">
+        {/* Header Content */}
+        <div className="relative p-6">
+          {/* Header Background with Gradient */}
+          <div className="absolute top-0 left-0 right-0 h-26 bg-linear-to-br from-primary/20 to-accent/20 dark:from-primary/10 dark:to-accent/10" />
+
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 p-2 hover:bg-white/20 rounded-full transition-colors"
+            className="absolute top-4 right-4 p-2 bg-white/50 dark:bg-black/50 hover:bg-white dark:hover:bg-black rounded-full backdrop-blur-md transition-colors z-10"
           >
-            <X size={20} />
+            <X className="w-5 h-5 text-gray-600 dark:text-gray-300" />
           </button>
-          <h3 className="font-bold text-2xl pr-8 leading-tight mb-1">
+          <h3 className="font-bold text-2xl pr-8 leading-tight mb-1 text-gray-900 dark:text-white">
             {title}
           </h3>
           {subtitle && (
-            <div className="flex items-center gap-1.5 text-blue-200 text-sm font-medium mb-2">
+            <div className="flex items-center gap-1.5 text-gray-600 dark:text-gray-300 text-sm font-medium mb-2">
               {subtitle}
             </div>
           )}
-          <div className="flex items-center gap-4 text-blue-100 text-sm">
+          <div className="flex items-center gap-4 text-gray-600 dark:text-gray-300 text-sm">
             <div className="flex items-center gap-1.5">
               <Calendar size={16} />
               <span>

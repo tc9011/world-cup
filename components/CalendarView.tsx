@@ -329,7 +329,7 @@ const MonthGrid: React.FC<{ monthStart: Date; matches: Match[] }> = ({
                         
                         {/* Match Count Badge */}
                         {dayMatches.length > 0 && (
-                           <div className="absolute -top-1 -right-1 min-w-[14px] h-[14px] bg-primary text-white text-[9px] font-bold flex items-center justify-center rounded-full border-2 border-white dark:border-gray-800">
+                           <div className="absolute -top-1 -right-1 min-w-[14px] h-[14px] bg-primary text-primary-foreground text-[9px] font-bold flex items-center justify-center rounded-full border-2 border-white dark:border-gray-800">
                               {dayMatches.length}
                            </div>
                         )}
