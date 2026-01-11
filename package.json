@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "test": "vitest run",
+    "update-bracket": "tsx scripts/update-bracket.ts",
     "prepare": "husky"
   },
   "dependencies": {
@@ -42,6 +43,7 @@
     "husky": "^9.1.7",
     "jsdom": "^27.4.0",
     "tailwindcss": "^4",
+    "tsx": "^4.19.0",
     "typescript": "^5",
     "vitest": "^4.0.16"
   },
