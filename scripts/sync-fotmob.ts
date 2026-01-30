@@ -11,10 +11,10 @@ import fs from 'fs';
 import path from 'path';
 
 // ============================================================================
-// Types
+// Types (exported for testing)
 // ============================================================================
 
-interface Match {
+export interface Match {
   id: string;
   date: string;
   group?: string;
@@ -30,18 +30,18 @@ interface Match {
   fotmobMatchId?: number;
 }
 
-interface FotMobTeamMapping {
+export interface FotMobTeamMapping {
   fotmobId: number;
   name: string;
 }
 
-interface FotMobMappingFile {
+export interface FotMobMappingFile {
   leagueId: number;
   leagueName: string;
   teamIdMapping: Record<string, FotMobTeamMapping>;
 }
 
-interface FotMobMatch {
+export interface FotMobMatch {
   id: number;
   leagueId: number;
   time: string;
@@ -130,7 +130,7 @@ const BACKUP_FILE = path.join(DATA_DIR, 'matches.sync-backup.json');
 const MAPPING_FILE = path.join(DATA_DIR, 'fotmob-mapping.json');
 
 const FOTMOB_BASE_URL = 'https://www.fotmob.com/api';
-const WORLD_CUP_LEAGUE_ID = 77; // FIFA World Cup
+export const WORLD_CUP_LEAGUE_ID = 77;
 
 // World Cup 2026 date range
 const WC_START_DATE = new Date('2026-06-11');
@@ -147,14 +147,14 @@ function sleep(ms: number): Promise<void> {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-function formatDate(date: Date): string {
+export function formatDate(date: Date): string {
   const year = date.getFullYear();
   const month = String(date.getMonth() + 1).padStart(2, '0');
   const day = String(date.getDate()).padStart(2, '0');
   return `${year}${month}${day}`;
 }
 
-function parseDate(dateStr: string): Date {
+export function parseDate(dateStr: string): Date {
   // Format: YYYYMMDD
   const year = parseInt(dateStr.slice(0, 4), 10);
   const month = parseInt(dateStr.slice(4, 6), 10) - 1;
@@ -162,7 +162,7 @@ function parseDate(dateStr: string): Date {
   return new Date(year, month, day);
 }
 
-function isSameDay(date1: Date, date2: Date): boolean {
+export function isSameDay(date1: Date, date2: Date): boolean {
   return (
     date1.getFullYear() === date2.getFullYear() &&
     date1.getMonth() === date2.getMonth() &&
@@ -254,7 +254,7 @@ async function fetchMatchDetails(matchId: number): Promise<FotMobMatchDetail | n
 // Match Mapping & Processing
 // ============================================================================
 
-function createReverseFotMobMapping(mapping: FotMobMappingFile): Map<number, string> {
+export function createReverseFotMobMapping(mapping: FotMobMappingFile): Map<number, string> {
   const reverse = new Map<number, string>();
   for (const [ourId, fotmobData] of Object.entries(mapping.teamIdMapping)) {
     reverse.set(fotmobData.fotmobId, ourId);
@@ -262,7 +262,7 @@ function createReverseFotMobMapping(mapping: FotMobMappingFile): Map<number, str
   return reverse;
 }
 
-function findMatchingLocalMatch(
+export function findMatchingLocalMatch(
   fotmobMatch: FotMobMatch,
   localMatches: Match[],
   reverseMapping: Map<number, string>
@@ -292,7 +292,7 @@ function findMatchingLocalMatch(
   });
 }
 
-interface PenaltyScores {
+export interface PenaltyScores {
   home: number;
   away: number;
 }
@@ -324,7 +324,7 @@ async function extractPenaltyScores(matchId: number): Promise<PenaltyScores | nu
 // Main Sync Logic
 // ============================================================================
 
-interface SyncResult {
+export interface SyncResult {
   updated: number;
   skipped: number;
   errors: number;
@@ -414,7 +414,7 @@ async function syncMatchesForDate(
   return result;
 }
 
-async function main(): Promise<void> {
+export async function main(): Promise<void> {
   // Parse CLI arguments
   const args = process.argv.slice(2);
   const dryRun = args.includes('--dry-run');
@@ -519,7 +519,9 @@ async function main(): Promise<void> {
   }
 }
 
-main().catch(error => {
-  log(`Fatal error: ${error}`, 'error');
-  process.exit(1);
-});
+if (process.argv[1]?.includes('sync-fotmob')) {
+  main().catch(error => {
+    log(`Fatal error: ${error}`, 'error');
+    process.exit(1);
+  });
+}
