@@ -1,0 +1,148 @@
+name: Sync World Cup Match Results
+
+on:
+  schedule:
+    # Schedule based on World Cup 2026 match times (June 11 - July 19, 2026)
+    # Matches typically end around these times (UTC), adding 3 hours buffer for extra time/penalties:
+    # - Group stage: matches at 12:00, 15:00, 18:00, 21:00, 00:00, 02:00 UTC
+    # - Knockout: similar schedule
+    #
+    # Run at: 04:00, 07:00, 10:00, 13:00, 16:00, 19:00 UTC (after typical match end times)
+    - cron: '0 4,7,10,13,16,19 * 6,7 *'
+    
+  workflow_dispatch:
+    inputs:
+      date:
+        description: 'Specific date to sync (YYYYMMDD format, e.g., 20260611)'
+        required: false
+        type: string
+      dry_run:
+        description: 'Dry run mode (no changes saved)'
+        required: false
+        type: boolean
+        default: false
+
+env:
+  NODE_VERSION: '20'
+  PNPM_VERSION: '9'
+
+jobs:
+  sync-matches:
+    runs-on: ubuntu-latest
+    
+    # Only run during World Cup period (June 11 - July 19, 2026)
+    # For workflow_dispatch, always run
+    if: |
+      github.event_name == 'workflow_dispatch' ||
+      (github.event_name == 'schedule')
+    
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: ${{ env.PNPM_VERSION }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Check if in World Cup period
+        id: date-check
+        run: |
+          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            echo "in_period=true" >> $GITHUB_OUTPUT
+            echo "Manual trigger - proceeding with sync"
+          else
+            # For scheduled runs, check if within World Cup period
+            TODAY=$(date +%Y%m%d)
+            WC_START=20260611
+            WC_END=20260719
+            
+            if [ "$TODAY" -ge "$WC_START" ] && [ "$TODAY" -le "$WC_END" ]; then
+              echo "in_period=true" >> $GITHUB_OUTPUT
+              echo "Within World Cup period - proceeding with sync"
+            else
+              echo "in_period=false" >> $GITHUB_OUTPUT
+              echo "Outside World Cup period - skipping sync"
+            fi
+          fi
+
+      - name: Sync match results from FotMob
+        if: steps.date-check.outputs.in_period == 'true'
+        run: |
+          ARGS=""
+          if [ -n "${{ inputs.date }}" ]; then
+            ARGS="--date ${{ inputs.date }}"
+          fi
+          if [ "${{ inputs.dry_run }}" == "true" ]; then
+            ARGS="$ARGS --dry-run"
+          fi
+          pnpm sync-fotmob $ARGS
+
+      - name: Check for changes
+        if: steps.date-check.outputs.in_period == 'true' && inputs.dry_run != true
+        id: git-check
+        run: |
+          if git diff --quiet data/matches.json; then
+            echo "changes=false" >> $GITHUB_OUTPUT
+            echo "No changes to commit"
+          else
+            echo "changes=true" >> $GITHUB_OUTPUT
+            echo "Changes detected in matches.json"
+          fi
+
+      - name: Commit and push changes
+        if: steps.git-check.outputs.changes == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          
+          # Get list of updated matches from the sync output (if available)
+          UPDATED_COUNT=$(git diff --numstat data/matches.json | awk '{print $1 + $2}')
+          
+          git add data/matches.json data/matches.sync-backup.json
+          git commit -m "chore: sync World Cup match results from FotMob
+
+          - Auto-synced match results from FotMob API
+          - Changes: ~${UPDATED_COUNT} lines modified
+          - Timestamp: $(date -u +"%Y-%m-%d %H:%M:%S UTC")"
+          
+          git push
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "## Sync Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          if [ "${{ steps.date-check.outputs.in_period }}" != "true" ]; then
+            echo "⏭️ **Skipped**: Outside World Cup period" >> $GITHUB_STEP_SUMMARY
+          elif [ "${{ inputs.dry_run }}" == "true" ]; then
+            echo "🧪 **Dry Run**: No changes were saved" >> $GITHUB_STEP_SUMMARY
+          elif [ "${{ steps.git-check.outputs.changes }}" == "true" ]; then
+            echo "✅ **Success**: Match results synced and committed" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "ℹ️ **No Updates**: All matches already synced" >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| Parameter | Value |" >> $GITHUB_STEP_SUMMARY
+          echo "|-----------|-------|" >> $GITHUB_STEP_SUMMARY
+          echo "| Trigger | ${{ github.event_name }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Date Input | ${{ inputs.date || 'auto (today/yesterday)' }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Dry Run | ${{ inputs.dry_run || 'false' }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Timestamp | $(date -u +"%Y-%m-%d %H:%M:%S UTC") |" >> $GITHUB_STEP_SUMMARY

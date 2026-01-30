@@ -9,6 +9,7 @@
     "lint": "eslint",
     "test": "vitest run",
     "update-bracket": "tsx scripts/update-bracket.ts",
+    "sync-fotmob": "tsx scripts/sync-fotmob.ts",
     "prepare": "husky"
   },
   "dependencies": {

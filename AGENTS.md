@@ -10,6 +10,7 @@ pnpm lint             # ESLint (eslint-config-next)
 pnpm test             # Run all tests (Vitest)
 pnpm test <pattern>   # Run single test: pnpm test ExportButton
 pnpm update-bracket   # Update bracket data (tsx scripts/update-bracket.ts)
+pnpm sync-fotmob      # Sync match scores from FotMob API
 ```
 
 ### Environment
