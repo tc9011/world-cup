@@ -243,3 +243,29 @@ Husky is configured but no hooks are currently active. ESLint runs via `pnpm lin
 - Skip TypeScript types
 - Use inline styles (use Tailwind)
 - Mutate Zustand state directly (use setters)
+
+---
+
+## Mandatory Rules
+
+### Date/Time Handling
+- **Always use date-fns** for all date/time operations
+- Never use native `Date` methods like `getFullYear()`, `getMonth()`, `setDate()` for formatting or manipulation
+- Preferred functions: `format`, `parse`, `isSameDay`, `addDays`, `subDays`, `isWithinInterval`, etc.
+
+```typescript
+// Good
+import { format, parse, isSameDay, subDays } from 'date-fns';
+const formatted = format(date, 'yyyyMMdd');
+const yesterday = subDays(today, 1);
+
+// Bad
+const year = date.getFullYear();
+const yesterday = new Date(today);
+yesterday.setDate(yesterday.getDate() - 1);
+```
+
+### Git Commits
+- **Never commit without explicit user permission**
+- Always wait for user to explicitly request a commit
+- Staged changes and diffs should be reviewed by user before committing

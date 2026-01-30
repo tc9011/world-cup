@@ -9,6 +9,7 @@
 
 import fs from 'fs';
 import path from 'path';
+import { format, parse, isSameDay as dateFnsIsSameDay, subDays } from 'date-fns';
 
 // ============================================================================
 // Types (exported for testing)
@@ -148,26 +149,15 @@ function sleep(ms: number): Promise<void> {
 }
 
 export function formatDate(date: Date): string {
-  const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, '0');
-  const day = String(date.getDate()).padStart(2, '0');
-  return `${year}${month}${day}`;
+  return format(date, 'yyyyMMdd');
 }
 
 export function parseDate(dateStr: string): Date {
-  // Format: YYYYMMDD
-  const year = parseInt(dateStr.slice(0, 4), 10);
-  const month = parseInt(dateStr.slice(4, 6), 10) - 1;
-  const day = parseInt(dateStr.slice(6, 8), 10);
-  return new Date(year, month, day);
+  return parse(dateStr, 'yyyyMMdd', new Date());
 }
 
 export function isSameDay(date1: Date, date2: Date): boolean {
-  return (
-    date1.getFullYear() === date2.getFullYear() &&
-    date1.getMonth() === date2.getMonth() &&
-    date1.getDate() === date2.getDate()
-  );
+  return dateFnsIsSameDay(date1, date2);
 }
 
 function log(message: string, type: 'info' | 'warn' | 'error' | 'success' = 'info'): void {
@@ -458,8 +448,7 @@ export async function main(): Promise<void> {
   } else {
     // Sync today and yesterday (to catch late-finishing matches)
     const today = new Date();
-    const yesterday = new Date(today);
-    yesterday.setDate(yesterday.getDate() - 1);
+    const yesterday = subDays(today, 1);
 
     // Only sync if within World Cup date range
     if (today >= WC_START_DATE && today <= WC_END_DATE) {
