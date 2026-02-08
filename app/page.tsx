@@ -110,8 +110,10 @@ export default function Home() {
               </div>
             </div>
             <div className="flex items-center gap-2 w-full md:w-auto justify-between md:justify-end">
-              <ExportButton targetRef={contentRef} />
-              <ThemeSelector />
+              <div className="flex items-center gap-1">
+                <ExportButton targetRef={contentRef} />
+                <ThemeSelector />
+              </div>
               <div className="flex gap-2 overflow-x-auto no-scrollbar">
                 <TimezoneSwitcher />
                 <LanguageSwitcher />
