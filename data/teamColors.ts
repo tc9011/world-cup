@@ -41,4 +41,10 @@ export const teamColors: Record<string, { primary: string; secondary: string }> 
   'CRO': { primary: '#FF0000', secondary: '#FFFFFF' }, // Croatia
   'GHA': { primary: '#CE1126', secondary: '#FCD116' }, // Ghana
   'PAN': { primary: '#DA121A', secondary: '#005293' }, // Panama
+  'CZE': { primary: '#11457E', secondary: '#D7141A' }, // Czechia
+  'BIH': { primary: '#002395', secondary: '#FECB00' }, // Bosnia and Herzegovina
+  'TUR': { primary: '#E30A17', secondary: '#FFFFFF' }, // Turkey
+  'SWE': { primary: '#006AA7', secondary: '#FECC02' }, // Sweden
+  'IRQ': { primary: '#007A3D', secondary: '#FFFFFF' }, // Iraq
+  'COD': { primary: '#0080FF', secondary: '#CE1021' }, // DR Congo
 };

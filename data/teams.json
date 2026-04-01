@@ -21,10 +21,10 @@
     "group": "A"
   },
   {
-    "id": "TBD_D",
-    "name": "Winner Play-off D",
-    "code": "TBD",
-    "flag": "🏳️",
+    "id": "CZE",
+    "name": "Czechia",
+    "code": "CZE",
+    "flag": "🇨🇿",
     "group": "A"
   },
   {
@@ -35,10 +35,10 @@
     "group": "B"
   },
   {
-    "id": "TBD_A",
-    "name": "Winner Play-off A",
-    "code": "TBD",
-    "flag": "🏳️",
+    "id": "BIH",
+    "name": "Bosnia and Herzegovina",
+    "code": "BIH",
+    "flag": "🇧🇦",
     "group": "B"
   },
   {
@@ -105,10 +105,10 @@
     "group": "D"
   },
   {
-    "id": "TBD_C",
-    "name": "Winner Play-off C",
-    "code": "TBD",
-    "flag": "🏳️",
+    "id": "TUR",
+    "name": "Turkey",
+    "code": "TUR",
+    "flag": "🇹🇷",
     "group": "D"
   },
   {
@@ -154,10 +154,10 @@
     "group": "F"
   },
   {
-    "id": "TBD_B",
-    "name": "Winner Play-off B",
-    "code": "TBD",
-    "flag": "🏳️",
+    "id": "SWE",
+    "name": "Sweden",
+    "code": "SWE",
+    "flag": "🇸🇪",
     "group": "F"
   },
   {
@@ -238,10 +238,10 @@
     "group": "I"
   },
   {
-    "id": "TBD_2",
-    "name": "Winner Play-off 2",
-    "code": "TBD",
-    "flag": "🏳️",
+    "id": "IRQ",
+    "name": "Iraq",
+    "code": "IRQ",
+    "flag": "🇮🇶",
     "group": "I"
   },
   {
@@ -287,10 +287,10 @@
     "group": "K"
   },
   {
-    "id": "TBD_1",
-    "name": "Winner Play-off 1",
-    "code": "TBD",
-    "flag": "🏳️",
+    "id": "COD",
+    "name": "DR Congo",
+    "code": "COD",
+    "flag": "🇨🇩",
     "group": "K"
   },
   {
