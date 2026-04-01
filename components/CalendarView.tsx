@@ -3,6 +3,7 @@
 import React from "react";
 import { Match } from "../types";
 import { MatchListModal } from "./MatchListModal";
+import { MatchDetailModal } from "./MatchDetailModal";
 import {
   format,
   endOfMonth,
@@ -66,6 +67,8 @@ const MonthGrid: React.FC<{ monthStart: Date; matches: Match[] }> = ({
   const t = translations[language];
   const dateLocale = language === "zh" ? zhCN : enUS;
   const [selectedDate, setSelectedDate] = React.useState<Date | null>(null);
+  const [selectedMatch, setSelectedMatch] = React.useState<Match | null>(null);
+  const [clickPosition, setClickPosition] = React.useState<{ x: number; y: number } | null>(null);
 
   // Helper to get display date based on timezone mode
   const getDisplayDate = (date: Date, venueId: string) => {
@@ -213,6 +216,10 @@ const MonthGrid: React.FC<{ monthStart: Date; matches: Match[] }> = ({
                       return (
                         <div
                           key={match.id}
+                          onClick={(e) => {
+                            setSelectedMatch(match);
+                            setClickPosition({ x: e.clientX, y: e.clientY });
+                          }}
                           className="bg-white dark:bg-gray-700 rounded-lg shadow-sm border border-gray-100 dark:border-gray-600 p-2 hover:shadow-md hover:border-primary/50 dark:hover:border-primary transition-all cursor-pointer group/card"
                         >
                           {/* Header: Time & Group */}
@@ -348,6 +355,21 @@ const MonthGrid: React.FC<{ monthStart: Date; matches: Match[] }> = ({
            matches={matches.filter(m => isSameDay(getDisplayDate(new Date(m.date), m.venueId), selectedDate))}
            onClose={() => setSelectedDate(null)}
            showVenue={true}
+        />
+      )}
+
+      {/* Match Detail Modal (Desktop calendar cards) */}
+      {selectedMatch && (
+        <MatchDetailModal
+          match={selectedMatch}
+          homeTeam={teams.find(t => t.id === selectedMatch.homeTeamId)}
+          awayTeam={teams.find(t => t.id === selectedMatch.awayTeamId)}
+          venue={venues.find(v => v.id === selectedMatch.venueId)}
+          position={clickPosition}
+          onClose={() => {
+            setSelectedMatch(null);
+            setClickPosition(null);
+          }}
         />
       )}
     </div>
