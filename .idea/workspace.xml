@@ -4,27 +4,91 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78e3870c-3339-4cc2-a6b3-ce7d8e2f876a" name="Changes" comment="fix map view">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="78e3870c-3339-4cc2-a6b3-ce7d8e2f876a" name="Changes" comment="fix: fix script">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.opencode/skills/test-driven-development.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.opencode/skills/verification-before-completion.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/__tests__/sync-fotmob.test.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/sync-fotmob.ts" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/sync-fotmob.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CopilotPersistence">
+    <persistenceIdMap>
+      <entry key="_/Users/tangcheng/Documents/Projects/2026-world-cup" value="36c4c9HI48xEvmmozyCtYSqXVff" />
+    </persistenceIdMap>
+  </component>
+  <component name="EmbeddingIndexingInfo">
+    <option name="cachedIndexableFilesCount" value="301" />
+    <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="36c4c9HI48xEvmmozyCtYSqXVff" />
   <component name="ProjectLevelVcsManager">
     <OptionsSetting value="false" id="Update" />
   </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "com.github.patou.gitmoji.migration-offered": "true",
     "git-widget-placeholder": "master",
+    "javascript.preferred.runtime.type.id": "node",
+    "js.debugger.nextJs.config.created.client": "true",
+    "js.debugger.nextJs.config.created.server": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "ts.external.directory.path": "/Users/tangcheng/Documents/Projects/2026-world-cup/node_modules/typescript/lib"
+    "nodejs_package_manager_path": "pnpm",
+    "npm.Next.js: server-side.executor": "Run",
+    "settings.editor.selected.configurable": "ml.llm.AIAssistantPromptsLibrary",
+    "ts.external.directory.path": "/Users/tangcheng/Documents/Projects/2026-world-cup/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RunManager" selected="npm.Next.js: server-side">
+    <configuration name="Next.js: debug client-side" type="JavascriptDebugType" uri="http://localhost:3000/">
+      <method v="2" />
+    </configuration>
+    <configuration name="Next.js: server-side" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-3bd3a6803838-JavaScript-WS-261.22158.274" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="TaskManager">
     <task id="LOCAL-00001" summary="add map view">
       <option name="closed" value="true" />
@@ -50,13 +114,152 @@
       <option name="project" value="LOCAL" />
       <updated>1765113314982</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="78e3870c-3339-4cc2-a6b3-ce7d8e2f876a" name="Changes" comment="fix map view" />
+      <created>1765292604617</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1765292604617</updated>
+      <workItem from="1765292605108" duration="138000" />
+      <workItem from="1765293232405" duration="899000" />
+      <workItem from="1765297108601" duration="89000" />
+      <workItem from="1765297211815" duration="108000" />
+      <workItem from="1765459160701" duration="2759000" />
+      <workItem from="1765605022826" duration="1874000" />
+      <workItem from="1765607031678" duration="543000" />
+      <workItem from="1768222301364" duration="151000" />
+      <workItem from="1770567310025" duration="344000" />
+      <workItem from="1775047454968" duration="1611000" />
+      <workItem from="1775062240336" duration="2478000" />
+      <workItem from="1776339595547" duration="629000" />
+      <workItem from="1781231015844" duration="988000" />
+    </task>
+    <task id="LOCAL-00004" summary="add date filter">
+      <option name="closed" value="true" />
+      <created>1765292722667</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1765292722667</updated>
+    </task>
+    <task id="LOCAL-00005" summary="fix style">
+      <option name="closed" value="true" />
+      <created>1765293605963</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1765293605963</updated>
+    </task>
+    <task id="LOCAL-00006" summary="fix style">
+      <option name="closed" value="true" />
+      <created>1765294035836</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1765294035836</updated>
+    </task>
+    <task id="LOCAL-00007" summary="fix map lang">
+      <option name="closed" value="true" />
+      <created>1765460149133</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1765460149133</updated>
+    </task>
+    <task id="LOCAL-00008" summary="add modal for calendar">
+      <option name="closed" value="true" />
+      <created>1765460675098</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1765460675098</updated>
+    </task>
+    <task id="LOCAL-00009" summary="add modal for bracket">
+      <option name="closed" value="true" />
+      <created>1765461378929</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1765461378929</updated>
+    </task>
+    <task id="LOCAL-00010" summary="fix lang">
+      <option name="closed" value="true" />
+      <created>1765461723372</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1765461723372</updated>
+    </task>
+    <task id="LOCAL-00011" summary="fix time">
+      <option name="closed" value="true" />
+      <created>1765606425064</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1765606425064</updated>
+    </task>
+    <task id="LOCAL-00012" summary="fix time">
+      <option name="closed" value="true" />
+      <created>1765606728931</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1765606728931</updated>
+    </task>
+    <task id="LOCAL-00013" summary="fix: group ExportButton and ThemeSelector in a flex container">
+      <option name="closed" value="true" />
+      <created>1770567596814</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1770567596814</updated>
+    </task>
+    <task id="LOCAL-00014" summary="fix: replace date formatting with formatDate function in MatchDetailModal">
+      <option name="closed" value="true" />
+      <created>1775056516715</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1775056516715</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add map view" />
     <MESSAGE value="update docs" />
     <MESSAGE value="fix map view" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix map view" />
+    <MESSAGE value="add date filter" />
+    <MESSAGE value="fix style" />
+    <MESSAGE value="fix map lang" />
+    <MESSAGE value="add modal for calendar" />
+    <MESSAGE value="add modal for bracket" />
+    <MESSAGE value="fix lang" />
+    <MESSAGE value="fix time" />
+    <MESSAGE value="fix: group ExportButton and ThemeSelector in a flex container" />
+    <MESSAGE value="fix: replace date formatting with formatDate function in MatchDetailModal" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: replace date formatting with formatDate function in MatchDetailModal" />
+  </component>
+  <component name="github-copilot-workspace">
+    <instructionFileLocations>
+      <option value=".github/instructions" />
+    </instructionFileLocations>
+    <promptFileLocations>
+      <option value=".github/prompts" />
+    </promptFileLocations>
   </component>
 </project>

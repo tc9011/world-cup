@@ -131,7 +131,8 @@ const BACKUP_FILE = path.join(DATA_DIR, 'matches.sync-backup.json');
 const MAPPING_FILE = path.join(DATA_DIR, 'fotmob-mapping.json');
 
 const FOTMOB_BASE_URL = 'https://www.fotmob.com/api';
-export const WORLD_CUP_LEAGUE_ID = 77;
+export const WORLD_CUP_LEAGUE_ID = 77; // Legacy single-league ID (no longer used by FotMob)
+export const WORLD_CUP_LEAGUE_NAME_PREFIX = 'World Cup';
 
 // World Cup 2026 date range
 const WC_START_DATE = new Date('2026-06-11');
@@ -212,15 +213,15 @@ async function fetchMatchesByDate(dateStr: string): Promise<FotMobMatch[]> {
     const response = await fetchWithRetry(url);
     const data: FotMobMatchesResponse = await response.json();
 
-    // Find World Cup league
-    const wcLeague = data.leagues?.find(l => l.id === WORLD_CUP_LEAGUE_ID);
-    if (!wcLeague) {
+    const wcLeagues = data.leagues?.filter(l => l.name.startsWith(WORLD_CUP_LEAGUE_NAME_PREFIX)) || [];
+    if (wcLeagues.length === 0) {
       log(`No World Cup matches found for ${dateStr}`, 'info');
       return [];
     }
 
-    log(`Found ${wcLeague.matches?.length || 0} World Cup matches for ${dateStr}`, 'success');
-    return wcLeague.matches || [];
+    const allMatches = wcLeagues.flatMap(l => l.matches || []);
+    log(`Found ${allMatches.length} World Cup matches across ${wcLeagues.length} groups for ${dateStr}`, 'success');
+    return allMatches;
   } catch (error) {
     log(`Failed to fetch matches for ${dateStr}: ${error}`, 'error');
     return [];
