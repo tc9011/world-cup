@@ -21,12 +21,11 @@
     "homeTeamId": "KOR",
     "awayTeamId": "CZE",
     "venueId": "v5",
-    "status": "finished",
-    "homeScore": 2,
-    "awayScore": 1,
+    "status": "scheduled",
+    "homeScore": null,
+    "awayScore": null,
     "homePenaltyScore": null,
-    "awayPenaltyScore": null,
-    "fotmobMatchId": 4667752
+    "awayPenaltyScore": null
   },
   {
     "id": "m3",
