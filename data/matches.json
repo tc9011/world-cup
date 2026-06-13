@@ -36,11 +36,12 @@
     "homeTeamId": "CAN",
     "awayTeamId": "BIH",
     "venueId": "v3",
-    "status": "scheduled",
-    "homeScore": null,
-    "awayScore": null,
+    "status": "finished",
+    "homeScore": 1,
+    "awayScore": 1,
     "homePenaltyScore": null,
-    "awayPenaltyScore": null
+    "awayPenaltyScore": null,
+    "fotmobMatchId": 4667757
   },
   {
     "id": "m4",
