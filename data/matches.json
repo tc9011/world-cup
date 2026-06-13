@@ -51,11 +51,12 @@
     "homeTeamId": "USA",
     "awayTeamId": "PAR",
     "venueId": "v2",
-    "status": "scheduled",
-    "homeScore": null,
-    "awayScore": null,
+    "status": "finished",
+    "homeScore": 4,
+    "awayScore": 1,
     "homePenaltyScore": null,
-    "awayPenaltyScore": null
+    "awayPenaltyScore": null,
+    "fotmobMatchId": 4667771
   },
   {
     "id": "m5",
