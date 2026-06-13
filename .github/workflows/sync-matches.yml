@@ -8,7 +8,7 @@ on:
     # - Knockout: similar schedule
     #
     # Run at: 04:00, 07:00, 10:00, 13:00, 16:00, 19:00 UTC (after typical match end times)
-    - cron: '0 4,7,10,13,16,19 * 6,7 *'
+    - cron: '0 */2 * 6,7 *'
     
   workflow_dispatch:
     inputs:
