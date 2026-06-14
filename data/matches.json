@@ -126,11 +126,12 @@
     "homeTeamId": "GER",
     "awayTeamId": "CUW",
     "venueId": "v13",
-    "status": "scheduled",
-    "homeScore": null,
-    "awayScore": null,
+    "status": "finished",
+    "homeScore": 7,
+    "awayScore": 1,
     "homePenaltyScore": null,
-    "awayPenaltyScore": null
+    "awayPenaltyScore": null,
+    "fotmobMatchId": 4667777
   },
   {
     "id": "m10",
