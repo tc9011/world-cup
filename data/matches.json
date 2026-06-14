@@ -141,11 +141,12 @@
     "homeTeamId": "NED",
     "awayTeamId": "JPN",
     "venueId": "v8",
-    "status": "scheduled",
-    "homeScore": null,
-    "awayScore": null,
+    "status": "finished",
+    "homeScore": 2,
+    "awayScore": 2,
     "homePenaltyScore": null,
-    "awayPenaltyScore": null
+    "awayPenaltyScore": null,
+    "fotmobMatchId": 4667783
   },
   {
     "id": "m11",
