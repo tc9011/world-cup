@@ -96,11 +96,12 @@
     "homeTeamId": "HAI",
     "awayTeamId": "SCO",
     "venueId": "v11",
-    "status": "scheduled",
-    "homeScore": null,
-    "awayScore": null,
+    "status": "finished",
+    "homeScore": 0,
+    "awayScore": 1,
     "homePenaltyScore": null,
-    "awayPenaltyScore": null
+    "awayPenaltyScore": null,
+    "fotmobMatchId": 4667765
   },
   {
     "id": "m8",
