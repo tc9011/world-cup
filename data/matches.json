@@ -111,11 +111,12 @@
     "homeTeamId": "AUS",
     "awayTeamId": "TUR",
     "venueId": "v4",
-    "status": "scheduled",
-    "homeScore": null,
-    "awayScore": null,
+    "status": "finished",
+    "homeScore": 2,
+    "awayScore": 0,
     "homePenaltyScore": null,
-    "awayPenaltyScore": null
+    "awayPenaltyScore": null,
+    "fotmobMatchId": 4667772
   },
   {
     "id": "m9",
