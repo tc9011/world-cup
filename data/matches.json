@@ -171,11 +171,12 @@
     "homeTeamId": "SWE",
     "awayTeamId": "TUN",
     "venueId": "v6",
-    "status": "scheduled",
-    "homeScore": null,
-    "awayScore": null,
+    "status": "finished",
+    "homeScore": 5,
+    "awayScore": 1,
     "homePenaltyScore": null,
-    "awayPenaltyScore": null
+    "awayPenaltyScore": null,
+    "fotmobMatchId": 4667784
   },
   {
     "id": "m13",
