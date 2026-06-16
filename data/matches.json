@@ -216,11 +216,12 @@
     "homeTeamId": "KSA",
     "awayTeamId": "URU",
     "venueId": "v10",
-    "status": "scheduled",
-    "homeScore": null,
-    "awayScore": null,
+    "status": "finished",
+    "homeScore": 1,
+    "awayScore": 1,
     "homePenaltyScore": null,
-    "awayPenaltyScore": null
+    "awayPenaltyScore": null,
+    "fotmobMatchId": 4667799
   },
   {
     "id": "m16",
