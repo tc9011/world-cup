@@ -261,11 +261,12 @@
     "homeTeamId": "IRQ",
     "awayTeamId": "NOR",
     "venueId": "v11",
-    "status": "scheduled",
-    "homeScore": null,
-    "awayScore": null,
+    "status": "finished",
+    "homeScore": 1,
+    "awayScore": 4,
     "homePenaltyScore": null,
-    "awayPenaltyScore": null
+    "awayPenaltyScore": null,
+    "fotmobMatchId": 4667805
   },
   {
     "id": "m19",
