@@ -291,11 +291,12 @@
     "homeTeamId": "AUT",
     "awayTeamId": "JOR",
     "venueId": "v16",
-    "status": "scheduled",
-    "homeScore": null,
-    "awayScore": null,
+    "status": "finished",
+    "homeScore": 3,
+    "awayScore": 1,
     "homePenaltyScore": null,
-    "awayPenaltyScore": null
+    "awayPenaltyScore": null,
+    "fotmobMatchId": 4667813
   },
   {
     "id": "m21",

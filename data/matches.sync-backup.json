@@ -276,11 +276,12 @@
     "homeTeamId": "ARG",
     "awayTeamId": "ALG",
     "venueId": "v14",
-    "status": "scheduled",
-    "homeScore": null,
-    "awayScore": null,
+    "status": "finished",
+    "homeScore": 3,
+    "awayScore": 0,
     "homePenaltyScore": null,
-    "awayPenaltyScore": null
+    "awayPenaltyScore": null,
+    "fotmobMatchId": 4667812
   },
   {
     "id": "m20",
