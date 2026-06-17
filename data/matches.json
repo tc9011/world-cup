@@ -306,11 +306,12 @@
     "homeTeamId": "POR",
     "awayTeamId": "COD",
     "venueId": "v13",
-    "status": "scheduled",
-    "homeScore": null,
-    "awayScore": null,
+    "status": "finished",
+    "homeScore": 1,
+    "awayScore": 1,
     "homePenaltyScore": null,
-    "awayPenaltyScore": null
+    "awayPenaltyScore": null,
+    "fotmobMatchId": 4667819
   },
   {
     "id": "m22",
