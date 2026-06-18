@@ -351,11 +351,12 @@
     "homeTeamId": "UZB",
     "awayTeamId": "COL",
     "venueId": "v1",
-    "status": "scheduled",
-    "homeScore": null,
-    "awayScore": null,
+    "status": "finished",
+    "homeScore": 1,
+    "awayScore": 3,
     "homePenaltyScore": null,
-    "awayPenaltyScore": null
+    "awayPenaltyScore": null,
+    "fotmobMatchId": 4667820
   },
   {
     "id": "m25",
