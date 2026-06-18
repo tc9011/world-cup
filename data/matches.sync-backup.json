@@ -366,11 +366,12 @@
     "homeTeamId": "CZE",
     "awayTeamId": "RSA",
     "venueId": "v9",
-    "status": "scheduled",
-    "homeScore": null,
-    "awayScore": null,
+    "status": "finished",
+    "homeScore": 1,
+    "awayScore": 1,
     "homePenaltyScore": null,
-    "awayPenaltyScore": null
+    "awayPenaltyScore": null,
+    "fotmobMatchId": 4667753
   },
   {
     "id": "m26",
