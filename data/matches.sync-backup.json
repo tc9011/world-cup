@@ -336,11 +336,12 @@
     "homeTeamId": "GHA",
     "awayTeamId": "PAN",
     "venueId": "v3",
-    "status": "scheduled",
-    "homeScore": null,
-    "awayScore": null,
+    "status": "finished",
+    "homeScore": 1,
+    "awayScore": 0,
     "homePenaltyScore": null,
-    "awayPenaltyScore": null
+    "awayPenaltyScore": null,
+    "fotmobMatchId": 4667826
   },
   {
     "id": "m24",
