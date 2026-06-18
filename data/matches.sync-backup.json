@@ -321,11 +321,12 @@
     "homeTeamId": "ENG",
     "awayTeamId": "CRO",
     "venueId": "v8",
-    "status": "scheduled",
-    "homeScore": null,
-    "awayScore": null,
+    "status": "finished",
+    "homeScore": 4,
+    "awayScore": 2,
     "homePenaltyScore": null,
-    "awayPenaltyScore": null
+    "awayPenaltyScore": null,
+    "fotmobMatchId": 4667825
   },
   {
     "id": "m23",
