@@ -396,11 +396,12 @@
     "homeTeamId": "CAN",
     "awayTeamId": "QAT",
     "venueId": "v4",
-    "status": "scheduled",
-    "homeScore": null,
-    "awayScore": null,
+    "status": "finished",
+    "homeScore": 6,
+    "awayScore": 0,
     "homePenaltyScore": null,
-    "awayPenaltyScore": null
+    "awayPenaltyScore": null,
+    "fotmobMatchId": 4667760
   },
   {
     "id": "m28",

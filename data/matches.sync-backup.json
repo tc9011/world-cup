@@ -381,11 +381,12 @@
     "homeTeamId": "SUI",
     "awayTeamId": "BIH",
     "venueId": "v2",
-    "status": "scheduled",
-    "homeScore": null,
-    "awayScore": null,
+    "status": "finished",
+    "homeScore": 4,
+    "awayScore": 1,
     "homePenaltyScore": null,
-    "awayPenaltyScore": null
+    "awayPenaltyScore": null,
+    "fotmobMatchId": 4667759
   },
   {
     "id": "m27",
