@@ -471,11 +471,12 @@
     "homeTeamId": "TUR",
     "awayTeamId": "PAR",
     "venueId": "v16",
-    "status": "scheduled",
-    "homeScore": null,
-    "awayScore": null,
+    "status": "finished",
+    "homeScore": 0,
+    "awayScore": 1,
     "homePenaltyScore": null,
-    "awayPenaltyScore": null
+    "awayPenaltyScore": null,
+    "fotmobMatchId": 4667773
   },
   {
     "id": "m33",
