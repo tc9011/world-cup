@@ -426,11 +426,12 @@
     "homeTeamId": "USA",
     "awayTeamId": "AUS",
     "venueId": "v15",
-    "status": "scheduled",
-    "homeScore": null,
-    "awayScore": null,
+    "status": "finished",
+    "homeScore": 2,
+    "awayScore": 0,
     "homePenaltyScore": null,
-    "awayPenaltyScore": null
+    "awayPenaltyScore": null,
+    "fotmobMatchId": 4667774
   },
   {
     "id": "m30",
