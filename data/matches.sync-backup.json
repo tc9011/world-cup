@@ -531,11 +531,12 @@
     "homeTeamId": "TUN",
     "awayTeamId": "JPN",
     "venueId": "v6",
-    "status": "scheduled",
-    "homeScore": null,
-    "awayScore": null,
+    "status": "finished",
+    "homeScore": 0,
+    "awayScore": 4,
     "homePenaltyScore": null,
-    "awayPenaltyScore": null
+    "awayPenaltyScore": null,
+    "fotmobMatchId": 4667785
   },
   {
     "id": "m37",
