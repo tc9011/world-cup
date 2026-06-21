@@ -546,11 +546,12 @@
     "homeTeamId": "ESP",
     "awayTeamId": "KSA",
     "venueId": "v9",
-    "status": "scheduled",
-    "homeScore": null,
-    "awayScore": null,
+    "status": "finished",
+    "homeScore": 4,
+    "awayScore": 0,
     "homePenaltyScore": null,
-    "awayPenaltyScore": null
+    "awayPenaltyScore": null,
+    "fotmobMatchId": 4667801
   },
   {
     "id": "m38",
