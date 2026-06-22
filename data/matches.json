@@ -606,11 +606,12 @@
     "homeTeamId": "ARG",
     "awayTeamId": "AUT",
     "venueId": "v8",
-    "status": "scheduled",
-    "homeScore": null,
-    "awayScore": null,
+    "status": "finished",
+    "homeScore": 2,
+    "awayScore": 0,
     "homePenaltyScore": null,
-    "awayPenaltyScore": null
+    "awayPenaltyScore": null,
+    "fotmobMatchId": 4667815
   },
   {
     "id": "m42",
