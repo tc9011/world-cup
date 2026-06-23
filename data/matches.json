@@ -651,11 +651,12 @@
     "homeTeamId": "JOR",
     "awayTeamId": "ALG",
     "venueId": "v16",
-    "status": "scheduled",
-    "homeScore": null,
-    "awayScore": null,
+    "status": "finished",
+    "homeScore": 1,
+    "awayScore": 2,
     "homePenaltyScore": null,
-    "awayPenaltyScore": null
+    "awayPenaltyScore": null,
+    "fotmobMatchId": 4667814
   },
   {
     "id": "m45",
