@@ -621,11 +621,12 @@
     "homeTeamId": "FRA",
     "awayTeamId": "IRQ",
     "venueId": "v12",
-    "status": "scheduled",
-    "homeScore": null,
-    "awayScore": null,
+    "status": "finished",
+    "homeScore": 3,
+    "awayScore": 0,
     "homePenaltyScore": null,
-    "awayPenaltyScore": null
+    "awayPenaltyScore": null,
+    "fotmobMatchId": 4667807
   },
   {
     "id": "m43",
