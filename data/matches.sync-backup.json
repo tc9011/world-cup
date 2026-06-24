@@ -681,11 +681,12 @@
     "homeTeamId": "ENG",
     "awayTeamId": "GHA",
     "venueId": "v11",
-    "status": "scheduled",
-    "homeScore": null,
-    "awayScore": null,
+    "status": "finished",
+    "homeScore": 0,
+    "awayScore": 0,
     "homePenaltyScore": null,
-    "awayPenaltyScore": null
+    "awayPenaltyScore": null,
+    "fotmobMatchId": 4667828
   },
   {
     "id": "m47",
