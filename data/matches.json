@@ -816,11 +816,12 @@
     "homeTeamId": "ECU",
     "awayTeamId": "GER",
     "venueId": "v7",
-    "status": "scheduled",
-    "homeScore": null,
-    "awayScore": null,
+    "status": "finished",
+    "homeScore": 2,
+    "awayScore": 1,
     "homePenaltyScore": null,
-    "awayPenaltyScore": null
+    "awayPenaltyScore": null,
+    "fotmobMatchId": 4667781
   },
   {
     "id": "m56",
@@ -830,11 +831,12 @@
     "homeTeamId": "CUW",
     "awayTeamId": "CIV",
     "venueId": "v12",
-    "status": "scheduled",
-    "homeScore": null,
-    "awayScore": null,
+    "status": "finished",
+    "homeScore": 0,
+    "awayScore": 2,
     "homePenaltyScore": null,
-    "awayPenaltyScore": null
+    "awayPenaltyScore": null,
+    "fotmobMatchId": 4667782
   },
   {
     "id": "m57",
@@ -1077,7 +1079,7 @@
     "id": "m74",
     "date": "2026-06-29T17:00:00Z",
     "stage": "Round of 32",
-    "homeTeamId": "1E",
+    "homeTeamId": "GER",
     "awayTeamId": "3ABCD",
     "venueId": "v11",
     "status": "scheduled",
@@ -1129,7 +1131,7 @@
     "id": "m78",
     "date": "2026-06-30T21:00:00Z",
     "stage": "Round of 32",
-    "homeTeamId": "2E",
+    "homeTeamId": "CIV",
     "awayTeamId": "2I",
     "venueId": "v8",
     "status": "scheduled",
