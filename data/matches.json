@@ -756,11 +756,12 @@
     "homeTeamId": "SCO",
     "awayTeamId": "BRA",
     "venueId": "v10",
-    "status": "scheduled",
-    "homeScore": null,
-    "awayScore": null,
+    "status": "finished",
+    "homeScore": 0,
+    "awayScore": 3,
     "homePenaltyScore": null,
-    "awayPenaltyScore": null
+    "awayPenaltyScore": null,
+    "fotmobMatchId": 4667768
   },
   {
     "id": "m52",
@@ -770,11 +771,12 @@
     "homeTeamId": "MAR",
     "awayTeamId": "HAI",
     "venueId": "v9",
-    "status": "scheduled",
-    "homeScore": null,
-    "awayScore": null,
+    "status": "finished",
+    "homeScore": 4,
+    "awayScore": 2,
     "homePenaltyScore": null,
-    "awayPenaltyScore": null
+    "awayPenaltyScore": null,
+    "fotmobMatchId": 4667769
   },
   {
     "id": "m53",
@@ -1087,7 +1089,7 @@
     "date": "2026-06-29T20:30:00Z",
     "stage": "Round of 32",
     "homeTeamId": "1F",
-    "awayTeamId": "2C",
+    "awayTeamId": "MAR",
     "venueId": "v13",
     "status": "scheduled",
     "homeScore": null,
@@ -1099,7 +1101,7 @@
     "id": "m76",
     "date": "2026-06-30T01:00:00Z",
     "stage": "Round of 32",
-    "homeTeamId": "1C",
+    "homeTeamId": "BRA",
     "awayTeamId": "2F",
     "venueId": "v8",
     "status": "scheduled",

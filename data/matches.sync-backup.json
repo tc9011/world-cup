@@ -726,11 +726,12 @@
     "homeTeamId": "SUI",
     "awayTeamId": "CAN",
     "venueId": "v4",
-    "status": "scheduled",
-    "homeScore": null,
-    "awayScore": null,
+    "status": "finished",
+    "homeScore": 2,
+    "awayScore": 1,
     "homePenaltyScore": null,
-    "awayPenaltyScore": null
+    "awayPenaltyScore": null,
+    "fotmobMatchId": 4667761
   },
   {
     "id": "m50",
@@ -740,11 +741,12 @@
     "homeTeamId": "BIH",
     "awayTeamId": "QAT",
     "venueId": "v15",
-    "status": "scheduled",
-    "homeScore": null,
-    "awayScore": null,
+    "status": "finished",
+    "homeScore": 3,
+    "awayScore": 1,
     "homePenaltyScore": null,
-    "awayPenaltyScore": null
+    "awayPenaltyScore": null,
+    "fotmobMatchId": 4667762
   },
   {
     "id": "m51",
@@ -1059,7 +1061,7 @@
     "date": "2026-06-28T19:00:00Z",
     "stage": "Round of 32",
     "homeTeamId": "2A",
-    "awayTeamId": "2B",
+    "awayTeamId": "CAN",
     "venueId": "v2",
     "status": "scheduled",
     "homeScore": null,
@@ -1214,7 +1216,7 @@
     "id": "m85",
     "date": "2026-07-03T03:00:00Z",
     "stage": "Round of 32",
-    "homeTeamId": "1B",
+    "homeTeamId": "SUI",
     "awayTeamId": "3EFGIJ",
     "venueId": "v4",
     "status": "scheduled",
