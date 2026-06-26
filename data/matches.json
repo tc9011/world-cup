@@ -876,11 +876,12 @@
     "homeTeamId": "TUR",
     "awayTeamId": "USA",
     "venueId": "v2",
-    "status": "scheduled",
-    "homeScore": null,
-    "awayScore": null,
+    "status": "finished",
+    "homeScore": 3,
+    "awayScore": 2,
     "homePenaltyScore": null,
-    "awayPenaltyScore": null
+    "awayPenaltyScore": null,
+    "fotmobMatchId": 4667775
   },
   {
     "id": "m60",
@@ -890,11 +891,12 @@
     "homeTeamId": "PAR",
     "awayTeamId": "AUS",
     "venueId": "v16",
-    "status": "scheduled",
-    "homeScore": null,
-    "awayScore": null,
+    "status": "finished",
+    "homeScore": 0,
+    "awayScore": 0,
     "homePenaltyScore": null,
-    "awayPenaltyScore": null
+    "awayPenaltyScore": null,
+    "fotmobMatchId": 4667776
   },
   {
     "id": "m61",
@@ -1159,7 +1161,7 @@
     "id": "m80",
     "date": "2026-07-01T16:00:00Z",
     "stage": "Round of 32",
-    "homeTeamId": "2D",
+    "homeTeamId": "AUS",
     "awayTeamId": "2G",
     "venueId": "v9",
     "status": "scheduled",
@@ -1172,7 +1174,7 @@
     "id": "m81",
     "date": "2026-07-01T20:00:00Z",
     "stage": "Round of 32",
-    "homeTeamId": "1D",
+    "homeTeamId": "USA",
     "awayTeamId": "3BEFJ",
     "venueId": "v16",
     "status": "scheduled",
