@@ -906,11 +906,12 @@
     "homeTeamId": "NOR",
     "awayTeamId": "FRA",
     "venueId": "v11",
-    "status": "scheduled",
-    "homeScore": null,
-    "awayScore": null,
+    "status": "finished",
+    "homeScore": 1,
+    "awayScore": 4,
     "homePenaltyScore": null,
-    "awayPenaltyScore": null
+    "awayPenaltyScore": null,
+    "fotmobMatchId": 4667808
   },
   {
     "id": "m62",
@@ -920,11 +921,12 @@
     "homeTeamId": "SEN",
     "awayTeamId": "IRQ",
     "venueId": "v3",
-    "status": "scheduled",
-    "homeScore": null,
-    "awayScore": null,
+    "status": "finished",
+    "homeScore": 5,
+    "awayScore": 0,
     "homePenaltyScore": null,
-    "awayPenaltyScore": null
+    "awayPenaltyScore": null,
+    "fotmobMatchId": 4667809
   },
   {
     "id": "m63",
@@ -1122,7 +1124,7 @@
     "id": "m77",
     "date": "2026-06-30T17:00:00Z",
     "stage": "Round of 32",
-    "homeTeamId": "1I",
+    "homeTeamId": "FRA",
     "awayTeamId": "3CDFGH",
     "venueId": "v7",
     "status": "scheduled",
@@ -1136,7 +1138,7 @@
     "date": "2026-06-30T21:00:00Z",
     "stage": "Round of 32",
     "homeTeamId": "CIV",
-    "awayTeamId": "2I",
+    "awayTeamId": "NOR",
     "venueId": "v8",
     "status": "scheduled",
     "homeScore": null,
