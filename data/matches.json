@@ -966,11 +966,12 @@
     "homeTeamId": "EGY",
     "awayTeamId": "IRN",
     "venueId": "v15",
-    "status": "scheduled",
-    "homeScore": null,
-    "awayScore": null,
+    "status": "finished",
+    "homeScore": 1,
+    "awayScore": 1,
     "homePenaltyScore": null,
-    "awayPenaltyScore": null
+    "awayPenaltyScore": null,
+    "fotmobMatchId": 4667795
   },
   {
     "id": "m66",
@@ -980,11 +981,12 @@
     "homeTeamId": "NZL",
     "awayTeamId": "BEL",
     "venueId": "v4",
-    "status": "scheduled",
-    "homeScore": null,
-    "awayScore": null,
+    "status": "finished",
+    "homeScore": 1,
+    "awayScore": 5,
     "homePenaltyScore": null,
-    "awayPenaltyScore": null
+    "awayPenaltyScore": null,
+    "fotmobMatchId": 4667794
   },
   {
     "id": "m67",
@@ -1166,7 +1168,7 @@
     "date": "2026-07-01T16:00:00Z",
     "stage": "Round of 32",
     "homeTeamId": "AUS",
-    "awayTeamId": "2G",
+    "awayTeamId": "EGY",
     "venueId": "v9",
     "status": "scheduled",
     "homeScore": null,
@@ -1191,7 +1193,7 @@
     "id": "m82",
     "date": "2026-07-02T00:00:00Z",
     "stage": "Round of 32",
-    "homeTeamId": "1G",
+    "homeTeamId": "BEL",
     "awayTeamId": "3AEHIJ",
     "venueId": "v15",
     "status": "scheduled",
