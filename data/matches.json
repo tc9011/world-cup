@@ -996,11 +996,12 @@
     "homeTeamId": "PAN",
     "awayTeamId": "ENG",
     "venueId": "v7",
-    "status": "scheduled",
-    "homeScore": null,
-    "awayScore": null,
+    "status": "finished",
+    "homeScore": 0,
+    "awayScore": 2,
     "homePenaltyScore": null,
-    "awayPenaltyScore": null
+    "awayPenaltyScore": null,
+    "fotmobMatchId": 4667829
   },
   {
     "id": "m68",
@@ -1010,11 +1011,12 @@
     "homeTeamId": "CRO",
     "awayTeamId": "GHA",
     "venueId": "v12",
-    "status": "scheduled",
-    "homeScore": null,
-    "awayScore": null,
+    "status": "finished",
+    "homeScore": 2,
+    "awayScore": 1,
     "homePenaltyScore": null,
-    "awayPenaltyScore": null
+    "awayPenaltyScore": null,
+    "fotmobMatchId": 4667830
   },
   {
     "id": "m69",
@@ -1207,7 +1209,7 @@
     "date": "2026-07-02T19:00:00Z",
     "stage": "Round of 32",
     "homeTeamId": "2K",
-    "awayTeamId": "2L",
+    "awayTeamId": "CRO",
     "venueId": "v3",
     "status": "scheduled",
     "homeScore": null,
@@ -1271,7 +1273,7 @@
     "id": "m88",
     "date": "2026-07-04T01:30:00Z",
     "stage": "Round of 32",
-    "homeTeamId": "1L",
+    "homeTeamId": "ENG",
     "awayTeamId": "3EHIJK",
     "venueId": "v8",
     "status": "scheduled",
