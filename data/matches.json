@@ -1026,11 +1026,12 @@
     "homeTeamId": "COL",
     "awayTeamId": "POR",
     "venueId": "v10",
-    "status": "scheduled",
-    "homeScore": null,
-    "awayScore": null,
+    "status": "finished",
+    "homeScore": 0,
+    "awayScore": 0,
     "homePenaltyScore": null,
-    "awayPenaltyScore": null
+    "awayPenaltyScore": null,
+    "fotmobMatchId": 4667823
   },
   {
     "id": "m70",
@@ -1040,11 +1041,12 @@
     "homeTeamId": "COD",
     "awayTeamId": "UZB",
     "venueId": "v9",
-    "status": "scheduled",
-    "homeScore": null,
-    "awayScore": null,
+    "status": "finished",
+    "homeScore": 3,
+    "awayScore": 1,
     "homePenaltyScore": null,
-    "awayPenaltyScore": null
+    "awayPenaltyScore": null,
+    "fotmobMatchId": 4667824
   },
   {
     "id": "m71",
@@ -1208,7 +1210,7 @@
     "id": "m83",
     "date": "2026-07-02T19:00:00Z",
     "stage": "Round of 32",
-    "homeTeamId": "2K",
+    "homeTeamId": "POR",
     "awayTeamId": "CRO",
     "venueId": "v3",
     "status": "scheduled",
@@ -1260,7 +1262,7 @@
     "id": "m87",
     "date": "2026-07-03T22:00:00Z",
     "stage": "Round of 32",
-    "homeTeamId": "1K",
+    "homeTeamId": "COL",
     "awayTeamId": "3DEIJL",
     "venueId": "v14",
     "status": "scheduled",
