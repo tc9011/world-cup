@@ -11,7 +11,8 @@
     "homeScore": 2,
     "awayScore": 0,
     "homePenaltyScore": null,
-    "awayPenaltyScore": null
+    "awayPenaltyScore": null,
+    "fotmobMatchId": 4667751
   },
   {
     "id": "m2",
@@ -450,7 +451,7 @@
   },
   {
     "id": "m31",
-    "date": "2026-06-20T01:00:00Z",
+    "date": "2026-06-20T00:30:00Z",
     "group": "C",
     "stage": "Group Stage",
     "homeTeamId": "BRA",
@@ -465,7 +466,7 @@
   },
   {
     "id": "m32",
-    "date": "2026-06-20T04:00:00Z",
+    "date": "2026-06-20T03:00:00Z",
     "group": "D",
     "stage": "Group Stage",
     "homeTeamId": "TUR",
@@ -1094,7 +1095,7 @@
   },
   {
     "id": "m74",
-    "date": "2026-06-29T17:00:00Z",
+    "date": "2026-06-29T20:30:00Z",
     "stage": "Round of 32",
     "homeTeamId": "GER",
     "awayTeamId": "PAR",
@@ -1108,7 +1109,7 @@
   },
   {
     "id": "m75",
-    "date": "2026-06-29T20:30:00Z",
+    "date": "2026-06-30T01:00:00Z",
     "stage": "Round of 32",
     "homeTeamId": "NED",
     "awayTeamId": "MAR",
@@ -1122,7 +1123,7 @@
   },
   {
     "id": "m76",
-    "date": "2026-06-30T01:00:00Z",
+    "date": "2026-06-29T17:00:00Z",
     "stage": "Round of 32",
     "homeTeamId": "BRA",
     "awayTeamId": "JPN",
@@ -1136,7 +1137,7 @@
   },
   {
     "id": "m77",
-    "date": "2026-06-30T17:00:00Z",
+    "date": "2026-06-30T21:00:00Z",
     "stage": "Round of 32",
     "homeTeamId": "FRA",
     "awayTeamId": "SWE",
@@ -1145,11 +1146,12 @@
     "homeScore": null,
     "awayScore": null,
     "homePenaltyScore": null,
-    "awayPenaltyScore": null
+    "awayPenaltyScore": null,
+    "fotmobMatchId": 4653704
   },
   {
     "id": "m78",
-    "date": "2026-06-30T21:00:00Z",
+    "date": "2026-06-30T17:00:00Z",
     "stage": "Round of 32",
     "homeTeamId": "CIV",
     "awayTeamId": "NOR",
@@ -1158,7 +1160,8 @@
     "homeScore": null,
     "awayScore": null,
     "homePenaltyScore": null,
-    "awayPenaltyScore": null
+    "awayPenaltyScore": null,
+    "fotmobMatchId": 4653712
   },
   {
     "id": "m79",
@@ -1171,11 +1174,12 @@
     "homeScore": null,
     "awayScore": null,
     "homePenaltyScore": null,
-    "awayPenaltyScore": null
+    "awayPenaltyScore": null,
+    "fotmobMatchId": 4653713
   },
   {
     "id": "m80",
-    "date": "2026-07-01T16:00:00Z",
+    "date": "2026-07-03T18:00:00Z",
     "stage": "Round of 32",
     "homeTeamId": "AUS",
     "awayTeamId": "EGY",
@@ -1184,24 +1188,26 @@
     "homeScore": null,
     "awayScore": null,
     "homePenaltyScore": null,
-    "awayPenaltyScore": null
+    "awayPenaltyScore": null,
+    "fotmobMatchId": 4653716
   },
   {
     "id": "m81",
-    "date": "2026-07-01T20:00:00Z",
+    "date": "2026-07-02T00:00:00Z",
     "stage": "Round of 32",
     "homeTeamId": "USA",
-    "awayTeamId": "ALG",
+    "awayTeamId": "BIH",
     "venueId": "v16",
     "status": "scheduled",
     "homeScore": null,
     "awayScore": null,
     "homePenaltyScore": null,
-    "awayPenaltyScore": null
+    "awayPenaltyScore": null,
+    "fotmobMatchId": 4653709
   },
   {
     "id": "m82",
-    "date": "2026-07-02T00:00:00Z",
+    "date": "2026-07-01T20:00:00Z",
     "stage": "Round of 32",
     "homeTeamId": "BEL",
     "awayTeamId": "SEN",
@@ -1210,11 +1216,12 @@
     "homeScore": null,
     "awayScore": null,
     "homePenaltyScore": null,
-    "awayPenaltyScore": null
+    "awayPenaltyScore": null,
+    "fotmobMatchId": 4653710
   },
   {
     "id": "m83",
-    "date": "2026-07-02T19:00:00Z",
+    "date": "2026-07-02T23:00:00Z",
     "stage": "Round of 32",
     "homeTeamId": "POR",
     "awayTeamId": "CRO",
@@ -1223,11 +1230,12 @@
     "homeScore": null,
     "awayScore": null,
     "homePenaltyScore": null,
-    "awayPenaltyScore": null
+    "awayPenaltyScore": null,
+    "fotmobMatchId": 4653707
   },
   {
     "id": "m84",
-    "date": "2026-07-02T23:00:00Z",
+    "date": "2026-07-02T19:00:00Z",
     "stage": "Round of 32",
     "homeTeamId": "ESP",
     "awayTeamId": "AUT",
@@ -1236,24 +1244,26 @@
     "homeScore": null,
     "awayScore": null,
     "homePenaltyScore": null,
-    "awayPenaltyScore": null
+    "awayPenaltyScore": null,
+    "fotmobMatchId": 4653708
   },
   {
     "id": "m85",
     "date": "2026-07-03T03:00:00Z",
     "stage": "Round of 32",
     "homeTeamId": "SUI",
-    "awayTeamId": "SWE",
+    "awayTeamId": "ALG",
     "venueId": "v4",
     "status": "scheduled",
     "homeScore": null,
     "awayScore": null,
     "homePenaltyScore": null,
-    "awayPenaltyScore": null
+    "awayPenaltyScore": null,
+    "fotmobMatchId": 4653717
   },
   {
     "id": "m86",
-    "date": "2026-07-03T18:00:00Z",
+    "date": "2026-07-03T22:00:00Z",
     "stage": "Round of 32",
     "homeTeamId": "ARG",
     "awayTeamId": "CPV",
@@ -1262,11 +1272,12 @@
     "homeScore": null,
     "awayScore": null,
     "homePenaltyScore": null,
-    "awayPenaltyScore": null
+    "awayPenaltyScore": null,
+    "fotmobMatchId": 4653715
   },
   {
     "id": "m87",
-    "date": "2026-07-03T22:00:00Z",
+    "date": "2026-07-04T01:30:00Z",
     "stage": "Round of 32",
     "homeTeamId": "COL",
     "awayTeamId": "GHA",
@@ -1275,11 +1286,12 @@
     "homeScore": null,
     "awayScore": null,
     "homePenaltyScore": null,
-    "awayPenaltyScore": null
+    "awayPenaltyScore": null,
+    "fotmobMatchId": 4653718
   },
   {
     "id": "m88",
-    "date": "2026-07-04T01:30:00Z",
+    "date": "2026-07-01T16:00:00Z",
     "stage": "Round of 32",
     "homeTeamId": "ENG",
     "awayTeamId": "COD",
@@ -1288,11 +1300,12 @@
     "homeScore": null,
     "awayScore": null,
     "homePenaltyScore": null,
-    "awayPenaltyScore": null
+    "awayPenaltyScore": null,
+    "fotmobMatchId": 4653714
   },
   {
     "id": "m89",
-    "date": "2026-07-04T17:00:00Z",
+    "date": "2026-07-04T21:00:00Z",
     "stage": "Round of 16",
     "homeTeamId": "PAR",
     "awayTeamId": "W77",
@@ -1301,11 +1314,12 @@
     "homeScore": null,
     "awayScore": null,
     "homePenaltyScore": null,
-    "awayPenaltyScore": null
+    "awayPenaltyScore": null,
+    "fotmobMatchId": 4653842
   },
   {
     "id": "m90",
-    "date": "2026-07-04T21:00:00Z",
+    "date": "2026-07-04T17:00:00Z",
     "stage": "Round of 16",
     "homeTeamId": "CAN",
     "awayTeamId": "MAR",
@@ -1314,7 +1328,8 @@
     "homeScore": null,
     "awayScore": null,
     "homePenaltyScore": null,
-    "awayPenaltyScore": null
+    "awayPenaltyScore": null,
+    "fotmobMatchId": 4653843
   },
   {
     "id": "m91",
@@ -1327,7 +1342,8 @@
     "homeScore": null,
     "awayScore": null,
     "homePenaltyScore": null,
-    "awayPenaltyScore": null
+    "awayPenaltyScore": null,
+    "fotmobMatchId": 4653846
   },
   {
     "id": "m92",
