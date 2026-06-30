@@ -112,6 +112,9 @@ interface FotMobMatchDetail {
   };
   content?: {
     matchFacts?: {
+      infoBox?: {
+        Stadium?: { name?: string; city?: string; lat?: number; long?: number };
+      };
       events?: {
         events?: Array<{
           type: string;
@@ -132,6 +135,7 @@ const DATA_DIR = path.join(process.cwd(), 'data');
 const MATCHES_FILE = path.join(DATA_DIR, 'matches.json');
 const BACKUP_FILE = path.join(DATA_DIR, 'matches.sync-backup.json');
 const MAPPING_FILE = path.join(DATA_DIR, 'fotmob-mapping.json');
+const VENUES_FILE = path.join(DATA_DIR, 'venues.json');
 
 const FOTMOB_BASE_URL = 'https://www.fotmob.com/api';
 export const WORLD_CUP_LEAGUE_ID = 77; // Legacy single-league ID (no longer used by FotMob)
@@ -232,7 +236,7 @@ async function fetchMatchesByDate(dateStr: string): Promise<FotMobMatch[]> {
 }
 
 async function fetchMatchDetails(matchId: number): Promise<FotMobMatchDetail | null> {
-  const url = `${FOTMOB_BASE_URL}/matchDetails?matchId=${matchId}`;
+  const url = `${FOTMOB_BASE_URL}/data/matchDetails?matchId=${matchId}`;
   
   try {
     await sleep(RATE_LIMIT_DELAY_MS);
@@ -242,6 +246,41 @@ async function fetchMatchDetails(matchId: number): Promise<FotMobMatchDetail | n
     log(`Failed to fetch match details for ${matchId}: ${error}`, 'error');
     return null;
   }
+}
+
+export interface VenueCoord {
+  id: string;
+  lat: number;
+  lng: number;
+}
+
+export function loadVenueCoords(): VenueCoord[] {
+  if (!fs.existsSync(VENUES_FILE)) return [];
+  const raw = JSON.parse(fs.readFileSync(VENUES_FILE, 'utf-8'));
+  const arr = Array.isArray(raw) ? raw : (raw.venues ?? []);
+  return arr
+    .filter((v: { coordinates?: { lat?: number; lng?: number } }) => v.coordinates?.lat != null && v.coordinates?.lng != null)
+    .map((v: { id: string; coordinates: { lat: number; lng: number } }) => ({ id: v.id, lat: v.coordinates.lat, lng: v.coordinates.lng }));
+}
+
+export function nearestVenueId(lat: number, lng: number, venues: VenueCoord[]): string | undefined {
+  let bestId: string | undefined;
+  let bestDist = Infinity;
+  for (const v of venues) {
+    const dLat = v.lat - lat;
+    const dLng = v.lng - lng;
+    const dist = dLat * dLat + dLng * dLng;
+    if (dist < bestDist) { bestDist = dist; bestId = v.id; }
+  }
+  return bestId;
+}
+
+async function fetchVenueId(matchId: number, venues: VenueCoord[]): Promise<string | undefined> {
+  if (venues.length === 0) return undefined;
+  const details = await fetchMatchDetails(matchId);
+  const stadium = details?.content?.matchFacts?.infoBox?.Stadium;
+  if (stadium?.lat == null || stadium?.long == null) return undefined;
+  return nearestVenueId(stadium.lat, stadium.long, venues);
 }
 
 // ============================================================================
@@ -389,6 +428,7 @@ async function syncMatchesForDate(
   dateStr: string,
   localMatches: Match[],
   reverseMapping: Map<number, string>,
+  venues: VenueCoord[],
   dryRun: boolean
 ): Promise<SyncResult> {
   const result: SyncResult = { updated: 0, skipped: 0, errors: 0, matches: [] };
@@ -471,6 +511,13 @@ async function syncMatchesForDate(
       if (localMatch.status !== 'finished') update.status = 'finished';
     }
 
+    // Knockout venues are tied to the bracket slot, so a mis-seeded slot can
+    // point at the wrong stadium. Resolve the real venue from FotMob.
+    if (isKnockout) {
+      const venueId = await fetchVenueId(fm.id, venues);
+      if (venueId && localMatch.venueId !== venueId) update.venueId = venueId;
+    }
+
     if (Object.keys(update).length === 0) {
       result.skipped++;
       continue;
@@ -484,6 +531,7 @@ async function syncMatchesForDate(
       notes.push(`teams was ${localMatch.homeTeamId} vs ${localMatch.awayTeamId}`);
     }
     if (update.date) notes.push(`time ${localMatch.date} -> ${update.date}`);
+    if (update.venueId) notes.push(`venue ${localMatch.venueId} -> ${update.venueId}`);
     const noteStr = notes.length ? ` [${notes.join('; ')}]` : '';
     const matchDesc = `${localMatch.id}: ${homeLabel} ${scoreLabel} ${awayLabel}${noteStr}`;
 
@@ -526,6 +574,9 @@ export async function main(): Promise<void> {
   const reverseMapping = createReverseFotMobMapping(mapping);
   log(`Loaded ${reverseMapping.size} team mappings`);
 
+  const venues = loadVenueCoords();
+  log(`Loaded ${venues.length} venue coordinates`);
+
   // Load matches
   const matchesRaw = fs.readFileSync(MATCHES_FILE, 'utf-8');
   const matches: Match[] = JSON.parse(matchesRaw);
@@ -567,7 +618,7 @@ export async function main(): Promise<void> {
 
   for (const dateStr of datesToSync) {
     log(`\nSyncing date: ${dateStr}`);
-    const result = await syncMatchesForDate(dateStr, matches, reverseMapping, dryRun);
+    const result = await syncMatchesForDate(dateStr, matches, reverseMapping, venues, dryRun);
     totalResult.updated += result.updated;
     totalResult.skipped += result.skipped;
     totalResult.errors += result.errors;
