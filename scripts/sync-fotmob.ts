@@ -49,12 +49,14 @@ export interface FotMobMatch {
   home: {
     id: number;
     score?: number;
+    penScore?: number;
     name: string;
     longName: string;
   };
   away: {
     id: number;
     score?: number;
+    penScore?: number;
     name: string;
     longName: string;
   };
@@ -253,6 +255,12 @@ export function createReverseFotMobMapping(mapping: FotMobMappingFile): Map<numb
   return reverse;
 }
 
+// Seeded knockout kickoff times are approximate and can fall on a different
+// calendar day than the real fixture (e.g. a 01:00Z slot vs a 17:00Z kickoff
+// the day before), so exact same-day matching is too strict.
+const TEAM_MATCH_WINDOW_DAYS = 2;
+const DAY_MS = 24 * 60 * 60 * 1000;
+
 export function findMatchingLocalMatch(
   fotmobMatch: FotMobMatch,
   localMatches: Match[],
@@ -271,15 +279,60 @@ export function findMatchingLocalMatch(
   const exactMatch = localMatches.find(m => m.fotmobMatchId === fotmobMatch.id);
   if (exactMatch) return exactMatch;
 
-  // Then try by date and teams
-  return localMatches.find(m => {
-    const matchDate = new Date(m.date);
-    const sameDay = isSameDay(matchDate, fotmobDate);
-    const teamsMatch = 
+  // Then match by teams within a date window. A given pair of teams plays at
+  // most once in a short window, so the team pairing is the reliable signal;
+  // the date window only guards against an unlikely rematch (e.g. same group
+  // opponents meeting again weeks later in the knockout stage).
+  const teamCandidates = localMatches.filter(m => {
+    const teamsMatch =
       (m.homeTeamId === homeTeamId && m.awayTeamId === awayTeamId) ||
       (m.homeTeamId === awayTeamId && m.awayTeamId === homeTeamId); // Handle swapped home/away
-    
-    return sameDay && teamsMatch;
+    if (!teamsMatch) return false;
+
+    const dayGap = Math.abs(new Date(m.date).getTime() - fotmobDate.getTime());
+    return dayGap <= TEAM_MATCH_WINDOW_DAYS * DAY_MS;
+  });
+
+  if (teamCandidates.length === 0) return undefined;
+  if (teamCandidates.length === 1) return teamCandidates[0];
+
+  // Multiple candidates (rematch): pick the one closest in time.
+  return teamCandidates.reduce((closest, m) => {
+    const gap = Math.abs(new Date(m.date).getTime() - fotmobDate.getTime());
+    const closestGap = Math.abs(new Date(closest.date).getTime() - fotmobDate.getTime());
+    return gap < closestGap ? m : closest;
+  });
+}
+
+export function findKnockoutSlotBySingleTeam(
+  fotmobMatch: FotMobMatch,
+  localMatches: Match[],
+  reverseMapping: Map<number, string>
+): Match | undefined {
+  const homeTeamId = reverseMapping.get(fotmobMatch.home.id);
+  const awayTeamId = reverseMapping.get(fotmobMatch.away.id);
+  if (!homeTeamId || !awayTeamId) return undefined;
+
+  const fotmobDate = new Date(fotmobMatch.status.utcTime);
+
+  const candidates = localMatches.filter(m => {
+    if (m.stage === 'Group Stage') return false;
+    const sharesOneTeam =
+      m.homeTeamId === homeTeamId || m.awayTeamId === homeTeamId ||
+      m.homeTeamId === awayTeamId || m.awayTeamId === awayTeamId;
+    if (!sharesOneTeam) return false;
+
+    const dayGap = Math.abs(new Date(m.date).getTime() - fotmobDate.getTime());
+    return dayGap <= TEAM_MATCH_WINDOW_DAYS * DAY_MS;
+  });
+
+  if (candidates.length === 0) return undefined;
+  if (candidates.length === 1) return candidates[0];
+
+  return candidates.reduce((closest, m) => {
+    const gap = Math.abs(new Date(m.date).getTime() - fotmobDate.getTime());
+    const closestGap = Math.abs(new Date(closest.date).getTime() - fotmobDate.getTime());
+    return gap < closestGap ? m : closest;
   });
 }
 
@@ -340,7 +393,16 @@ async function syncMatchesForDate(
       continue;
     }
 
-    const localMatch = findMatchingLocalMatch(fm, localMatches, reverseMapping);
+    let localMatch = findMatchingLocalMatch(fm, localMatches, reverseMapping);
+
+    // Knockout fallback: the bracket may carry a wrong predicted opponent (e.g. a
+    // third-place team allocated by heuristic rather than FotMob's actual draw), so
+    // both-team matching fails. Identify the slot via the deterministic side (group
+    // winner/runner-up) and let FotMob correct the opponent below.
+    const correctedTeams = !localMatch;
+    if (!localMatch) {
+      localMatch = findKnockoutSlotBySingleTeam(fm, localMatches, reverseMapping);
+    }
     if (!localMatch) {
       log(`No matching local match for FotMob ${fm.id}: ${fm.home.name} vs ${fm.away.name}`, 'warn');
       result.errors++;
@@ -349,6 +411,7 @@ async function syncMatchesForDate(
 
     // Check if already synced with same scores
     if (
+      localMatch.fotmobMatchId === fm.id &&
       localMatch.status === 'finished' &&
       localMatch.homeScore === (fm.home.score ?? null) &&
       localMatch.awayScore === (fm.away.score ?? null)
@@ -358,20 +421,23 @@ async function syncMatchesForDate(
       continue;
     }
 
-    // Determine if we need penalty scores (knockout stage with draw)
     const isKnockout = localMatch.stage !== 'Group Stage';
     const isDraw = fm.home.score === fm.away.score;
-    let penaltyScores: PenaltyScores | null = null;
 
+    // Penalty scores: prefer the values already present in the date feed, falling
+    // back to a match-details lookup only when the feed omits them.
+    let penaltyScores: PenaltyScores | null = null;
     if (isKnockout && isDraw && fm.status.finished) {
-      log(`Fetching penalty details for ${localMatch.id}...`);
-      penaltyScores = await extractPenaltyScores(fm.id);
-      
+      if (fm.home.penScore != null && fm.away.penScore != null) {
+        penaltyScores = { home: fm.home.penScore, away: fm.away.penScore };
+      } else {
+        log(`Fetching penalty details for ${localMatch.id}...`);
+        penaltyScores = await extractPenaltyScores(fm.id);
+      }
+
       if (penaltyScores) {
         log(`Penalties: ${penaltyScores.home} - ${penaltyScores.away}`, 'info');
       } else {
-        // Draw in knockout without penalties might mean extra time decided it
-        // Check scoreStr for AET indicator
         const scoreStr = fm.status.scoreStr || '';
         if (!scoreStr.includes('AET') && !scoreStr.includes('Pen')) {
           log(`Draw in knockout but no penalty/AET info for ${localMatch.id}`, 'warn');
@@ -379,8 +445,16 @@ async function syncMatchesForDate(
       }
     }
 
-    // Prepare update
+    // For knockout slots, take the matchup from FotMob so a wrong predicted
+    // opponent is corrected to the team that actually advanced.
+    const fotmobHomeTeamId = reverseMapping.get(fm.home.id);
+    const fotmobAwayTeamId = reverseMapping.get(fm.away.id);
+    const teamUpdate = isKnockout && fotmobHomeTeamId && fotmobAwayTeamId
+      ? { homeTeamId: fotmobHomeTeamId, awayTeamId: fotmobAwayTeamId }
+      : {};
+
     const update = {
+      ...teamUpdate,
       homeScore: fm.home.score ?? null,
       awayScore: fm.away.score ?? null,
       homePenaltyScore: penaltyScores?.home ?? null,
@@ -389,8 +463,13 @@ async function syncMatchesForDate(
       fotmobMatchId: fm.id,
     };
 
-    const matchDesc = `${localMatch.id}: ${localMatch.homeTeamId} ${update.homeScore}-${update.awayScore} ${localMatch.awayTeamId}`;
-    
+    const homeLabel = (teamUpdate as Partial<Match>).homeTeamId ?? localMatch.homeTeamId;
+    const awayLabel = (teamUpdate as Partial<Match>).awayTeamId ?? localMatch.awayTeamId;
+    const correctionNote = correctedTeams && isKnockout
+      ? ` [bracket corrected: was ${localMatch.homeTeamId} vs ${localMatch.awayTeamId}]`
+      : '';
+    const matchDesc = `${localMatch.id}: ${homeLabel} ${update.homeScore}-${update.awayScore} ${awayLabel}${correctionNote}`;
+
     if (dryRun) {
       log(`[DRY RUN] Would update ${matchDesc}`, 'info');
     } else {
