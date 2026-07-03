@@ -1350,13 +1350,14 @@
     "date": "2026-07-06T00:00:00Z",
     "stage": "Round of 16",
     "homeTeamId": "MEX",
-    "awayTeamId": "W80",
+    "awayTeamId": "ENG",
     "venueId": "v1",
     "status": "scheduled",
     "homeScore": null,
     "awayScore": null,
     "homePenaltyScore": null,
-    "awayPenaltyScore": null
+    "awayPenaltyScore": null,
+    "fotmobMatchId": 4653847
   },
   {
     "id": "m93",
@@ -1369,7 +1370,8 @@
     "homeScore": null,
     "awayScore": null,
     "homePenaltyScore": null,
-    "awayPenaltyScore": null
+    "awayPenaltyScore": null,
+    "fotmobMatchId": 4653844
   },
   {
     "id": "m94",
@@ -1382,20 +1384,22 @@
     "homeScore": null,
     "awayScore": null,
     "homePenaltyScore": null,
-    "awayPenaltyScore": null
+    "awayPenaltyScore": null,
+    "fotmobMatchId": 4653845
   },
   {
     "id": "m95",
     "date": "2026-07-07T16:00:00Z",
     "stage": "Round of 16",
     "homeTeamId": "W86",
-    "awayTeamId": "ENG",
+    "awayTeamId": "W80",
     "venueId": "v9",
     "status": "scheduled",
     "homeScore": null,
     "awayScore": null,
     "homePenaltyScore": null,
-    "awayPenaltyScore": null
+    "awayPenaltyScore": null,
+    "fotmobMatchId": 4653848
   },
   {
     "id": "m96",
@@ -1408,7 +1412,8 @@
     "homeScore": null,
     "awayScore": null,
     "homePenaltyScore": null,
-    "awayPenaltyScore": null
+    "awayPenaltyScore": null,
+    "fotmobMatchId": 4653849
   },
   {
     "id": "m97",
