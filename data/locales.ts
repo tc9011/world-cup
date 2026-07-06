@@ -26,6 +26,10 @@ export const translations = {
     monthFormat: 'MMMM yyyy',
     grp: 'Grp',
     knockout: 'KO',
+    bracket: {
+      winnerOf: 'Winner of {round} Match {matchNumber}',
+      loserOf: 'Loser of {round} Match {matchNumber}',
+    },
     standings: {
       rank: 'Pos',
       team: 'Team',
@@ -87,6 +91,10 @@ export const translations = {
     monthFormat: 'yyyy年 MMMM',
     grp: '组',
     knockout: '淘汰赛',
+    bracket: {
+      winnerOf: '第{matchNumber}场{round}胜者',
+      loserOf: '第{matchNumber}场{round}败者',
+    },
     standings: {
       rank: '排名',
       team: '球队',
