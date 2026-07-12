@@ -1450,9 +1450,9 @@
     "homeTeamId": "NOR",
     "awayTeamId": "ENG",
     "venueId": "v10",
-    "status": "scheduled",
-    "homeScore": null,
-    "awayScore": null,
+    "status": "finished",
+    "homeScore": 1,
+    "awayScore": 2,
     "homePenaltyScore": null,
     "awayPenaltyScore": null,
     "fotmobMatchId": 4653852
@@ -1468,7 +1468,8 @@
     "homeScore": null,
     "awayScore": null,
     "homePenaltyScore": null,
-    "awayPenaltyScore": null
+    "awayPenaltyScore": null,
+    "fotmobMatchId": 4653854
   },
   {
     "id": "m101",
@@ -1487,7 +1488,7 @@
     "id": "m102",
     "date": "2026-07-15T19:00:00Z",
     "stage": "Semi-finals",
-    "homeTeamId": "W99",
+    "homeTeamId": "ENG",
     "awayTeamId": "W100",
     "venueId": "v9",
     "status": "scheduled",
