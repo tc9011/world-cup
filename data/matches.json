@@ -1506,9 +1506,9 @@
     "homeTeamId": "FRA",
     "awayTeamId": "ENG",
     "venueId": "v10",
-    "status": "scheduled",
-    "homeScore": null,
-    "awayScore": null,
+    "status": "finished",
+    "homeScore": 4,
+    "awayScore": 6,
     "homePenaltyScore": null,
     "awayPenaltyScore": null,
     "fotmobMatchId": 4653857
