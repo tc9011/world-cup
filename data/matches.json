@@ -1520,9 +1520,9 @@
     "homeTeamId": "ESP",
     "awayTeamId": "ARG",
     "venueId": "v7",
-    "status": "scheduled",
-    "homeScore": null,
-    "awayScore": null,
+    "status": "finished",
+    "homeScore": 1,
+    "awayScore": 0,
     "homePenaltyScore": null,
     "awayPenaltyScore": null
   }
